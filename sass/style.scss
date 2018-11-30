@@ -1,0 +1,7 @@
+
+// Here we can add our overrides to the bootstrap !default values. If this file is empty bootstrap goes default.
+@import '_bootstrap-overrides';
+
+// Here we include the main (and original) boostrap.scss which in its turn imports the entire library.
+@import 'bootstrap_original/bootstrap';
+
