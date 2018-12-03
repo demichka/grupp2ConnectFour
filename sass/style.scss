@@ -5,6 +5,8 @@
 // Here we include the main (and original) boostrap.scss which in its turn imports the entire library.
 @import 'bootstrap_original/bootstrap';
 
-// All css for gamePage
-@import '_game';
+
+@import '_cardsStartPage';
+
+@import '_startpage';
 
