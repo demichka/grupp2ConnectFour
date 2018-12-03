@@ -1,0 +1,24 @@
+ .externalLinks {
+    margin: 0 auto;
+
+.modal {
+    display: none;
+    margin:auto;
+    width: 100vw;
+    }
+  
+    .modal img {
+      width: 55vw;
+      border: 5px groove rgb(108, 75, 150);
+      @media (max-width: 575px){
+        width: 95vw;
+      }
+    }
+   
+    .lightbox {
+      flex-direction: row;
+      justify-content: center;
+      background:none;
+      border:none;
+      }
+}
