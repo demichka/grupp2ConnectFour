@@ -1,47 +1,98 @@
 <section class="container">
+  <div class="row">
+    <div class="test col-md-8">
+      <h1>Välkommen!</h1>
+      <div class="mt-4">
+        <h4>Spela det klassiska spelet 4iRad online!</h4>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Starta</button>
+
+        <!-- Modal -->
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+              <div class="modal-body">
+                <div class="container-fluid">
+
+                  <div class="nameInput">
+                    <div class="row">
+                      <div class="col-3 mr-5">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                          <div class="col-3 dropdown show float-right">
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Välj Spelare</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="/templates/GamePage.html">Spelare 1</a>
+                              <a class="dropdown-item" href="/templates/GamePage.html">Dator 1</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-3 ml-5">
+                        <div class="input-group mb-3">
+                          <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                          <div class="col-3 dropdown show float-right">
+
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Välj Spelare</button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="/templates/GamePage.html">Spelare 2</a>
+                              <a class="dropdown-item" href="/templates/GamePage.html">Dator 2</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Avbryt</button>
+                <a href="/templates/GamePage.html" button type="button" class="btn btn-primary">Starta Spelet</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!----<a href="/templates/PlayerOptionPage.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Spela</a>-->
+      </div>
+    </div>
+    <div class="test col-md-4">
+      <img class="welcome_pic" src="/images/connect4.jpg" alt="4iRad">
+    </div>
+  </div>
+
+
+  <section class="externalLinks mt-5">
     <div class="row">
-      <div class="test col-md-8">
-          <h1>Välkommen!</h1>
-        <div class="mt-4">
-            <h4>Spela det klassiska spelet  4iRad online!</h4>
-            <button type="button" class="_button">Spela</button>
+
+      <div class="card col-sm-4">
+        <img class="card-img-top" src="/images/external-link-1.JPG" alt="casual arena" data-toggle="modal" data-target="#cardsModal">
+        <div class="card-body">
+          <h5 class="card-title">Casual Arena</h5>
+          <a href="https://www.casualarena.com/connect-4" target="_blank" class="btn btn-primary">Try it!</a>
         </div>
       </div>
-      <div class="test col-md-4">
-        <img class="welcome_pic" src="/images/finbild.jpg" alt="4iRad">
-      </div>  
-    </div>
 
-  <h2>Start</h2>
-  <p>This is the start page.</p>
+      <div class="card col-sm-4">
+        <img class="card-img-top" src="/images/external-link-2.JPG" alt="connect-4 silvergames" data-toggle="modal"
+          data-target="#cardsModal">
+        <div class="card-body">
+          <h5 class="card-title">Connect-4</h5>
+          <a href="https://www.silvergames.com/en/connect-4" target="_blank" class="btn btn-primary">Try it!</a>
+        </div>
+      </div>
 
-  <section class="externalLinks">
-    <div class="row">
-        
-          <div class="card col-sm-4">
-            <img class="card-img-top" src="/images/external-link-1.JPG" alt="casual arena" data-toggle="modal" data-target="#cardsModal">
-            <div class="card-body">
-              <h5 class="card-title">Casual Arena</h5>
-              <a href="https://www.casualarena.com/connect-4" target="_blank" class="btn btn-primary">Try it!</a>
-            </div>
-          </div>
-        
-          <div class="card col-sm-4">
-            <img class="card-img-top" src="/images/external-link-2.JPG" alt="connect-4 silvergames" data-toggle="modal" data-target="#cardsModal">
-            <div class="card-body">
-              <h5 class="card-title">Connect-4</h5>
-              <a href="https://www.silvergames.com/en/connect-4" target="_blank" class="btn btn-primary">Try it!</a>
-            </div>
-          </div>
-        
-          <div class="card col-sm-4">
-            <img class="card-img-top" src="/images/external-link-3.JPG" alt="Hasbro connect4" data-toggle="modal" data-target="#cardsModal">
-            <div class="card-body">
-              <h5 class="card-title">Hasbro's Connect 4</h5>
-              <a href="https://www.mathsisfun.com/games/connect4.html" target="_blank" class="btn btn-primary">Try it!</a>
-            </div>
-          </div>
-        
+      <div class="card col-sm-4">
+        <img class="card-img-top" src="/images/external-link-3.JPG" alt="Hasbro connect4" data-toggle="modal"
+          data-target="#cardsModal">
+        <div class="card-body">
+          <h5 class="card-title">Hasbro's Connect 4</h5>
+          <a href="https://www.mathsisfun.com/games/connect4.html" target="_blank" class="btn btn-primary">Try it!</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
