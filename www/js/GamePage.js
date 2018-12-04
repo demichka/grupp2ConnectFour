@@ -5,15 +5,18 @@ class GamePage extends Component {
         this.ROWS = 6;
         this.COLS = 7;
         this.selector = selector;
+        this.addEvents({
+            'click .startGameButton': 'createGrid'
+        });
         this.createGrid();
     }
 
     createGrid(){
      const $board = $(this.selector);
-     //  console.log($board);
+    //   console.log($board);
      for (let row = 0; row < this.ROWS; row++){
         const $row = $('<div>')
-        .addClass('row');
+        .addClass('row no-gutters');
 
         for (let col = 0; col < this.COLS; col++){
             const $col = $('<div>')
