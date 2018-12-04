@@ -6,6 +6,7 @@ class PageContent extends Component {
     this.gamePage = new GamePage();
     this.highscorePage = new HighscorePage();
     this.missingPage = new MissingPage();
+    this.payerOptionPage = new PlayerOptionPage();
   }
   
 }
