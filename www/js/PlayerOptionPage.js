@@ -17,7 +17,7 @@ class PlayerOptionPage extends Component {
     let typeTwo = $('#typeSecondPlayer');
     this.players.length = 0;
     let validateType = (player) => { return player !== 'fake' ? true : false;};
-    let validateName = (name) => {return name.length > 2 && name.length <= 8 ? true : false;};
+    let validateName = (name) => {return name.length > 2 && name.length <= 10 ? true : false;};
 
     if( validateName(nameOne) &&
         validateName(nameTwo) &&
@@ -33,11 +33,11 @@ class PlayerOptionPage extends Component {
       }
     else {
       if(!validateName(nameOne)) {
-        p = $('<span class="badge badge-danger  error-name">Namn måste innehålla mer än 2 och mindre 8 symboler</span>');
+        p = $('<span class="badge badge-danger  error-name">Namn måste innehålla mer än 2 och mindre 10 symboler</span>');
         p.appendTo(typeOne.parents('.input-group'));
       }
       if(!validateName(nameTwo)) {
-        p = $('<span class="badge badge-danger error-name">Namn måste innehålla mer än 2 och mindre 8 symboler</span>');
+        p = $('<span class="badge badge-danger error-name">Namn måste innehålla mer än 2 och mindre 10 symboler</span>');
         p.appendTo(typeTwo.parents('.input-group'));
       }
       if (!validateType(typeOne.val())) {
