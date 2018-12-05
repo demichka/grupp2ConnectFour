@@ -61,7 +61,7 @@ typings/
 .next
 
 # Skip css files
-*www/css/style.css
+*.css
 
 # Skip sourcemaps
 *.map
