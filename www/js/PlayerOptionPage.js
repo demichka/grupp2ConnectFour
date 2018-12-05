@@ -49,5 +49,6 @@ class PlayerOptionPage extends Component {
         p.insertAfter(typeTwo);
       }
     } 
+    console.log(this.players);
   }
 }
