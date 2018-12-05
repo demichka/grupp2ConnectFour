@@ -8,12 +8,24 @@ class GamePage extends Component {
 
     this.addEvents({
       'click .startGameButton': 'createGrid',
+      'click .abortGameButton': 'restartGame'
     });
-    // this.createGrid();
+    this.createGrid();
+    this.restartGame();
+
+    $('.abortGameButton').hide();
+    $('.nameInput').show();
+    $('.startGameButton').show();
+    $('#connect4').hide();
   }
 
   createGrid() {
-    this.playersOptionPage.getPlayers();
+    $('.nameInput').hide();
+    $('.abortGameButton').show();
+    $('.startGameButton').hide();
+    
+    $('#connect4').show();  
+    // this.playersOptionPage.getPlayers();
     const $board = $(this.selector);
     //   console.log($board);
     for (let row = 0; row < this.ROWS; row++) {
@@ -29,6 +41,12 @@ class GamePage extends Component {
     }
     // console.log($board.html());
   }
+  restartGame(){
+    $('#connect4').hide();  
+    $('.nameInput').show();
+    $('.abortGameButton').hide();
+    $('.startGameButton').show();
+    }
 }
 
 
