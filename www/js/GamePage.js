@@ -2,8 +2,7 @@ class GamePage extends Component {
   constructor(selector) {
     super();
     this.addRoute('/our-game', 'Vårt spel');
-    this.ROWS = 6;
-    this.COLS = 7;
+    this.markers = [];
     this.selector = selector;
 
     this.addEvents({
@@ -26,20 +25,11 @@ class GamePage extends Component {
     
     $('#connect4').show();  
     // this.playersOptionPage.getPlayers();
-    const $board = $(this.selector);
-    //   console.log($board);
-    for (let row = 0; row < this.ROWS; row++) {
-      const $row = $('<div>')
-        .addClass('row no-gutters');
-
-      for (let col = 0; col < this.COLS; col++) {
-        const $col = $('<div>')
-          .addClass('col empty');
-        $row.append($col);
-      }
-      $board.append($row);
+    for (let row = 0; row < 6; row++){
+        for (let col = 0; col < 7; col++) {
+          this.markers.push(new Marker (row, col));
+        }
     }
-    // console.log($board.html());
   }
   restartGame(){
     $('#connect4').hide();  

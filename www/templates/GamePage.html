@@ -1,6 +1,11 @@
-<section>
+<section class="game-board container-fluid">
   <h1>Vårt spel</h1>
+    <div class="row ${this.color}">
+        ${this.markers}
+    </div>
   ${this.playersOptionPage = new PlayerOptionPage()}
+
+  <!-- buttons -->
   <div class="col-12">
     <button type="button" class="btn btn-primary btn-ml mb-5 mx-auto startGameButton">Starta Spelet</button>
   </div>
