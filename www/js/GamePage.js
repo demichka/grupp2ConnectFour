@@ -1,10 +1,8 @@
 class GamePage extends Component {
-  constructor(selector) {
+  constructor() {
     super();
     this.addRoute('/our-game', 'Vårt spel');
-    this.ROWS = 6;
-    this.COLS = 7;
-    this.selector = selector;
+    this.slots = [];
     this.playerOptionPage = new PlayerOptionPage();
 
     this.addEvents({
@@ -18,7 +16,7 @@ class GamePage extends Component {
     $('.abortGameButton').hide();
     $('.nameInput').show();
     $('.startGameButton').show();
-    $('#connect4').hide();
+    $('.game-board').hide();
   }
 
 
@@ -32,24 +30,16 @@ class GamePage extends Component {
     $('.abortGameButton').show();
     $('.startGameButton').hide();
     
-    $('#connect4').show();  
-    const $board = $(this.selector);
-    //   console.log($board);
-    for (let row = 0; row < this.ROWS; row++) {
-      const $row = $('<div>')
-        .addClass('row no-gutters');
-
-      for (let col = 0; col < this.COLS; col++) {
-        const $col = $('<div>')
-          .addClass('col empty');
-        $row.append($col);
-      }
-      $board.append($row);
+    $('.game-board').show();  
+    // this.playersOptionPage.getPlayers();
+    for (let row = 0; row < 6; row++){
+        for (let col = 0; col < 7; col++) {
+          this.slots.push(new Slots (row, col));
+        }
     }
-    // console.log($board.html());
   }
   restartGame(){
-    $('#connect4').hide();  
+    $('.game-board').hide();  
     $('.nameInput').show();
     $('.abortGameButton').hide();
     $('.startGameButton').show();
@@ -60,9 +50,3 @@ class GamePage extends Component {
 
 
 
-// Draw a grid
-//const connect4 = new GamePage('#connect4')
-$(document).ready(function () {
-  // const connect4 = new connect4('#connect4')
-  const connect4 = new GamePage('#connect4')
-});
