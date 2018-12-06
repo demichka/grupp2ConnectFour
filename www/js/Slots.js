@@ -1,6 +1,7 @@
-class Slots extends Component {
-    constructor (gamePage) {
+class Slots extends Component  {
+    constructor (row, col) {
         super();
-        this.gamePage = gamePage;
+        this.row = row;
+        this.col = col;
     }
 }
