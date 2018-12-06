@@ -83,7 +83,7 @@ class PlayersOptions extends Component {
 
     let validateName = function (name) {
       let letters = /^[A-Za-zÖöÅåÄä]+$/;
-      if (name.value.match(letters) && name.value.length > 2 && name.value.length <= 10) {
+      if (name.value.match(letters) && name.value.length >= 2 && name.value.length <= 10) {
         return true;
       }
       else {
