@@ -6,7 +6,7 @@ class GamePage extends Component {
     this.gameBoard = new GameBoard();
 
     this.addEvents({
-      // 'click .startGameButton': 'createGrid',
+      'click .startGameButton': 'createGrid',
       'click .abortGameButton': 'restartGame',
       'click .startGameButton': 'getPlayers'      
     });
