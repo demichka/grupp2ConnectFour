@@ -5,7 +5,7 @@ class GamePage extends Component {
     this.ROWS = 6;
     this.COLS = 7;
     this.selector = selector;
-    this.playerOptionPage = new PlayerOptionPage();
+    this.playersOptions = new PlayersOptions();
 
     this.addEvents({
       // 'click .startGameButton': 'createGrid',
@@ -23,7 +23,7 @@ class GamePage extends Component {
 
 
   getPlayers() {
-    if (this.playerOptionPage.getPlayers()) {
+    if (this.playersOptions.getPlayers()) {
       this.createGrid();
     }
   }

@@ -1,4 +1,4 @@
-class PlayerOptionPage extends Component {
+class PlayersOptions extends Component {
   constructor() {
     super();
     this.players = [];
@@ -13,10 +13,10 @@ class PlayerOptionPage extends Component {
 
   //attaching event handler to definite element(inputs and selects)
   checkPlayer1Type() {
-    this.checkPlayerType(document.getElementById('typeFirstPlayer'), 'Bot1');
+    this.checkPlayerType(document.getElementById('typeFirstPlayer'), 'Pascal');
   }
   checkPlayer2Type() {
-    this.checkPlayerType(document.getElementById('typeSecondPlayer'), 'Bot2');
+    this.checkPlayerType(document.getElementById('typeSecondPlayer'), 'Fortran');
   }
   checkPlayerName1Value() {
     this.checkPlayerNameValue(document.getElementById('nameFirstPlayer'));
@@ -80,8 +80,15 @@ class PlayerOptionPage extends Component {
 
     let nameOne = document.getElementById('nameFirstPlayer');
     let nameTwo = document.getElementById('nameSecondPlayer');
-    let validateName = (name) => {
-      return name.value.length > 2 && name.value.length <= 10 ? true : false;
+
+    let validateName = function (name) {
+      let letters = /^[A-Za-zÖöÅåÄä]+$/;
+      if (name.value.match(letters) && name.value.length > 2 && name.value.length <= 10) {
+        return true;
+      }
+      else {
+        return false;
+      }
     };
 
     if (validateType(typeOne) &&
@@ -108,11 +115,11 @@ class PlayerOptionPage extends Component {
         p.insertAfter(typeTwo);
       }
       if (!validateName(nameOne)) {
-        p = $('<span class="badge badge-danger  error-name">Namn måste innehålla mer än 2 och mindre 10 symboler</span>');
+        p = $('<span class="badge badge-danger  error-name">Namn måste innehålla bara bokstäver och vara 2-10 långa</span>');
         p.appendTo(typeOne.parentNode);
       }
       if (!validateName(nameTwo)) {
-        p = $('<span class="badge badge-danger error-name">Namn måste innehålla mer än 2 och mindre 10 symboler</span>');
+        p = $('<span class="badge badge-danger error-name">Namn måste innehålla bara bokstäver och vara 2-10 långa</span>');
         p.appendTo(typeTwo.parentNode);
       }
       return false;
