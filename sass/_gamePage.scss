@@ -5,13 +5,6 @@ body {
 
 
 
-/*#connect4 {
-    background-color: yellow;
-    display: inline-block;
-    border: 10px;
-}*/
-
-
 .game-board{
     width: 800px;
     background-color: rgb(111, 0, 255);
@@ -21,10 +14,57 @@ body {
 
   .slots {
     // To make squares
-    width: calc(100% / 7);
-    padding-top: calc(100% / 7);
+   // width: calc(100% / 7);
+  //  padding-top: calc(100% / 7);
     background-color: rgb(247, 244, 244);
-    border: 1px solid   rgb(111, 0, 255);  
-    border-radius: 50%;
+   // border: 1px solid   rgb(111, 0, 255);  
+   // border-radius: 50%;
 
+  }
+
+  body > div  {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+   
+  main {
+    flex: 1;
+  }
+   
+  .action {
+    cursor:pointer;
+  }
+   
+  .disabled {
+    opacity: 0.2;
+    cursor: default;
+  }
+   
+  .slots {
+    width: 14.28%;
+  }
+   
+  .slots > div {
+    padding-top: 100%;
+    position:relative;
+    background-color: blue;
+  }
+   
+  .slots > div > div {
+    position:absolute;
+    top:10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: white;
+  }
+   
+  .slots.red  > div > div {
+    background-color: red;
+  }
+   
+  .slots.yellow  > div > div {
+    background-color: yellow;
   }
