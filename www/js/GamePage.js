@@ -1,9 +1,9 @@
 class GamePage extends Component {
-  constructor(selector) {
+  constructor() {
     super();
     this.addRoute('/our-game', 'Vårt spel');
-    this.markers = [];
-    this.selector = selector;
+    this.slots = [];
+    
 
     this.addEvents({
       'click .startGameButton': 'createGrid',
@@ -15,7 +15,7 @@ class GamePage extends Component {
     $('.abortGameButton').hide();
     $('.nameInput').show();
     $('.startGameButton').show();
-    $('#connect4').hide();
+    $('.game-board').hide();
   }
 
   createGrid() {
@@ -23,16 +23,16 @@ class GamePage extends Component {
     $('.abortGameButton').show();
     $('.startGameButton').hide();
     
-    $('#connect4').show();  
+    $('.game-board').show();  
     // this.playersOptionPage.getPlayers();
     for (let row = 0; row < 6; row++){
         for (let col = 0; col < 7; col++) {
-          this.markers.push(new Marker (row, col));
+          this.slots.push(new Slots (row, col));
         }
     }
   }
   restartGame(){
-    $('#connect4').hide();  
+    $('.game-board').hide();  
     $('.nameInput').show();
     $('.abortGameButton').hide();
     $('.startGameButton').show();
@@ -43,9 +43,3 @@ class GamePage extends Component {
 
 
 
-// Draw a grid
-//const connect4 = new GamePage('#connect4')
-$(document).ready(function () {
-  // const connect4 = new connect4('#connect4')
-  const connect4 = new GamePage('#connect4')
-});

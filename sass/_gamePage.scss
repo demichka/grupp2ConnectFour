@@ -5,32 +5,26 @@ body {
 
 
 
-#connect4 {
+/*#connect4 {
     background-color: yellow;
     display: inline-block;
     border: 10px;
-}
+}*/
 
-.col {
-   
-    width: 70px;
-    height: 70px;
-    display: inline-block;
-    background-color: white;
-    border-radius: 50%;
-    margin: 5px;
-}
 
 .game-board{
     width: 800px;
-    background-color: aqua;
+    background-color: rgb(111, 0, 255);
+    display: inline-block;
+    border: 10px;
   }
 
-  .empty-slots {
+  .slots {
     // To make squares
     width: calc(100% / 7);
     padding-top: calc(100% / 7);
-    background-color: gray;
-    border: 1px solid black;
-    // if height doesn't work, check if 'padding-top' does
+    background-color: rgb(247, 244, 244);
+    border: 1px solid   rgb(111, 0, 255);  
+    border-radius: 50%;
+
   }
