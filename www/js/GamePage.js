@@ -3,11 +3,12 @@ class GamePage extends Component {
     super();
     this.addRoute('/our-game', 'Vårt spel');
     this.slots = [];
-    
+    this.playerOptionPage = new PlayerOptionPage();
 
     this.addEvents({
-      'click .startGameButton': 'createGrid',
-      'click .abortGameButton': 'restartGame'
+      // 'click .startGameButton': 'createGrid',
+      'click .abortGameButton': 'restartGame',
+      'click .startGameButton': 'getPlayers'      
     });
     this.createGrid();
     this.restartGame();
@@ -18,6 +19,12 @@ class GamePage extends Component {
     $('.game-board').hide();
   }
 
+
+  getPlayers() {
+    if (this.playerOptionPage.getPlayers()) {
+      this.createGrid();
+    }
+  }
   createGrid() {
     $('.nameInput').hide();
     $('.abortGameButton').show();
