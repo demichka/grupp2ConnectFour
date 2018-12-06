@@ -27,9 +27,8 @@ class GamePage extends Component {
   }
   
   restartGame(){
-    $('.game-board').hide();  
-    $('.nameInput').show();
-    $('.abortGameButton').hide();
-    $('.startGameButton').show();
+    this.playersOptions.active = true;
+    this.gameBoard.active = false;
+    this.render();
 }
 }
