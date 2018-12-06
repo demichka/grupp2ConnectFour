@@ -1,15 +1,21 @@
 <div>
-    <h1>Vårt spel</h1>
+  <h1>Vårt spel</h1>
 
-    ${this.playersOptions.active ? this.playersOptions : ''}
-    ${this.gameBoard.active ? this.gameBoard : ''}
+  ${this.playersOptions.active ? this.playersOptions : ''}
+  ${this.gameBoard.active ? this.gameBoard : ''}
 
-    <!-- buttons -->
-    
-    <div class="col-12">
-        <button type="button" class="btn btn-primary btn-ml mb-5 mx-auto startGameButton">Starta Spelet</button>
-      </div>
-      <div class="col-12">
-            <button type="button" class="btn btn-primary btn-ml mb-5 mx-auto abortGameButton">Starta om Spelet</button>
-          </div>
+  <!-- buttons -->
+
+  ${this.gameBoard.active ? '' : `
+
+  <div class="col-12">
+    <button type="button" class="btn btn-primary btn-ml mb-5 mx-auto startGameButton">Starta Spelet</button>
+  </div>
+  `}
+
+  ${this.playersOptions.active ? '' : `
+  <div class="col-12">
+    <button type="button" class="btn btn-primary btn-ml mb-5 mx-auto abortGameButton">Starta om Spelet</button>
+  </div>
+  `}
 </div>
