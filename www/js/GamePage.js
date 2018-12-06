@@ -5,10 +5,12 @@ class GamePage extends Component {
     this.ROWS = 6;
     this.COLS = 7;
     this.selector = selector;
+    this.playerOptionPage = new PlayerOptionPage();
 
     this.addEvents({
-      'click .startGameButton': 'createGrid',
-      'click .abortGameButton': 'restartGame'
+      // 'click .startGameButton': 'createGrid',
+      'click .abortGameButton': 'restartGame',
+      'click .startGameButton': 'getPlayers'      
     });
     this.createGrid();
     this.restartGame();
@@ -19,13 +21,18 @@ class GamePage extends Component {
     $('#connect4').hide();
   }
 
+
+  getPlayers() {
+    if (this.playerOptionPage.getPlayers()) {
+      this.createGrid();
+    }
+  }
   createGrid() {
     $('.nameInput').hide();
     $('.abortGameButton').show();
     $('.startGameButton').hide();
     
     $('#connect4').show();  
-    // this.playersOptionPage.getPlayers();
     const $board = $(this.selector);
     //   console.log($board);
     for (let row = 0; row < this.ROWS; row++) {

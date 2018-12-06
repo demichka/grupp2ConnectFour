@@ -11,7 +11,7 @@ class PlayerOptionPage extends Component {
     });
   }
 
-//attaching event handler to definite element(inputs and selects)
+  //attaching event handler to definite element(inputs and selects)
   checkPlayer1Type() {
     this.checkPlayerType(document.getElementById('typeFirstPlayer'), 'Bot1');
   }
@@ -29,17 +29,17 @@ class PlayerOptionPage extends Component {
   //function to check if user enter smth in input, which remove previous warnings
   checkPlayerNameValue(input) {
     let errorMessages = input.parentElement.querySelectorAll('.error-name');
-      if (errorMessages.length > 0) {
-        for (let i = 0; i < errorMessages.length; i++) {
-          input.parentNode.removeChild(errorMessages[i]);
-        }
+    if (errorMessages.length > 0) {
+      for (let i = 0; i < errorMessages.length; i++) {
+        input.parentNode.removeChild(errorMessages[i]);
       }
+    }
   }
 
   //function to check if user click on select and select smth, which remove previous warnings
   // and set name to name-input if user selects "Bot" and doesn't enter any name
-  checkPlayerType (typeOption, name) {
-    if(typeOption.value === 'bot') {
+  checkPlayerType(typeOption, name) {
+    if (typeOption.value === 'bot') {
       if (typeOption.previousElementSibling.value === '') {
         typeOption.previousElementSibling.value = name;
       }
@@ -49,19 +49,17 @@ class PlayerOptionPage extends Component {
           typeOption.parentNode.removeChild(badges[i]);
         }
       }
-    }
-    else if(typeOption.value === 'human') {
+    } else if (typeOption.value === 'human') {
       let badges = typeOption.parentElement.querySelectorAll('.error-type');
       if (badges.length > 0) {
         for (let i = 0; i < badges.length; i++) {
           typeOption.parentNode.removeChild(badges[i]);
         }
       }
-    }
-    else {
+    } else {
       return;
     }
-}
+  }
 
   getPlayers() {
     $('.badge').remove();
@@ -81,8 +79,7 @@ class PlayerOptionPage extends Component {
     let typeTwo = document.getElementById('typeSecondPlayer');
 
     let nameOne = document.getElementById('nameFirstPlayer');
-    let nameTwo = document.getElementById('nameSecondPlayer')
-    ;
+    let nameTwo = document.getElementById('nameSecondPlayer');
     let validateName = (name) => {
       return name.value.length > 2 && name.value.length <= 10 ? true : false;
     };
@@ -99,6 +96,7 @@ class PlayerOptionPage extends Component {
       playerOne.human = true ? typeOne.value === 'human' : false;
       playerTwo.human = true ? typeTwo.value === 'human' : false;
       this.players.push(playerOne, playerTwo);
+      return true;
     } else {
 
       if (!validateType(typeOne)) {
@@ -117,6 +115,7 @@ class PlayerOptionPage extends Component {
         p = $('<span class="badge badge-danger error-name">Namn måste innehålla mer än 2 och mindre 10 symboler</span>');
         p.appendTo(typeTwo.parentNode);
       }
+      return false;
     }
   }
 }
