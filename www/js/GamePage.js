@@ -25,7 +25,7 @@ class GamePage extends Component {
     $('.startGameButton').hide();
     
     $('#connect4').show();  
-    // this.playersOptionPage.getPlayers();
+    this.playersOptionPage.getPlayers();
     const $board = $(this.selector);
     //   console.log($board);
     for (let row = 0; row < this.ROWS; row++) {
