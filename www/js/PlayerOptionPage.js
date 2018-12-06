@@ -2,6 +2,7 @@ class PlayerOptionPage extends Component {
   constructor() {
     super();
     this.players = [];
+    this.active = true;
     this.addEvents({
       'click .startGameButton': 'getPlayers',
       'click #typeFirstPlayer': 'checkPlayer1Type',
@@ -62,6 +63,7 @@ class PlayerOptionPage extends Component {
   }
 
   getPlayers() {
+    this.active = false;
     $('.badge').remove();
     let p = '';
     this.players.length = 0;
