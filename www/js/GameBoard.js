@@ -6,7 +6,6 @@ class GameBoard extends Component {
     }
     createGrid() {
         this.active = true;
-        console.log('executed');
         $('.nameInput').hide();
         $('.abortGameButton').show();
         $('.startGameButton').hide();

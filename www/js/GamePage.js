@@ -2,7 +2,7 @@ class GamePage extends Component {
   constructor() {
     super();
     this.addRoute('/our-game', 'Vårt spel');
-    this.playerOptionPage = new PlayerOptionPage();
+    this.playersOptions = new PlayersOptions();
     this.gameBoard = new GameBoard();
 
     this.addEvents({
@@ -19,7 +19,7 @@ class GamePage extends Component {
 
 
   getPlayers() {
-    if (this.playerOptionPage.getPlayers()) {
+    if (this.playersOptions.getPlayers()) {
       this.gameBoard.createGrid();
       $('.nameInput').hide();
       this.render();
