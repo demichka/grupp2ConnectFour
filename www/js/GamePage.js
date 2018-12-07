@@ -7,13 +7,16 @@ class GamePage extends Component {
     this.playersNames = new PlayersNames();
 
     this.addEvents({
-      // 'click .startGameButton': 'createGrid',
       'click .abortGameButton': 'restartGame',
       'click .startGameButton': 'getPlayers'
     });
 
   }
 
+  unmount(){
+    this.gameBoard.active = false;
+    this.playersOptions.active = true;
+  }
 
   getPlayers() {
     if (this.playersOptions.getPlayers()) {
