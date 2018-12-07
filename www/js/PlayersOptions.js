@@ -62,8 +62,19 @@ class PlayersOptions extends Component {
     }
   }
 
+  randomColor() {
+    let r = Math.random();
+    let color1 = 'yellow';
+    let color2 = 'red';
+    if (r > 0.5) {
+      color1 = 'red';
+      color2 = 'yellow';
+    }
+    let colors = [color1, color2];
+    return colors;
+  }
+
   getPlayers() {
-    this.active = false;
     $('.badge').remove();
     let p = '';
     this.players.length = 0;
@@ -87,8 +98,7 @@ class PlayersOptions extends Component {
       let letters = /^[A-Za-zÖöÅåÄä]+$/;
       if (name.value.match(letters) && name.value.length >= 2 && name.value.length <= 10) {
         return true;
-      }
-      else {
+      } else {
         return false;
       }
     };
@@ -99,12 +109,13 @@ class PlayersOptions extends Component {
       validateName(nameTwo)
     ) {
       $('.badge').remove();
-
-      let playerOne = new Player(nameOne.value);
-      let playerTwo = new Player(nameTwo.value);
+      let colors = this.randomColor();
+      let playerOne = new Player(nameOne.value, colors[0]);
+      let playerTwo = new Player(nameTwo.value, colors[1]);
       playerOne.human = true ? typeOne.value === 'human' : false;
       playerTwo.human = true ? typeTwo.value === 'human' : false;
       this.players.push(playerOne, playerTwo);
+      this.active = false;
       return true;
     } else {
 

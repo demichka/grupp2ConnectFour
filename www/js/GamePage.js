@@ -8,13 +8,9 @@ class GamePage extends Component {
     this.addEvents({
       // 'click .startGameButton': 'createGrid',
       'click .abortGameButton': 'restartGame',
-      'click .startGameButton': 'getPlayers'      
+      'click .startGameButton': 'getPlayers'
     });
-    this.restartGame();
 
-    $('.abortGameButton').hide();
-    $('.startGameButton').show();
-    $('.game-board').hide();
   }
 
 
@@ -25,10 +21,10 @@ class GamePage extends Component {
       this.render();
     }
   }
-  
-  restartGame(){
+
+  restartGame() {
     this.playersOptions.active = true;
     this.gameBoard.active = false;
     this.render();
-}
+  }
 }
