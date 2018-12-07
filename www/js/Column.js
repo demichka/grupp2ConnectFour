@@ -1,8 +1,9 @@
 class Column extends Component {
-    constructor(number) {
+    constructor(number, board) {
         super();
         this.columnNumber = number;
-        this.clicked = false;
+        this.isClicked = false;
+        this.board = board;
         this.addEvents({
             'click div': 'click'
         });
@@ -18,10 +19,8 @@ class Column extends Component {
 
     click(e){
         e.stopPropagation();
-        this.clicked = true;
-        console.log(this.columnNumber, this.clicked);
-        this.clicked = false;
-        console.log(this.columnNumber, this.clicked);
-
+        this.isClicked = !this.isClicked;
+        this.board.columnClicked(this.columnNumber, this.isClicked);
+        this.isClicked = !this.isClicked;
     }
 }

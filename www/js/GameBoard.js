@@ -9,11 +9,15 @@ class GameBoard extends Component {
         
         this.grid = [];
         for (let col = 0; col < 7; col++) {
-            this.column = new Column(col + 1);
+            this.column = new Column(col + 1, this);
             this.column.createSlots();
             this.grid.push(this.column);
         }
         console.log(this.grid);
+    }
+
+    columnClicked(col, isClicked) {
+        console.log(col, isClicked);
     }
 
 }
