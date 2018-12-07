@@ -4,6 +4,7 @@ class GamePage extends Component {
     this.addRoute('/our-game', 'Vårt spel');
     this.playersOptions = new PlayersOptions();
     this.gameBoard = new GameBoard();
+    this.playersNames = new PlayersNames();
 
     this.addEvents({
       // 'click .startGameButton': 'createGrid',
@@ -17,7 +18,7 @@ class GamePage extends Component {
   getPlayers() {
     if (this.playersOptions.getPlayers()) {
       this.gameBoard.createGrid();
-      $('.nameInput').hide();
+      this.playersNames.players = this.playersOptions.players;
       this.render();
     }
   }
