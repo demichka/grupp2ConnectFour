@@ -9,7 +9,7 @@ class GameBoard extends Component {
 
         
         this.grid = [];
-        for (let row = 0; row < 6; row++) {
+        for (let row = 0; row < 7; row++) {
             this.column.createSlots();
             this.grid.push(this.column);
         }

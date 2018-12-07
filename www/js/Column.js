@@ -6,7 +6,7 @@ class Column extends Component {
     createSlots() {
         this.slots = [];
 
-        for (let slot = 0; slot < 7; slot++) {
+        for (let slot = 0; slot < 6; slot++) {
             this.slots.push(new Slots());
         }
     }

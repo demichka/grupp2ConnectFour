@@ -4,10 +4,11 @@
     border: 10px;
   }
 
-
+.column {
+  width: calc(100%/7);
+}
   .slots {
     background-color: rgb(247, 244, 244);
-    width: calc(100%/7);
     &.red {
       & > div {
         & > div {
