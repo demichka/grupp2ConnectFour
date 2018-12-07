@@ -1,17 +1,12 @@
 class Slots extends Component {
-    constructor () {
+    constructor (number) {
         super();
+        this.numberInColumn = number;
         // this.color = '';
-        this.addEvents({
-            
-        });
+        
     }
 
-    // click(e){
-    //     console.log(e)
-    //     e.stopPropagation();
-    //     this.gamePage.columnClicked(this.col);
-    // }
+    
 
     // testColor(){
     //     let r = Math.random();
