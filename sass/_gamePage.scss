@@ -60,6 +60,7 @@
     &.red {
       &.current {
         border-color: #ff0000;
+        box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
       }
       .player-color {
         background-color: #ff0000;
@@ -68,6 +69,7 @@
     &.yellow {
       &.current {
         border-color: gold;
+        box-shadow: 0 0 0 3px transparentize(gold, .75);
       }
       .player-color {
         background-color: gold;
