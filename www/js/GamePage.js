@@ -14,7 +14,7 @@ class GamePage extends Component {
 
   }
 
-  unmount(){
+  unmount() {
     this.gameBoard.active = false;
     this.playersOptions.active = true;
   }
@@ -24,7 +24,7 @@ class GamePage extends Component {
       this.gameBoard.createGrid();
       this.playersNames.players = this.playersOptions.players;
       this.render();
-      this.currentPlayer = this.whoIsCurrent();
+      this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
       console.log(this.currentPlayer.name);
     }
   }
@@ -36,12 +36,12 @@ class GamePage extends Component {
   }
 
   whoIsCurrent(players) {
-    players = this.playersNames.players;
     let current;
-    for (let i=0; i<players.length; i++) {
-      if(players[i].currentPlayer) {
+    for (let i = 0; i < players.length; i++) {
+      if (players[i].currentPlayer) {
         current = players[i];
       }
-    }    return current;
+    }
+    return current;
   }
 }
