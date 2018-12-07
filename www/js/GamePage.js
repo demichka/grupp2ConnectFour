@@ -4,31 +4,32 @@ class GamePage extends Component {
     this.addRoute('/our-game', 'Vårt spel');
     this.playersOptions = new PlayersOptions();
     this.gameBoard = new GameBoard();
+    this.playersNames = new PlayersNames();
 
     this.addEvents({
-      'click .startGameButton': 'createGrid',
       'click .abortGameButton': 'restartGame',
-      'click .startGameButton': 'getPlayers'      
+      'click .startGameButton': 'getPlayers'
     });
-    this.restartGame();
 
-    $('.abortGameButton').hide();
-    $('.startGameButton').show();
-    $('.game-board').hide();
   }
 
+  unmount(){
+    this.gameBoard.active = false;
+    this.playersOptions.active = true;
+  }
 
   getPlayers() {
     if (this.playersOptions.getPlayers()) {
       this.gameBoard.createGrid();
-      $('.nameInput').hide();
+      this.playersNames.players = this.playersOptions.players;
       this.render();
+      console.log(this.playersNames.players);
     }
   }
-  
-  restartGame(){
+
+  restartGame() {
     this.playersOptions.active = true;
     this.gameBoard.active = false;
     this.render();
-}
+  }
 }
