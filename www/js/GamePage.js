@@ -23,7 +23,6 @@ class GamePage extends Component {
       this.gameBoard.createGrid();
       this.playersNames.players = this.playersOptions.players;
       this.render();
-      console.log(this.playersNames.players);
     }
   }
 
