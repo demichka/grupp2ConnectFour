@@ -9,7 +9,8 @@ class GamePage extends Component {
 
     this.addEvents({
       'click .abortGameButton': 'restartGame',
-      'click .startGameButton': 'getPlayers'
+      'click .startGameButton': 'getPlayers',
+      'click .column': 'changePlayer'
     });
 
   }
@@ -25,7 +26,6 @@ class GamePage extends Component {
       this.playersNames.players = this.playersOptions.players;
       this.render();
       this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
-      console.log(this.currentPlayer.name);
     }
   }
 
@@ -38,10 +38,17 @@ class GamePage extends Component {
   whoIsCurrent(players) {
     let current;
     for (let i = 0; i < players.length; i++) {
-      if (players[i].currentPlayer) {
+      if (players[i].myTurn) {
         current = players[i];
       }
     }
     return current;
+  }
+
+  changePlayer() {
+    for (let i = 0; i < this.playersNames.players.length; i++) {
+      this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
+    }
+    this.render();
   }
 }

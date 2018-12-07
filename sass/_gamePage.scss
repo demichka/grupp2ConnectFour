@@ -9,6 +9,7 @@
 }
   .slots {
     background-color: rgb(247, 244, 244);
+    pointer-events: none;
     &.red {
       & > div {
         & > div {
@@ -27,6 +28,7 @@
       padding-top: 100%;
       position:relative;
       background-color: blue;
+      pointer-events: none;
       & > div {
         position:absolute;
         top:10%;
@@ -35,6 +37,7 @@
         height: 80%;
         border-radius: 50%;
         background-color: white;
+        pointer-events: none;
       }
     }
   }
