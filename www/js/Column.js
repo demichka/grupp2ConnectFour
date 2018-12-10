@@ -3,6 +3,8 @@ class Column extends Component {
         super();
         this.columnNumber = number;
         this.board = board;
+        this.redSlots = 0;
+        this.yellowSlots = 0;
         this.addEvents({
             'click .column': 'clickColumn'
         });
@@ -20,15 +22,18 @@ class Column extends Component {
     clickColumn(e) {
         e.stopPropagation();
         let currentColor = this.board.currentPlayer.color;
-
+        let indexOfDropped = 0;
         for (let i = this.slots.length - 1; i >= 0; i--) {
             const element = this.slots[i];
             if (element.color === 'empty') {
                 element.color = currentColor;
+                indexOfDropped = i;
                 element.render();
                 break;
             }
         }
+        this.board.checkConnectionsInColumn(this);
+        this.board.checkConnectionsInRow(indexOfDropped);
         this.board.changePlayer();
     }
 }
