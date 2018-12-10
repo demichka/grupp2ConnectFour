@@ -1,4 +1,7 @@
 body {
+  background-image: url('/images/wallpaper.jpg');
+  background-size: cover;
+  background-attachment: fixed;
   text-align: center;
   &>div:first-child {
     display: flex;
@@ -10,4 +13,3 @@ body {
     }
   }
 }
-
