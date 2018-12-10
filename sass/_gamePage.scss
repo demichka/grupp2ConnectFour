@@ -4,13 +4,15 @@
     border: 10px;
   }
 
-.column {
+.column-wrap {
   width: calc(100%/7);
+}  
+.column {
   cursor: pointer;
 }
   .slots {
     background-color: rgb(247, 244, 244);
-    // pointer-events: none;
+    pointer-events: none;
     &.red {
       & > div {
         & > div {

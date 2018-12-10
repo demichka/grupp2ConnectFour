@@ -5,7 +5,7 @@ class Column extends Component {
         this.isClicked = false;
         this.board = board;
         this.addEvents({
-            'click div': 'click'
+            'click .column': 'click'
         });
     }
 
