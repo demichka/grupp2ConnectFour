@@ -15,6 +15,7 @@ class Column extends Component {
         for (let slot = 0; slot < 6; slot++) {
             this.slots.push(new Slots(slot));
         }
+
     }
 
     click(e){
@@ -22,6 +23,8 @@ class Column extends Component {
         console.log('clicked');
         this.isClicked = !this.isClicked;
         this.board.columnClicked(this.columnNumber, this.isClicked);
+        let currentColor = this.board.currentPlayer.color;
         this.isClicked = !this.isClicked;
+        console.log(currentColor);
     }
 }

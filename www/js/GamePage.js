@@ -25,7 +25,7 @@ class GamePage extends Component {
       this.gameBoard.createGrid();
       this.playersNames.players = this.playersOptions.players;
       this.render();
-      this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
+      this.gameBoard.currentPlayer = this.whoIsCurrent(this.playersNames.players);
     }
   }
 
@@ -48,7 +48,9 @@ class GamePage extends Component {
   changePlayer() {
     for (let i = 0; i < this.playersNames.players.length; i++) {
       this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
+      this.gameBoard.currentPlayer = this.whoIsCurrent(this.playersNames.players);
     }
+    
     this.render();
   }
 }
