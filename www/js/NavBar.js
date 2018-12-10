@@ -5,7 +5,8 @@ class NavBar extends Component {
     this.navItems = [
       new NavItem('Start', '/'),
       new NavItem('Vårt spel', '/our-game'),
-      new NavItem('Highscore', '/highscore')
+      new NavItem('Highscore', '/highscore'),
+      new NavItem('Spelregler', '/rules')
     ];
   }
 
