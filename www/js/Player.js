@@ -1,19 +1,19 @@
 class Player {
-    constructor(name, color, currentPlayer) {
+    constructor(name, color) {
         this.name = name;
         this.human = true;
         this.color = color;
-        this.currentPlayer = this.firstTurn();
+        this.myTurn = this.firstTurn();
     }
 
 
     firstTurn() {
         if (this.color === 'red') {
-            this.currentPlayer = true;
+            this.myTurn = true;
         }
         else {
-            this.currentPlayer = false;
+            this.myTurn = false;
         }
-        return this.currentPlayer;
+        return this.myTurn;
     }
 }
