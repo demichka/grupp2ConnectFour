@@ -1,7 +1,8 @@
-class PlayerOptionPage extends Component {
+class PlayersOptions extends Component {
   constructor() {
     super();
     this.players = [];
+    this.active = true;
     this.addEvents({
       'click .startGameButton': 'getPlayers',
       'click #typeFirstPlayer': 'checkPlayer1Type',
@@ -13,10 +14,10 @@ class PlayerOptionPage extends Component {
 
   //attaching event handler to definite element(inputs and selects)
   checkPlayer1Type() {
-    this.checkPlayerType(document.getElementById('typeFirstPlayer'), 'Bot1');
+    this.checkPlayerType(document.getElementById('typeFirstPlayer'), 'Pascal');
   }
   checkPlayer2Type() {
-    this.checkPlayerType(document.getElementById('typeSecondPlayer'), 'Bot2');
+    this.checkPlayerType(document.getElementById('typeSecondPlayer'), 'Fortran');
   }
   checkPlayerName1Value() {
     this.checkPlayerNameValue(document.getElementById('nameFirstPlayer'));
@@ -61,6 +62,18 @@ class PlayerOptionPage extends Component {
     }
   }
 
+  randomColor() {
+    let r = Math.random();
+    let color1 = 'yellow';
+    let color2 = 'red';
+    if (r > 0.5) {
+      color1 = 'red';
+      color2 = 'yellow';
+    }
+    let colors = [color1, color2];
+    return colors;
+  }
+
   getPlayers() {
     $('.badge').remove();
     let p = '';
@@ -80,8 +93,14 @@ class PlayerOptionPage extends Component {
 
     let nameOne = document.getElementById('nameFirstPlayer');
     let nameTwo = document.getElementById('nameSecondPlayer');
-    let validateName = (name) => {
-      return name.value.length > 2 && name.value.length <= 10 ? true : false;
+
+    let validateName = function (name) {
+      let letters = /^[A-Za-zÖöÅåÄä]+$/;
+      if (name.value.match(letters) && name.value.length >= 2 && name.value.length <= 10) {
+        return true;
+      } else {
+        return false;
+      }
     };
 
     if (validateType(typeOne) &&
@@ -90,12 +109,13 @@ class PlayerOptionPage extends Component {
       validateName(nameTwo)
     ) {
       $('.badge').remove();
-
-      let playerOne = new Player(nameOne.value);
-      let playerTwo = new Player(nameTwo.value);
+      let colors = this.randomColor();
+      let playerOne = new Player(nameOne.value, colors[0]);
+      let playerTwo = new Player(nameTwo.value, colors[1]);
       playerOne.human = true ? typeOne.value === 'human' : false;
       playerTwo.human = true ? typeTwo.value === 'human' : false;
       this.players.push(playerOne, playerTwo);
+      this.active = false;
       return true;
     } else {
 
@@ -108,11 +128,11 @@ class PlayerOptionPage extends Component {
         p.insertAfter(typeTwo);
       }
       if (!validateName(nameOne)) {
-        p = $('<span class="badge badge-danger  error-name">Namn måste innehålla mer än 2 och mindre 10 symboler</span>');
+        p = $('<span class="badge badge-danger  error-name">Namn måste innehålla bara bokstäver och vara 2-10 långa</span>');
         p.appendTo(typeOne.parentNode);
       }
       if (!validateName(nameTwo)) {
-        p = $('<span class="badge badge-danger error-name">Namn måste innehålla mer än 2 och mindre 10 symboler</span>');
+        p = $('<span class="badge badge-danger error-name">Namn måste innehålla bara bokstäver och vara 2-10 långa</span>');
         p.appendTo(typeTwo.parentNode);
       }
       return false;
