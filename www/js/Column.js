@@ -19,6 +19,7 @@ class Column extends Component {
 
     click(e){
         e.stopPropagation();
+        console.log('clicked');
         this.isClicked = !this.isClicked;
         this.board.columnClicked(this.columnNumber, this.isClicked);
         this.isClicked = !this.isClicked;

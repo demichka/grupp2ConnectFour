@@ -6,10 +6,11 @@
 
 .column {
   width: calc(100%/7);
+  cursor: pointer;
 }
   .slots {
     background-color: rgb(247, 244, 244);
-    pointer-events: none;
+    // pointer-events: none;
     &.red {
       & > div {
         & > div {
