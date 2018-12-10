@@ -4,10 +4,15 @@
     border: 10px;
   }
 
-
+.column-wrap {
+  width: calc(100%/7);
+}  
+.column {
+  cursor: pointer;
+}
   .slots {
     background-color: rgb(247, 244, 244);
-    width: calc(100%/7);
+    pointer-events: none;
     &.red {
       & > div {
         & > div {
@@ -26,6 +31,7 @@
       padding-top: 100%;
       position:relative;
       background-color: blue;
+      pointer-events: none;
       & > div {
         position:absolute;
         top:10%;
@@ -34,6 +40,7 @@
         height: 80%;
         border-radius: 50%;
         background-color: white;
+        pointer-events: none;
       }
     }
   }
@@ -56,6 +63,7 @@
     &.red {
       &.current {
         border-color: #ff0000;
+        box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
       }
       .player-color {
         background-color: #ff0000;
@@ -64,6 +72,7 @@
     &.yellow {
       &.current {
         border-color: gold;
+        box-shadow: 0 0 0 3px transparentize(gold, .75);
       }
       .player-color {
         background-color: gold;

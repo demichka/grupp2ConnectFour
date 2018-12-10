@@ -6,14 +6,16 @@ class GamePage extends Component {
     this.gameBoard = new GameBoard();
     this.playersNames = new PlayersNames();
 
+
     this.addEvents({
       'click .abortGameButton': 'restartGame',
-      'click .startGameButton': 'getPlayers'
+      'click .startGameButton': 'getPlayers',
+      'click .column': 'changePlayer'
     });
 
   }
 
-  unmount(){
+  unmount() {
     this.gameBoard.active = false;
     this.playersOptions.active = true;
   }
@@ -23,13 +25,30 @@ class GamePage extends Component {
       this.gameBoard.createGrid();
       this.playersNames.players = this.playersOptions.players;
       this.render();
-      console.log(this.playersNames.players);
+      this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
     }
   }
 
   restartGame() {
     this.playersOptions.active = true;
     this.gameBoard.active = false;
+    this.render();
+  }
+
+  whoIsCurrent(players) {
+    let current;
+    for (let i = 0; i < players.length; i++) {
+      if (players[i].myTurn) {
+        current = players[i];
+      }
+    }
+    return current;
+  }
+
+  changePlayer() {
+    for (let i = 0; i < this.playersNames.players.length; i++) {
+      this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
+    }
     this.render();
   }
 }
