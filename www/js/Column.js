@@ -22,8 +22,19 @@ class Column extends Component {
         e.stopPropagation();
         console.log('clicked');
         this.isClicked = !this.isClicked;
-        this.board.columnClicked(this.columnNumber, this.isClicked);
         let currentColor = this.board.currentPlayer.color;
+        console.log(currentColor);
+        this.board.columnClicked(this.columnNumber, this.isClicked);
+
+        for (let i = this.slots.length - 1; i >= 0; i--) {
+            const element = this.slots[i];
+            if (element.color === 'empty') {
+                element.color = currentColor;
+                element.render();
+                break;
+            }
+            
+        }
         this.isClicked = !this.isClicked;
         console.log(currentColor);
     }
