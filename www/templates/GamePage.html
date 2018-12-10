@@ -2,7 +2,7 @@
   <h1>Vårt spel</h1>
 
   <div class="row">
-  ${this.gameBoard.active ? this.playersNames : ''}
+  ${this.gameBoard.active ? this.gameBoard.playersNames : ''}
   ${this.playersOptions.active ? '' : `
   <div class="col-6">
     <button type="button" class="btn btn-primary btn-ml float-right abortGameButton">Starta om Spelet</button>
