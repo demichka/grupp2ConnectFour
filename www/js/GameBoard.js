@@ -2,6 +2,8 @@ class GameBoard extends Component {
     constructor() {
         super();
         this.active = false;
+        this.currentPlayer = '';
+
     }
     createGrid() {
         this.active = true;

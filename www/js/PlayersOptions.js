@@ -116,6 +116,8 @@ class PlayersOptions extends Component {
       playerTwo.human = true ? typeTwo.value === 'human' : false;
       this.players.push(playerOne, playerTwo);
       this.active = false;
+
+      console.log(this.players);
       return true;
     } else {
 
