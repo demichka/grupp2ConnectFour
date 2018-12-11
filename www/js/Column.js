@@ -35,7 +35,9 @@ class Column extends Component {
         setTimeout(() => {
             this.board.checkConnectionsInColumn(this);
             this.board.checkConnectionsInRow(indexOfDropped);
+            this.board.checkConnectionsInDiagonal(this.columnNumber, indexOfDropped);
         }, 300);
+        console.log('next move');
         
         this.board.changePlayer();
     }
