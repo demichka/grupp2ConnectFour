@@ -10,7 +10,7 @@ class GameBoard extends Component {
         this.active = true;
         this.grid = [];
         for (let col = 0; col < 7; col++) {
-            this.column = new Column(col + 1, this);
+            this.column = new Column(col, this);
             this.column.createSlots();
             this.grid.push(this.column);
         }
