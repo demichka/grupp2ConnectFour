@@ -32,8 +32,11 @@ class Column extends Component {
                 break;
             }
         }
-        this.board.checkConnectionsInColumn(this);
-        this.board.checkConnectionsInRow(indexOfDropped);
+        setTimeout(() => {
+            this.board.checkConnectionsInColumn(this);
+            this.board.checkConnectionsInRow(indexOfDropped);
+        }, 300);
+        
         this.board.changePlayer();
     }
 }

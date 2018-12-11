@@ -31,7 +31,12 @@ class GameBoard extends Component {
                 countRed = 0; 
             } 
         }
-        
+        if (countRed === 4) {
+            this.youAreWinner('Red');
+        }
+        if (countYellow === 4) {
+            this.youAreWinner('Yellow');
+        }
         console.log('red in column ', countRed);
         console.log('yellow in column', countYellow); 
     }
@@ -50,8 +55,19 @@ class GameBoard extends Component {
                 countRedRow = 0; 
             } 
         }
+        if (countRedRow === 4) {
+            this.youAreWinner('Red');
+        }
+        if (countYellowRow === 4) {
+            this.youAreWinner('Yellow');
+        }
         console.log('red in row ', countRedRow);        
         console.log('yellow in row', countYellowRow); 
+    }
+
+    youAreWinner(color) {
+        window.alert(`${color} har vunnit!`);
+        this.page.restartGame();
     }
 
 
