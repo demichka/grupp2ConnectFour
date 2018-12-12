@@ -8,7 +8,8 @@ class GamePage extends Component {
 
     this.addEvents({
       'click .abortGameButton': 'restartGame',
-      'click .startGameButton': 'getPlayers'
+      'click .startGameButton': 'getPlayers', 
+      'click .restartButton': 'restartGame' 
     });
 
   }
