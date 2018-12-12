@@ -8,6 +8,7 @@ class Column extends Component {
         this.addEvents({
             'click .column': 'clickColumn'
         });
+
     }
 
     createSlots() {
@@ -21,33 +22,31 @@ class Column extends Component {
 
     clickColumn(e) {
         e.stopPropagation();
-        this.makeMove(this);
+        const indexOfDropped = this.makeMove();
+        if (indexOfDropped >= 0) {
+            this.board.checkWinner(this,indexOfDropped);
+        }
     }
 
-    makeMove(column) {
-        if (column.slots[0].color === 'empty') {
-            let currentColor = column.board.currentPlayer.color;
-            let indexOfDropped = 0;
-            for (let i = column.slots.length - 1; i >= 0; i--) {
-                const element = column.slots[i];
+    get isEmpty() {
+        return this.slots[0].color === 'empty';
+    }
+
+    makeMove() {
+        if (this.isEmpty) {
+            let currentColor = this.board.currentPlayer.color;
+            for (let i = this.slots.length - 1; i >= 0; i--) {
+                const element = this.slots[i];
                 if (element.color === 'empty') {
                     element.color = currentColor;
-                    indexOfDropped = i;
                     element.render();
-                    break;
+                    return i;
                 }
             }
-            setTimeout(() => {
-                if (!this.board.checkConnectionsInColumn(this) &&
-                !this.board.checkConnectionsInRow(indexOfDropped) &&
-                !this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped)&&
-                !this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped)) {
-                    this.board.changePlayer();
-                }
-            }, 100);
         }
         else {
             window.alert('Välj annan kolumn!');
+            return -1;
         }
     }
 }
