@@ -40,7 +40,7 @@ class Column extends Component {
                 !this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped)) {
                     this.board.changePlayer();
                 }
-            }, 300);
+            }, 100);
         }
         else {
             window.alert('Välj annan kolumn!');
