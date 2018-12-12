@@ -16,7 +16,6 @@ class GameBoard extends Component {
             this.column.createSlots();
             this.grid.push(this.column);
         }
-        console.log(this.grid);
     }
 
     checkConnectionsInColumn(column) {
@@ -39,8 +38,6 @@ class GameBoard extends Component {
         if (countYellow === 4) {
             this.youAreWinner('Yellow');
         }
-        console.log('red in column ', countRed);
-        console.log('yellow in column', countYellow);
     }
 
     checkConnectionsInRow(indexOfDropped) {
@@ -58,16 +55,12 @@ class GameBoard extends Component {
             }
         }
         this.checkWhoIsWon(countRed, countYellow);
-
-        console.log('red in row ', countRed);
-        console.log('yellow in row', countYellow);
     }
 
     checkConnectionsInDecreasingDiagonal(indexX, indexY) {
         let countRed = 0;
         let countYellow = 0;
 
-        console.log(indexX, indexY);
         //Define first item in the decreasing diagonal based on dropped brick's coordinates
         let j = indexY; // Y-coordinate
         let i = indexX; // X-coordinate
@@ -76,7 +69,6 @@ class GameBoard extends Component {
             j++;
         }
 
-        console.log('first: ', i,j);
         //Check decreasing diagonal for matching one-color bricks in a row
         while(i < this.columnsCount && j >= 0 && countRed < 4 && countYellow < 4) {
             if(this.grid[i].slots[j].color === 'red') {
@@ -91,17 +83,12 @@ class GameBoard extends Component {
             j--;
         }
         this.checkWhoIsWon(countRed, countYellow);
-
-        console.log('Diagonal Red ', countRed);
-        console.log('Diagonal Yellow ', countYellow);
     }
 
     checkConnectionsInIncreasingDiagonal(indexX, indexY) {
         let countRed = 0;
         let countYellow = 0;
 
-        console.log(indexX, indexY);
-        
         //Define first item in the increasing diagonal based on dropped brick's coordinates
         let j = indexY;
         let i = indexX;
@@ -109,7 +96,6 @@ class GameBoard extends Component {
             i++;
             j++;
         }
-        console.log('second ',i,j);
         //Check increasing diagonal for matching one-color bricks in a row 
         while(i >= 0 && j >= 0 && countRed < 4 && countYellow < 4) {
             if(this.grid[i].slots[j].color === 'red') {
@@ -124,9 +110,6 @@ class GameBoard extends Component {
             j--;
         }
         this.checkWhoIsWon(countRed, countYellow);
-
-        console.log('Diagonal Red ', countRed);
-        console.log('Diagonal Yellow ', countYellow);
     }
 
     checkWhoIsWon(countRed, countYellow) {
