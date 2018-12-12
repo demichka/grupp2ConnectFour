@@ -32,12 +32,8 @@ class GameBoard extends Component {
                 countRed = 0;
             }
         }
-        if (countRed === 4) {
-            this.youAreWinner('Red');
-        }
-        if (countYellow === 4) {
-            this.youAreWinner('Yellow');
-        }
+        this.checkWhoIsWon(countRed, countYellow);
+        return;
     }
 
     checkConnectionsInRow(indexOfDropped) {
@@ -55,6 +51,7 @@ class GameBoard extends Component {
             }
         }
         this.checkWhoIsWon(countRed, countYellow);
+        return;
     }
 
     checkConnectionsInDecreasingDiagonal(indexX, indexY) {
@@ -83,6 +80,7 @@ class GameBoard extends Component {
             j--;
         }
         this.checkWhoIsWon(countRed, countYellow);
+        return;
     }
 
     checkConnectionsInIncreasingDiagonal(indexX, indexY) {
