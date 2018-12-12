@@ -3,6 +3,7 @@ nav {
         height: 60px;
         img {
             height: 100%;
+            border-radius: 50%;
         }
     }
     ul.social-network {
@@ -31,8 +32,6 @@ nav {
     .icoFacebook, .icoTwitter, .icoGoogle, .icoLinkedin {
         background-size: cover;
     }
-   
-    
     
     .social-circle li a {
         display: inline-block;
@@ -45,14 +44,5 @@ nav {
         font-size:20px;
         background-color: #fff;
     }
-    .social-circle li i {
-        margin:0;
-        line-height:50px;
-        text-align: center;
-    }
-
 }
 
-.logga {
-    border-radius: 50%;
-}

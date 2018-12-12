@@ -1,1 +1,7 @@
-class Footer extends Component {}
+class Footer extends Component {
+  constructor(){
+    super();
+    this.socialItems = new SocialItems();
+
+  }
+}
