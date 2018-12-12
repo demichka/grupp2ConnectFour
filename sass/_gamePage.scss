@@ -19,21 +19,21 @@
     &.red {
       & > div {
         & > div {
-          background-color: red;
+          background-color: #8D4343;
         }
       }
     }
     &.yellow {
       & > div {
         & > div {
-          background-color: yellow;
+          background-color: #D9D963;
         }
       }
     }
     & > div {
       padding-top: 100%;
       position:relative;
-      background-color: blue;
+      background-color: #438D8D;
       pointer-events: none;
       & > div {
         position:absolute;
