@@ -34,9 +34,9 @@ class Column extends Component {
                 }
             }
             setTimeout(() => {
-                if (!this.board.checkConnectionsInColumn(this) ||
-                !this.board.checkConnectionsInRow(indexOfDropped) ||
-                !this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped)||
+                if (!this.board.checkConnectionsInColumn(this) &&
+                !this.board.checkConnectionsInRow(indexOfDropped) &&
+                !this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped)&&
                 !this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped)) {
                     this.board.changePlayer();
                 }
