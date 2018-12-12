@@ -18,6 +18,8 @@ class GameBoard extends Component {
         }
     }
 
+
+
     checkConnectionsInColumn(column) {
         let countRed = 0;
         let countYellow = 0;
@@ -126,31 +128,19 @@ class GameBoard extends Component {
         window.alert(`${color} har vunnit!`);
     }
 
-
     whoIsCurrent(players) {
-        if (players.length > 0) {
-            for (let i = 0; i < players.length; i++) {
-                if (players[i].myTurn) {
-                    this.currentPlayer = players[i];
-                    if(!this.currentPlayer.human) {
-                        this.currentPlayer.botMove();
-                    }
-                }
-            }
-        }
-        return this.currentPlayer;
+        return players.find((player) => { return player.myTurn; });
     }
 
     changePlayer() {
         for (let i = 0; i < this.playersNames.players.length; i++) {
-            this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
-            this.whoIsCurrent(this.playersNames.players);
-            
+            this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;    
+        }
+        this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
+        if(!this.currentPlayer.human) {
+            this.currentPlayer.botMove();
         }
         console.log(this.currentPlayer);
         this.page.render();
     }
-
-    
-
 }
