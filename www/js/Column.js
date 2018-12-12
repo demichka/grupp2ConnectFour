@@ -34,13 +34,13 @@ class Column extends Component {
                 }
             }
             setTimeout(() => {
-                this.board.checkConnectionsInColumn(this);
-                this.board.checkConnectionsInRow(indexOfDropped);
-                this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped);
-                this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped);
+                if (!this.board.checkConnectionsInColumn(this) ||
+                !this.board.checkConnectionsInRow(indexOfDropped) ||
+                !this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped)||
+                !this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped)) {
+                    this.board.changePlayer();
+                }
             }, 300);
-
-            this.board.changePlayer();
         }
         else {
             window.alert('Välj annan kolumn!');
