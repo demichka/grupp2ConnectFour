@@ -3,6 +3,8 @@ class Column extends Component {
         super();
         this.columnNumber = number;
         this.board = board;
+        this.redSlots = 0;
+        this.yellowSlots = 0;
         this.addEvents({
             'click .column': 'clickColumn'
         });
@@ -11,7 +13,7 @@ class Column extends Component {
     createSlots() {
         this.slots = [];
 
-        for (let slot = 0; slot < 6; slot++) {
+        for (let slot = 0; slot < this.board.rowsCount; slot++) {
             this.slots.push(new Slots(slot));
         }
 
@@ -19,16 +21,31 @@ class Column extends Component {
 
     clickColumn(e) {
         e.stopPropagation();
-        let currentColor = this.board.currentPlayer.color;
-
-        for (let i = this.slots.length - 1; i >= 0; i--) {
-            const element = this.slots[i];
-            if (element.color === 'empty') {
-                element.color = currentColor;
-                element.render();
-                break;
+        if (this.slots[0].color === 'empty') {
+            let currentColor = this.board.currentPlayer.color;
+            let indexOfDropped = 0;
+            for (let i = this.slots.length - 1; i >= 0; i--) {
+                const element = this.slots[i];
+                if (element.color === 'empty') {
+                    element.color = currentColor;
+                    indexOfDropped = i;
+                    element.render();
+                    break;
+                }
             }
+            setTimeout(() => {
+                this.board.checkConnectionsInColumn(this);
+                this.board.checkConnectionsInRow(indexOfDropped);
+                this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped);
+                this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped);
+            }, 300);
+
+            this.board.changePlayer();
         }
-        this.board.changePlayer();
+        else {
+            window.alert('Välj annan kolumn!');
+        }
+
+
     }
 }
