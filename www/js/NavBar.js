@@ -8,6 +8,7 @@ class NavBar extends Component {
       new NavItem('Highscore', '/highscore'),
       new NavItem('Spelregler', '/rules')
     ];
+    this.socialItems = new SocialItems();
   }
 
 }

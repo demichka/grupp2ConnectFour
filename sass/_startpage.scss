@@ -26,9 +26,13 @@
 h1 {
   font-family: 'Gamja Flower';
   font-weight: bold;
-  font-size: 8rem;
+  font-size: 6rem;
   text-shadow: 3px 3px 15px rgba(0,0,0,0.75);
-
+  color: #fff;
+}
+h1 > span {
+  font-size: 3.8rem;
+  font-family: "Comic Sans MS";
 }
 
 h5.h1-caption {
@@ -39,4 +43,32 @@ h5.h1-caption {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);
+}
+
+.external-link-caption {
+  color: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: .2s ease;
+  background-color: #438D8D;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+}
+.external-link-caption > div {
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.external-link-box:hover .external-link-caption {
+  opacity: .9;
+}
+.external-link-box:hover .external-link-caption > div {
+  opacity: 1;
 }

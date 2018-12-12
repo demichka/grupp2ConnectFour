@@ -38,15 +38,13 @@ class Column extends Component {
                 }
             }
             setTimeout(() => {
-                column.board.checkConnectionsInColumn(column);
-                column.board.checkConnectionsInRow(indexOfDropped);
-                column.board.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped);
-                column.board.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped);
-            }, 300);
-
-            if (column.board.active) {
-                column.board.changePlayer();
-            }
+                if (!this.board.checkConnectionsInColumn(this) &&
+                !this.board.checkConnectionsInRow(indexOfDropped) &&
+                !this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped)&&
+                !this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped)) {
+                    this.board.changePlayer();
+                }
+            }, 100);
         }
         else {
             window.alert('Välj annan kolumn!');
