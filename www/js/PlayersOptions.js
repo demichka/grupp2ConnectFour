@@ -110,10 +110,30 @@ class PlayersOptions extends Component {
     ) {
       $('.badge').remove();
       let colors = this.randomColor();
-      let playerOne = new Player(nameOne.value, colors[0]);
-      let playerTwo = new Player(nameTwo.value, colors[1]);
-      playerOne.human = true ? typeOne.value === 'human' : false;
-      playerTwo.human = true ? typeTwo.value === 'human' : false;
+
+      let playerOne;
+      let playerTwo;
+      if (typeOne.value === 'human') {
+        playerOne = new Player(nameOne.value, colors[0]);
+        playerOne.human = true;
+      }
+      if (typeOne.value === 'bot') {
+        playerOne = new PlayerBot(nameOne.value, colors[0]);
+        playerOne.human = false;
+      }
+      if (typeTwo.value === 'human') {
+        playerTwo = new Player(nameTwo.value, colors[1]);
+        playerTwo.human = true;
+      }
+      if (typeTwo.value === 'bot') {
+        playerTwo = new PlayerBot(nameTwo.value, colors[1]);
+        playerTwo.human = false;
+      }
+
+      // let playerOne = new Player(nameOne.value, colors[0]);
+      // let playerTwo = new Player(nameTwo.value, colors[1]);
+      // playerOne.human = true ? typeOne.value === 'human' : false;
+      // playerTwo.human = true ? typeTwo.value === 'human' : false;
       this.players.push(playerOne, playerTwo);
       this.active = false;
 

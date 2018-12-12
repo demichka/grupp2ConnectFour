@@ -21,6 +21,10 @@ class Column extends Component {
 
     clickColumn(e) {
         e.stopPropagation();
+        this.makeMove();
+    }
+
+    makeMove() {
         if (this.slots[0].color === 'empty') {
             let currentColor = this.board.currentPlayer.color;
             let indexOfDropped = 0;
@@ -45,7 +49,5 @@ class Column extends Component {
         else {
             window.alert('Välj annan kolumn!');
         }
-
-
     }
 }
