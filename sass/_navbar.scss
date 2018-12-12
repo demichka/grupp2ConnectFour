@@ -1,6 +1,16 @@
-.navbar-brand {
-    height: 60px;
-    img {
-        height: 100%;
+nav {
+    .navbar-brand {
+        height: 60px;
+        img {
+            height: 100%;
+        }
     }
+    .nav-link {
+        font-size: 1.1rem;
+    }
+
+}
+
+.logga {
+    border-radius: 50%;
 }

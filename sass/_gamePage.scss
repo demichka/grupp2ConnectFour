@@ -1,17 +1,21 @@
 .game-board{
     display: inline-block;
     border: 10px;
+    
   }
 
 .column-wrap {
   width: calc(100%/7);
+ 
 }  
 .column {
   cursor: pointer;
+  
 }
   .slots {
-    background-color: rgb(247, 244, 244);
+    background-color: rgba(125,121,125,1);
     pointer-events: none;
+    
     &.red {
       & > div {
         & > div {
@@ -57,25 +61,29 @@
   text-align: left;
   li {
     padding: 7px;
-    border: 1px solid $gray-400;
     border-radius: $border-radius;
+    background-color: blue;
+  -webkit-box-shadow: 0px 0px 20px 8px rgba(185, 180, 185,1);
+  -moz-box-shadow: 0px 0px 20px 8px rgba(185, 180, 185,1);
+   box-shadow: 0px 0px 20px 8px rgba(185, 180, 185,1);
     &.red {
       &.current {
-        border-color: #ff0000;
+       
         box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
+        -webkit-box-shadow: 0px 0px 20px 8px rgb(250, 18, 18);
+  -moz-box-shadow: 0px 0px 20px 8px rgb(250, 18, 18);
+   box-shadow: 0px 0px 20px 8px rgba(250, 18, 18,1);
       }
-      .player-color {
-        background-color: #ff0000;
-      }
+     
     }
     &.yellow {
       &.current {
-        border-color: gold;
         box-shadow: 0 0 0 3px transparentize(gold, .75);
+        -webkit-box-shadow: 0px 0px 20px 8px rgb(234, 250, 18);
+        -moz-box-shadow: 0px 0px 20px 8px rgb(234, 250, 18);
+         box-shadow: 0px 0px 20px 8px rgba(234, 250, 18,1);
       }
-      .player-color {
-        background-color: gold;
-      }
+      
     }
   }
   span {
@@ -83,8 +91,35 @@
     margin: 0 20px;
   }
 }  
-.player-color {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+
+
+.gameGrid {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0px 0px 34px 13px rgba(125,121,125,1);
+  -moz-box-shadow: 0px 0px 34px 13px rgba(125,121,125,1);
+   box-shadow: 0px 0px 34px 13px rgba(125,121,125,1);
+}
+
+.playerButton {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.gameslots {
+  -webkit-box-shadow: inset 0px 0px 36px 0px rgba(8,36,84,1);
+  -moz-box-shadow: inset 0px 0px 36px 0px rgba(8,36,84,1);
+  box-shadow: inset 0px 0px 36px 0px rgba(8,36,84,1);
+}
+
+.abortGameButton {
+  background-color: blue;
+  -webkit-box-shadow: 0px 0px 20px 8px rgb(185, 180, 185);
+  -moz-box-shadow: 0px 0px 20px 8px rgba(185, 180, 185,1);
+   box-shadow: 0px 0px 20px 8px rgba(185, 180, 185,1);
+   text-emphasis-color: white;
+}
+.playerButtonTextColor {
+  color: white;
 }
