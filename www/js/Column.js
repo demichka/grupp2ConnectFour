@@ -21,15 +21,15 @@ class Column extends Component {
 
     clickColumn(e) {
         e.stopPropagation();
-        this.makeMove();
+        this.makeMove(this);
     }
 
-    makeMove() {
-        if (this.slots[0].color === 'empty') {
-            let currentColor = this.board.currentPlayer.color;
+    makeMove(column) {
+        if (column.slots[0].color === 'empty') {
+            let currentColor = column.board.currentPlayer.color;
             let indexOfDropped = 0;
-            for (let i = this.slots.length - 1; i >= 0; i--) {
-                const element = this.slots[i];
+            for (let i = column.slots.length - 1; i >= 0; i--) {
+                const element = column.slots[i];
                 if (element.color === 'empty') {
                     element.color = currentColor;
                     indexOfDropped = i;
@@ -38,13 +38,15 @@ class Column extends Component {
                 }
             }
             setTimeout(() => {
-                this.board.checkConnectionsInColumn(this);
-                this.board.checkConnectionsInRow(indexOfDropped);
-                this.board.checkConnectionsInDecreasingDiagonal(this.columnNumber, indexOfDropped);
-                this.board.checkConnectionsInIncreasingDiagonal(this.columnNumber, indexOfDropped);
+                column.board.checkConnectionsInColumn(column);
+                column.board.checkConnectionsInRow(indexOfDropped);
+                column.board.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped);
+                column.board.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped);
             }, 300);
 
-            this.board.changePlayer();
+            if (column.board.active) {
+                column.board.changePlayer();
+            }
         }
         else {
             window.alert('Välj annan kolumn!');

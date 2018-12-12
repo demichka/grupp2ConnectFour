@@ -123,8 +123,10 @@ class GameBoard extends Component {
         }
     }
     youAreWinner(color) {
+        this.active = false;
         window.alert(`${color} har vunnit!`);
         this.page.restartGame();
+        
     }
 
 
@@ -133,6 +135,9 @@ class GameBoard extends Component {
             for (let i = 0; i < players.length; i++) {
                 if (players[i].myTurn) {
                     this.currentPlayer = players[i];
+                    if(!this.currentPlayer.human) {
+                        this.currentPlayer.botMove();
+                    }
                 }
             }
         }
@@ -143,7 +148,9 @@ class GameBoard extends Component {
         for (let i = 0; i < this.playersNames.players.length; i++) {
             this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
             this.whoIsCurrent(this.playersNames.players);
+            
         }
+        console.log(this.currentPlayer);
         this.page.render();
     }
 

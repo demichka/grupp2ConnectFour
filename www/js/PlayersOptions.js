@@ -130,11 +130,8 @@ class PlayersOptions extends Component {
         playerTwo.human = false;
       }
 
-      // let playerOne = new Player(nameOne.value, colors[0]);
-      // let playerTwo = new Player(nameTwo.value, colors[1]);
-      // playerOne.human = true ? typeOne.value === 'human' : false;
-      // playerTwo.human = true ? typeTwo.value === 'human' : false;
       this.players.push(playerOne, playerTwo);
+
       this.active = false;
 
       console.log(this.players);
