@@ -3,14 +3,12 @@ class GamePage extends Component {
     super();
     this.addRoute('/our-game', 'Vårt spel');
     this.playersOptions = new PlayersOptions();
-    this.gameBoard = new GameBoard();
-    this.playersNames = new PlayersNames();
+    this.gameBoard = new GameBoard(this);
 
 
     this.addEvents({
       'click .abortGameButton': 'restartGame',
-      'click .startGameButton': 'getPlayers',
-      'click .column': 'changePlayer'
+      'click .startGameButton': 'getPlayers'
     });
 
   }
@@ -23,9 +21,9 @@ class GamePage extends Component {
   getPlayers() {
     if (this.playersOptions.getPlayers()) {
       this.gameBoard.createGrid();
-      this.playersNames.players = this.playersOptions.players;
+      this.gameBoard.playersNames.players = this.playersOptions.players;
+      this.gameBoard.currentPlayer = this.gameBoard.whoIsCurrent(this.gameBoard.playersNames.players);
       this.render();
-      this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
     }
   }
 
@@ -35,20 +33,8 @@ class GamePage extends Component {
     this.render();
   }
 
-  whoIsCurrent(players) {
-    let current;
-    for (let i = 0; i < players.length; i++) {
-      if (players[i].myTurn) {
-        current = players[i];
-      }
-    }
-    return current;
-  }
 
-  changePlayer() {
-    for (let i = 0; i < this.playersNames.players.length; i++) {
-      this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
-    }
-    this.render();
-  }
+
+
+
 }

@@ -2,10 +2,9 @@ class Column extends Component {
     constructor(number, board) {
         super();
         this.columnNumber = number;
-        this.isClicked = false;
         this.board = board;
         this.addEvents({
-            'click .column': 'click'
+            'click .column': 'clickColumn'
         });
     }
 
@@ -15,13 +14,21 @@ class Column extends Component {
         for (let slot = 0; slot < 6; slot++) {
             this.slots.push(new Slots(slot));
         }
+
     }
 
-    click(e){
+    clickColumn(e) {
         e.stopPropagation();
-        console.log('clicked');
-        this.isClicked = !this.isClicked;
-        this.board.columnClicked(this.columnNumber, this.isClicked);
-        this.isClicked = !this.isClicked;
+        let currentColor = this.board.currentPlayer.color;
+
+        for (let i = this.slots.length - 1; i >= 0; i--) {
+            const element = this.slots[i];
+            if (element.color === 'empty') {
+                element.color = currentColor;
+                element.render();
+                break;
+            }
+        }
+        this.board.changePlayer();
     }
 }
