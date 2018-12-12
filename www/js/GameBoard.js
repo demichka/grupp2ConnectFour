@@ -110,21 +110,22 @@ class GameBoard extends Component {
             j--;
         }
         this.checkWhoIsWon(countRed, countYellow);
+        return;
     }
 
     checkWhoIsWon(countRed, countYellow) {
         if(countRed === 4) {
             this.youAreWinner('Red');
-            return;
+            return true;
         }
         if(countYellow === 4) {
             this.youAreWinner('Yellow');
-            return;
+            return true;
         }
     }
     youAreWinner(color) {
-        window.alert(`${color} har vunnit!`);
         this.page.restartGame();
+        window.alert(`${color} har vunnit!`);
     }
 
 
