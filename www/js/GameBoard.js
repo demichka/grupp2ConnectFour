@@ -160,10 +160,10 @@ class GameBoard extends Component {
             this.changePlayer();
         }, 100);
     }
-    youAreWinner(color) {
-        this.page.restartGame();
-        window.alert(`${color} har vunnit!`);
-    }
+    youAreWinner() { 
+        $('#modal').modal('show'); 
+        console.log('modal show'); 
+    } 
 
     whoIsCurrent(players) {
         return players.find((player) => { return player.myTurn; });
