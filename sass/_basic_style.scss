@@ -3,6 +3,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
   &>div:first-child {
     display: flex;
     min-height: 100vh;
@@ -15,12 +16,12 @@ body {
   h1 {
     font-family: 'Gamja Flower';
     font-weight: bold;
-    font-size: 5rem;
+    font-size: 6rem;
     text-shadow: 3px 3px 15px rgba(0,0,0,0.75);
     color: #fff;
   }
   h1 > span {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-family: "Comic Sans MS";
   }
   
