@@ -1,0 +1,2 @@
+class ExternalLinks extends Component {
+}

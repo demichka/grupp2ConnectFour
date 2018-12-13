@@ -1,0 +1,52 @@
+footer {
+    dl {
+        dt{
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        dd {
+            white-space: nowrap;
+            @include media-breakpoint-down(sm) {
+                font-size: .875rem;
+            }
+        }
+    }
+    ul.social-network {
+        list-style: none;
+        display: inline;
+        margin-left:0 !important;
+        padding: 0;
+    }
+    ul.social-network li {
+        display: inline;
+        margin: 0 5px;
+    }
+    .icoFacebook{
+        background-image: url('/images/facebook.png');
+    }
+    .icoTwitter{
+        background-image: url('/images/twitter.png');
+    }
+    .icoGoogle{
+        background-image: url('/images/googleplus.png');
+    }
+    .icoLinkedin{
+        background-image: url('/images/linkedin.png');
+    }
+    
+    .icoFacebook, .icoTwitter, .icoGoogle, .icoLinkedin {
+        background-size: cover;
+    }
+    
+    .social-circle li a {
+        display: inline-block;
+        position: relative;
+        margin: 0 auto;
+        border-radius:50%;
+        text-align:center;
+        width: 25px;
+        height: 25px;
+        font-size:20px;
+        background-color: #fff;
+    }
+}

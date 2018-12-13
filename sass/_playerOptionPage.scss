@@ -1,0 +1,18 @@
+.nameInput {
+    .input-group {
+        .badge.badge-danger  {
+            display: inline-block;
+            position: absolute;
+            padding: 7px;
+            &.error-name {
+                bottom: -30px;
+                left: 0;
+            }
+            &.error-type {
+                width: 80px;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}

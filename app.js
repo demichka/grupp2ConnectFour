@@ -39,7 +39,8 @@ app.get('/template-to-js/:template', (req, res) => {
 
 // Serve the index page everywhere so that the
 // frontend router can decide what to do
-app.get('*', (req, res) => {
+app.use((req, res, next) => {
+  if(req.url === '/jsonflex.js' || req.url == '/json-save'){ next(); return; }
   res.sendFile(path.join(__dirname, '/www/index.html'));
 });
 

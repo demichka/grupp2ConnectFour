@@ -68,8 +68,8 @@ class Component {
       let methodName = eventMap[event];
       let type = event.split(' ').shift();
       let selector = event.substr(event.indexOf(' ') + 1);
-      $(document).on(type,`[data-instance-id=${this._id}] ${selector}`, () => {
-        return this[methodName]();
+      $(document).on(type,`[data-instance-id=${this._id}] ${selector}`, (e) => {
+        return this[methodName](e);
       });
     }
   }
@@ -78,6 +78,10 @@ class Component {
     this.route = route;
     this.title = title;
     Router.registerRoute(route);
+  }
+
+  get baseEl(){
+    return $(`[data-instance-id=${this._id}]`);
   }
 
 }
