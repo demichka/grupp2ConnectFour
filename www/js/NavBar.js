@@ -6,7 +6,7 @@ class NavBar extends Component {
       new NavItem('Start', '/'),
       new NavItem('Vårt spel', '/our-game'),
       new NavItem('Highscore', '/highscore'),
-      new NavItem('Spelregler', '/rules')
+      new NavItem('Spelets regler', '/rules')
     ];
     this.socialItems = new SocialItems();
   }
