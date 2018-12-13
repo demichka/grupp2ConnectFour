@@ -121,10 +121,10 @@ class GameBoard extends Component {
             return true;
         }
     }
-    youAreWinner(color) {
-        this.page.restartGame();
-        window.alert(`${color} har vunnit!`);
-    }
+    youAreWinner() { 
+        $('#modal').modal('show'); 
+        console.log('modal show'); 
+    } 
 
 
     whoIsCurrent(players) {
