@@ -12,4 +12,19 @@ body {
       flex: 1;
     }
   }
+  h1 {
+    font-family: 'Gamja Flower';
+    font-weight: bold;
+    font-size: 5rem;
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.75);
+    color: #fff;
+  }
+  h1 > span {
+    font-size: 3.5rem;
+    font-family: "Comic Sans MS";
+  }
+  
+  h5.h1-caption {
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.75);
+  }
 }

@@ -1,29 +1,30 @@
 <div>
-  <h1>V<span>å</span>rt spel</h1>
-  <section class="container game-holder pt-5 mt-5">
-  <div class="row">
+  <div class="mt-3">
+    <h1>V<span>å</span>rt spel</h1>
+  </div>
+  <section class="container game-holder pt-5 mt-5 mb-md-5">
+    <div class="row">
 
-    ${this.gameBoard.active ? this.gameBoard.playersNames : ''}
-    ${this.playersOptions.active ? '' : `
-    <div class="playerButton col-6">
-      <button type="button" class="btn btn-primary btn-ml float-right abortGameButton">Starta om Spelet</button>
+      ${this.gameBoard.active ? this.gameBoard.playersNames : ''}
+      ${this.playersOptions.active ? '' : `
+      <div class="playerButton col-6">
+        <button type="button" class="btn btn-primary btn-ml float-right abortGameButton">Starta om Spelet</button>
+      </div>
+      `}
     </div>
 
+    ${this.playersOptions.active ? this.playersOptions : ''}
+    ${this.gameBoard.active ? this.gameBoard : ''}
+
+
+    <!-- buttons -->
+
+    ${this.gameBoard.active ? '' : `
+
+    <div class="col-12">
+      <button type="button" class="btn btn-primary btn-ml mb-5 mx-auto startGameButton">Starta Spelet</button>
+    </div>
     `}
-  </div>
-
-  ${this.playersOptions.active ? this.playersOptions : ''}
-  ${this.gameBoard.active ? this.gameBoard : ''}
-
-
-  <!-- buttons -->
-
-  ${this.gameBoard.active ? '' : `
-
-  <div class="col-12">
-    <button type="button" class="btn btn-primary btn-ml mb-5 mx-auto startGameButton">Starta Spelet</button>
-  </div>
-  `}
-</section>
+  </section>
 
 </div>

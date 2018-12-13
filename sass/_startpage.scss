@@ -1,13 +1,3 @@
-.test{
-    padding: 2rem;
-    text-align: center;
-}
-
-.welcome_pic{
-    width: 350px;
-    height: 200px;
-}
-
 ._button{
     background-color: blue;
     color: white;
@@ -21,22 +11,6 @@
 ._button:hover{
     transition: 1.5s;
     background-color: rgb(46, 127, 248);
-}
-
-h1 {
-  font-family: 'Gamja Flower';
-  font-weight: bold;
-  font-size: 6rem;
-  text-shadow: 3px 3px 15px rgba(0,0,0,0.75);
-  color: #fff;
-}
-h1 > span {
-  font-size: 3.8rem;
-  font-family: "Comic Sans MS";
-}
-
-h5.h1-caption {
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.75);
 }
 
 .main-content {
@@ -68,7 +42,4 @@ h5.h1-caption {
 
 .external-link-box:hover .external-link-caption {
   opacity: .9;
-}
-.external-link-box:hover .external-link-caption > div {
-  opacity: 1;
 }
