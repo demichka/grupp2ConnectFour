@@ -160,10 +160,10 @@ class GameBoard extends Component {
             this.changePlayer();
         }, 100);
     }
-    youAreWinner(color) {
+    youAreWinner() { 
+        window.alert(`${this.currentPlayer.name} won!`);
         this.page.restartGame();
-        window.alert(`${color} har vunnit!`);
-    }
+    } 
 
     whoIsCurrent(players) {
         return players.find((player) => { return player.myTurn; });
@@ -188,7 +188,6 @@ class GameBoard extends Component {
         }
         this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
         this.botMakeMove();
-        console.log(this.currentPlayer);
         this.page.render();
     }
 }

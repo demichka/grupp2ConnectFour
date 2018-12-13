@@ -134,7 +134,6 @@ class PlayersOptions extends Component {
 
       this.active = false;
 
-      console.log(this.players);
       return true;
     } else {
 
