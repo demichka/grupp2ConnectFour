@@ -161,8 +161,8 @@ class GameBoard extends Component {
         }, 100);
     }
     youAreWinner() { 
-        $('#modal').modal('show'); 
-        console.log('modal show'); 
+        window.alert(`${this.currentPlayer.name} won!`);
+        this.page.restartGame();
     } 
 
     whoIsCurrent(players) {
@@ -188,7 +188,6 @@ class GameBoard extends Component {
         }
         this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
         this.botMakeMove();
-        console.log(this.currentPlayer);
         this.page.render();
     }
 }
