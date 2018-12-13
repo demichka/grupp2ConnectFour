@@ -10,6 +10,7 @@ class GamePage extends Component {
       'click .abortGameButton': 'restartGame',
       'click .startGameButton': 'getPlayers', 
       'click .restartButton': 'restartGame' 
+      'click .startGameButton': 'startGame'
     });
 
   }
@@ -19,14 +20,16 @@ class GamePage extends Component {
     this.playersOptions.active = true;
   }
 
-  getPlayers() {
+  startGame() {
     if (this.playersOptions.getPlayers()) {
       this.gameBoard.createGrid();
       this.gameBoard.playersNames.players = this.playersOptions.players;
       this.gameBoard.currentPlayer = this.gameBoard.whoIsCurrent(this.gameBoard.playersNames.players);
+      this.gameBoard.botMakeMove();
       this.render();
     }
   }
+
 
   restartGame() {
     this.playersOptions.active = true;
