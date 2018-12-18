@@ -173,13 +173,13 @@ class GameBoard extends Component {
 
     botMakeMove() {
         if(!this.currentPlayer.human) {
-                setTimeout(() => {
-                    const column = this.giveColumnToBot();
-                    const indexOfDropped = column.makeMove();
-                    if (indexOfDropped >= 0) {
-                        this.checkWinner(column, indexOfDropped);
-                    }
-                }, 1000);
+            setTimeout(() => {
+                const column = this.giveColumnToBot();
+                const indexOfDropped = column.makeMove();
+                if (indexOfDropped >= 0) {
+                    this.checkWinner(column, indexOfDropped);
+                }
+            }, 1000);
         }
     }
 
@@ -188,6 +188,9 @@ class GameBoard extends Component {
             this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;    
         }
         this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
+        if(!this.currentPlayer.human) {
+            this.baseEl.unbind('click');
+        }
         this.botMakeMove();
         this.page.render();
     }
