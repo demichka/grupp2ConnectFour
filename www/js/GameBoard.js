@@ -158,7 +158,7 @@ class GameBoard extends Component {
                 return;
             }
             this.changePlayer();
-        }, 100);
+        }, 1);
     }
     youAreWinner() {  
         setTimeout(() => $('#modal').modal('show'), 0);  
@@ -173,13 +173,13 @@ class GameBoard extends Component {
 
     botMakeMove() {
         if(!this.currentPlayer.human) {
-                setTimeout(() => {
-                    const column = this.giveColumnToBot();
-                    const indexOfDropped = column.makeMove();
-                    if (indexOfDropped >= 0) {
-                        this.checkWinner(column, indexOfDropped);
-                    }
-                }, 1000);
+            setTimeout(() => {
+                const column = this.giveColumnToBot();
+                const indexOfDropped = column.makeMove();
+                if (indexOfDropped >= 0) {
+                    this.checkWinner(column, indexOfDropped);
+                }
+            }, 1000);
         }
     }
 
