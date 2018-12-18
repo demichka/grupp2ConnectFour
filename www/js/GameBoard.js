@@ -158,7 +158,7 @@ class GameBoard extends Component {
                 return;
             }
             this.changePlayer();
-        }, 100);
+        }, 1);
     }
     youAreWinner() {  
         setTimeout(() => $('#modal').modal('show'), 0);  
@@ -188,9 +188,6 @@ class GameBoard extends Component {
             this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;    
         }
         this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
-        if(!this.currentPlayer.human) {
-            this.baseEl.unbind('click');
-        }
         this.botMakeMove();
         this.page.render();
     }
