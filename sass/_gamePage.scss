@@ -1,103 +1,269 @@
-.game-board{
-    display: inline-block;
-    border: 10px;
-    
-  }
+.game-board {
+  display: inline-block;
+  border: 50px;
+
+}
 
 .column-wrap {
   width: calc(100%/7);
- 
-}  
+
+}
+
 .column {
   cursor: pointer;
-  
+
 }
-  .slots {
-    background-color: rgba(125,121,125,1);
+
+.slots {
+  background-color: rgba(125, 121, 125, 1);
+  pointer-events: none;
+
+  &.red {
+    &>div {
+      &>div {
+        background-color: #8D4343;
+        
+          -webkit-animation: heartbeat 1.8s ease-in 1s infinite alternate ;
+                  animation: heartbeat 1.8s ease-in 1s infinite alternate ;
+ 
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+            transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+            transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+            transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+}
+
+
+
+      }
+    }
+  }
+
+  &.yellow {
+    &>div {
+      &>div {
+        background-color: #D9D963;
+        -webkit-animation: heartbeat 1.8s ease-in 1s infinite alternate ;
+        animation: heartbeat 1.8s ease-in 1s infinite alternate ;
+
+@-webkit-keyframes heartbeat {
+from {
+-webkit-transform: scale(1);
+  transform: scale(1);
+-webkit-transform-origin: center center;
+  transform-origin: center center;
+-webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+10% {
+-webkit-transform: scale(0.91);
+  transform: scale(0.91);
+-webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+17% {
+-webkit-transform: scale(0.98);
+  transform: scale(0.98);
+-webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+33% {
+-webkit-transform: scale(0.87);
+  transform: scale(0.87);
+-webkit-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+45% {
+-webkit-transform: scale(1);
+  transform: scale(1);
+-webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+}
+
+      }
+    }
+  }
+
+  &>div {
+    padding-top: 100%;
+    position: relative;
+    background-color: #438D8D;
     pointer-events: none;
-    
-    &.red {
-      & > div {
-        & > div {
-          background-color: #8D4343;
-        }
-      }
-    }
-    &.yellow {
-      & > div {
-        & > div {
-          background-color: #D9D963;
-        }
-      }
-    }
-    & > div {
-      padding-top: 100%;
-      position:relative;
-      background-color: #438D8D;
+
+    &>div {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      border-radius: 50%;
+      background-color: white;
       pointer-events: none;
-      & > div {
-        position:absolute;
-        top:10%;
-        left: 10%;
-        width: 80%;
-        height: 80%;
-        border-radius: 50%;
-        background-color: white;
-        pointer-events: none;
-      }
     }
   }
-  .action {
-    cursor:pointer;
-  }
-   
-  .disabled {
-    opacity: 0.2;
-    cursor: default;
-  }
+}
+
+.action {
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.2;
+  cursor: default;
+}
 
 .players-list {
   padding-left: 0;
   text-align: left;
+  
+
   li {
+    -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
     padding: 7px;
     border-radius: $border-radius;
     background-color: #438D8D;
-    -webkit-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
-    -moz-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
-    box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
+   // -webkit-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185, 1);
+   // -moz-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185, 1);
+   // box-shadow: 0px 0px 3px 2px rgba(185, 180, 185, 1);
+    
+      -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+              animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+   
+@-webkit-keyframes shake-bottom {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  10% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  90% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+}
+@keyframes shake-bottom {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  10% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  90% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+}
+
+
     &.red {
       &.current {
-        box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgb(250, 18, 18);
-        -moz-box-shadow: 0px 0px 3px 2px rgb(250, 18, 18);
-        box-shadow: 0px 0px 3px 2px rgba(250, 18, 18,1);
+       // box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
+        -webkit-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18,1);
+        -moz-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18,1);
+        box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+       
       }
-     
+
     }
+
     &.yellow {
       &.current {
-        box-shadow: 0 0 0 3px transparentize(gold, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgb(234, 250, 18);
-        -moz-box-shadow: 0px 0px 3px 2px rgb(234, 250, 18);
-         box-shadow: 0px 0px 3px 2px rgba(234, 250, 18,1);
+       // box-shadow: 0 0 0 3px transparentize(gold, .75);
+        -webkit-box-shadow: 0px 0px 3px 2px rgba(234, 250, 20,1);
+        -moz-box-shadow: 0px 0px 3px 2px rgba(234, 250, 18,1);
+        box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
       }
     }
   }
+
   span {
     vertical-align: middle;
     margin: 0 20px;
+   
   }
-}  
+}
 
 .gameGrid {
   margin-top: 50px;
-  margin-bottom: 50px;
-  -webkit-box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);;
-  -moz-box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);;
-  box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);
-  border-radius: 5px;
+  margin-bottom: 80px;
+  -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
 }
+
 
 .playerButton {
   position: relative;
@@ -112,14 +278,164 @@
 }
 
 .abortGameButton {
-  -webkit-box-shadow: 0px 0px 20px 8px rgb(185, 180, 185);
-  -moz-box-shadow: 0px 0px 20px 8px rgba(185, 180, 185,1);
-   box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
-   text-emphasis-color: white;
+  -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  text-emphasis-color: white;
+  -webkit-animation: vibrate-1 0.9s linear infinite both;
+  animation: vibrate-1 0.9s linear infinite both;
+
+  @-webkit-keyframes vibrate-1 {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+
+    20% {
+      -webkit-transform: translate(-2px, 2px);
+      transform: translate(-2px, 2px);
+    }
+
+    40% {
+      -webkit-transform: translate(-2px, -2px);
+      transform: translate(-2px, -2px);
+    }
+
+    60% {
+      -webkit-transform: translate(2px, 2px);
+      transform: translate(2px, 2px);
+    }
+
+    80% {
+      -webkit-transform: translate(2px, -2px);
+      transform: translate(2px, -2px);
+    }
+
+    100% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+  }
+
+  @keyframes vibrate-1 {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+
+    20% {
+      -webkit-transform: translate(-2px, 2px);
+      transform: translate(-2px, 2px);
+    }
+
+    40% {
+      -webkit-transform: translate(-2px, -2px);
+      transform: translate(-2px, -2px);
+    }
+
+    60% {
+      -webkit-transform: translate(2px, 2px);
+      transform: translate(2px, 2px);
+    }
+
+    80% {
+      -webkit-transform: translate(2px, -2px);
+      transform: translate(2px, -2px);
+    }
+
+    100% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+  }
+
+}
+
+.startGameButton {
+  -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  -webkit-animation: vibrate-1 0.9s linear infinite both;
+  animation: vibrate-1 0.9s linear infinite both;
+
+  @-webkit-keyframes vibrate-1 {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+
+    20% {
+      -webkit-transform: translate(-2px, 2px);
+      transform: translate(-2px, 2px);
+    }
+
+    40% {
+      -webkit-transform: translate(-2px, -2px);
+      transform: translate(-2px, -2px);
+    }
+
+    60% {
+      -webkit-transform: translate(2px, 2px);
+      transform: translate(2px, 2px);
+    }
+
+    80% {
+      -webkit-transform: translate(2px, -2px);
+      transform: translate(2px, -2px);
+    }
+
+    100% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+  }
+
+  @keyframes vibrate-1 {
+    0% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+
+    20% {
+      -webkit-transform: translate(-2px, 2px);
+      transform: translate(-2px, 2px);
+    }
+
+    40% {
+      -webkit-transform: translate(-2px, -2px);
+      transform: translate(-2px, -2px);
+    }
+
+    60% {
+      -webkit-transform: translate(2px, 2px);
+      transform: translate(2px, 2px);
+    }
+
+    80% {
+      -webkit-transform: translate(2px, -2px);
+      transform: translate(2px, -2px);
+    }
+
+    100% {
+      -webkit-transform: translate(0);
+      transform: translate(0);
+    }
+  }
 }
 
 .game-holder {
-  background-color: #fff;
+  -webkit-box-shadow: inset -1px 9px 56px 19px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: inset -1px 9px 56px 19px rgba(0, 0, 0, 0.34);
+  box-shadow: inset -1px 9px 56px 19px rgba(0, 0, 0, 0.34);
   border-radius: 5px;
-  box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);
+
+}
+
+.hole {
+  -webkit-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+  box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+
+
+
 }
