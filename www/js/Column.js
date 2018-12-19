@@ -28,7 +28,7 @@ class Column extends Component {
                 setTimeout(() => {
                     this.board.checkWinner(this, indexOfDropped);
                     this.board.clickEnabled = true;
-                }, 100);
+                }, 1000);
             }
         }
         else {
@@ -50,12 +50,9 @@ class Column extends Component {
                     element.isDropped = true;
                     element.hole.render();
                     element.render();
-                    setTimeout(() => {
-                        
+                    setTimeout(() => {    
                         element.isDropped = false;
                     }, 500);
-
-                    
                     return i;
                 }
             }

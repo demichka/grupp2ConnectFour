@@ -170,7 +170,7 @@ class GameBoard extends Component {
                 if (indexOfDropped >= 0) {
                     setTimeout(() => {
                         this.checkWinner(column, indexOfDropped);
-                    }, 500);
+                    }, 1000);
                 }
             }, 1000);
         }
