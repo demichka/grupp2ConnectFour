@@ -21,7 +21,7 @@
   &.red {
     &>div {
       &>div {
-        background-color: #8D4343;
+        background-color: rgb(226, 67, 67);
 
         -webkit-animation: heartbeat 1.8s ease-in 1s infinite alternate;
         animation: heartbeat 1.8s ease-in 1s infinite alternate;
@@ -74,7 +74,7 @@
   &.yellow {
     &>div {
       &>div {
-        background-color: #D9D963;
+        background-color: rgb(240, 240, 83);
         -webkit-animation: heartbeat 1.8s ease-in 1s infinite alternate;
         animation: heartbeat 1.8s ease-in 1s infinite alternate;
 
@@ -165,7 +165,108 @@
     // -moz-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185, 1);
     // box-shadow: 0px 0px 3px 2px rgba(185, 180, 185, 1);
 
-    -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  
+
+    &.red {
+      &.current {
+        // box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
+        -webkit-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+        -moz-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+        box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+       // -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+        animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    
+        @-webkit-keyframes shake-bottom {
+    
+          0%,
+          100% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+          }
+    
+          10% {
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+          }
+    
+          20%,
+          40%,
+          60% {
+            -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+          }
+    
+          30%,
+          50%,
+          70% {
+            -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+          }
+    
+          80% {
+            -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+          }
+    
+          90% {
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+          }
+        }
+    
+        @keyframes shake-bottom {
+    
+          0%,
+          100% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+          }
+    
+          10% {
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+          }
+    
+          20%,
+          40%,
+          60% {
+            -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+          }
+    
+          30%,
+          50%,
+          70% {
+            -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+          }
+    
+          80% {
+            -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+          }
+    
+          90% {
+            -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+          }
+        }
+    
+      }
+
+    }
+
+    &.yellow {
+      &.current {
+        // box-shadow: 0 0 0 3px transparentize(gold, .75);
+        -webkit-box-shadow: 0px 0px 3px 2px rgba(234, 250, 20, 1);
+        -moz-box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
+        box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
+       // -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
     animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 
     @-webkit-keyframes shake-bottom {
@@ -248,24 +349,6 @@
       }
     }
 
-
-    &.red {
-      &.current {
-        // box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
-        -moz-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
-        box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
-
-      }
-
-    }
-
-    &.yellow {
-      &.current {
-        // box-shadow: 0 0 0 3px transparentize(gold, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgba(234, 250, 20, 1);
-        -moz-box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
-        box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
       }
     }
   }
