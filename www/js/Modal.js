@@ -1,6 +1,12 @@
 class Modal extends Component{
-    constructor(){
+    constructor(page){
         super();
-        this.modal = new Modal();
+        this.page = page;
+    }
+    showModal(){
+        //if there is a winner
+        setTimeout(() => $('#modal').modal('show'), 0);
+        console.log('modal show');  
+        //show this.modal in gameboard.html
     }
 }

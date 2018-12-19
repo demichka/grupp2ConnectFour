@@ -6,7 +6,7 @@ class GameBoard extends Component {
         this.currentPlayer = '';
         this.page = page;
         this.columnsCount = 7;
-        this.rowsCount = 6;
+        this.rowsCount = 6;        
     }
     createGrid() {
         this.active = true;
@@ -161,8 +161,7 @@ class GameBoard extends Component {
         }, 1);
     }
     youAreWinner() {  
-        setTimeout(() => $('#modal').modal('show'), 0);  
-        console.log('modal show');  
+        this.page.modal.showModal();
     }  
  
 
