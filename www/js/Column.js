@@ -21,13 +21,19 @@ class Column extends Component {
     }
 
     clickColumn(e) {
-        e.stopPropagation();
-        $(this).parents('.gameboard').unbind('click');
+        if (this.board.currentPlayer.human) {
+            e.stopPropagation();
+        $(this).parents('.gameboard').off('click');
         const indexOfDropped = this.makeMove();
-        $(this).parents('.gameboard').bind('click');
+        $(this).parents('.gameboard').on('click');
         if (indexOfDropped >= 0) {
             this.board.checkWinner(this, indexOfDropped);
         }
+        }
+        else {
+            return;
+        }
+        
     }
 
     get isEmpty() {

@@ -6,7 +6,7 @@ class GameBoard extends Component {
         this.currentPlayer = '';
         this.page = page;
         this.columnsCount = 7;
-        this.rowsCount = 6;
+        this.rowsCount = 6;        
     }
     createGrid() {
         this.active = true;
@@ -158,11 +158,12 @@ class GameBoard extends Component {
                 return;
             }
             this.changePlayer();
+
         }, 1000);
+
     }
     youAreWinner() {  
-        setTimeout(() => $('#modal').modal('show'), 0);  
-        console.log('modal show');  
+        this.page.modal.showModal();
     }  
  
 
@@ -173,6 +174,7 @@ class GameBoard extends Component {
 
     botMakeMove() {
         if(!this.currentPlayer.human) {
+
                 setTimeout(() => {
                     const column = this.giveColumnToBot();
                     const indexOfDropped = column.makeMove();
@@ -180,6 +182,7 @@ class GameBoard extends Component {
                         this.checkWinner(column, indexOfDropped);
                     }
                 }, 1100);
+
         }
     }
 
