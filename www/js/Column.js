@@ -41,7 +41,9 @@ class Column extends Component {
                 const element = this.slots[i];
                 if (element.color === 'empty') {
                     element.color = currentColor;
+                    element.isDropped = true;
                     element.render();
+                    element.isDropped = false;
                     return i;
                 }
             }

@@ -158,7 +158,7 @@ class GameBoard extends Component {
                 return;
             }
             this.changePlayer();
-        }, 100);
+        }, 1000);
     }
     youAreWinner() {  
         setTimeout(() => $('#modal').modal('show'), 0);  
@@ -179,7 +179,7 @@ class GameBoard extends Component {
                     if (indexOfDropped >= 0) {
                         this.checkWinner(column, indexOfDropped);
                     }
-                }, 1000);
+                }, 1100);
         }
     }
 
