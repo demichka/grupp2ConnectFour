@@ -4,6 +4,8 @@ class GamePage extends Component {
     this.addRoute('/our-game', 'Vårt spel');
     this.playersOptions = new PlayersOptions();
     this.gameBoard = new GameBoard(this);
+    this.modal = new Modal(this);
+
 
 
     this.addEvents({

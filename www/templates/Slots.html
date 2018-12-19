@@ -1,8 +1,7 @@
-<div class="slots ${this.numberInColumn}  ${this.color}">
-    <div class="gameslots">
-        <div class="hole">
-            
-        </div>
+<div class="slots ${this.numberInColumn}  ${this.color} ">
+    <div class="gameslots ${this.isDropped ? 'dropped' : ''}" >
+        ${this.hole}
+        <div class="emptyHole"></div>
     </div>
     
 </div>
