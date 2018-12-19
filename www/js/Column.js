@@ -26,7 +26,7 @@ class Column extends Component {
         const indexOfDropped = this.makeMove();
         $(this).parents('.gameboard').bind('click');
         if (indexOfDropped >= 0) {
-            this.board.checkWinner(this,indexOfDropped);
+            this.board.checkWinner(this, indexOfDropped);
         }
     }
 
@@ -42,13 +42,18 @@ class Column extends Component {
                 if (element.color === 'empty') {
                     element.color = currentColor;
                     element.isDropped = true;
+                    element.hole.render();
                     element.render();
-                    element.isDropped = false;
+                    setTimeout(() => {
+                        
+                        element.isDropped = false;
+                    }, 500);
+
+                    
                     return i;
                 }
             }
-        }
-        else {
+        } else {
             window.alert('Välj annan kolumn!');
             return -1;
         }
