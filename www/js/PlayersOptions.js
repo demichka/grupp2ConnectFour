@@ -118,7 +118,7 @@ class PlayersOptions extends Component {
         playerOne.human = true;
       }
       if (typeOne.value === 'bot') {
-        playerOne = new PlayerBot(nameOne.value, colors[0]);
+        playerOne = new Player(nameOne.value, colors[0]);
         playerOne.human = false;
       }
       if (typeTwo.value === 'human') {
@@ -126,7 +126,7 @@ class PlayersOptions extends Component {
         playerTwo.human = true;
       }
       if (typeTwo.value === 'bot') {
-        playerTwo = new PlayerBot(nameTwo.value, colors[1]);
+        playerTwo = new Player(nameTwo.value, colors[1]);
         playerTwo.human = false;
       }
 
