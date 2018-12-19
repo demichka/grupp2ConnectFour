@@ -10,13 +10,21 @@ class GameBoard extends Component {
         this.clickEnabled = true;
     }
     createGrid() {
-        this.active = true;
         this.grid = [];
         for (let col = 0; col < this.columnsCount; col++) {
             this.column = new Column(col, this);
             this.column.createSlots();
             this.grid.push(this.column);
         }
+    }
+    
+
+    resetGrid() {
+        this.active = false;
+        this.grid.length = 0;
+        this.createGrid();
+        this.render();
+
     }
 
     giveColumnToBot() {
@@ -163,7 +171,7 @@ class GameBoard extends Component {
     }
 
     botMakeMove() {
-        if (!this.currentPlayer.human) {
+        if (!this.currentPlayer.human && this.active) {
             setTimeout(() => {
                 const column = this.giveColumnToBot();
                 const indexOfDropped = column.makeMove();
