@@ -140,11 +140,13 @@ class GameBoard extends Component {
 
     checkWhoWon(countRed, countYellow) {
         if (countRed === 4) {
-            this.youAreWinner('Red');
-            return true;
+            let redWon = this.players.filter(player => player.color === 'red');
+            this.youAreWinner(redWon[0]);
+            return true; 
         }
         if (countYellow === 4) {
-            this.youAreWinner('Yellow');
+            let yellowWon = this.players.filter(player => player.color === 'yellow');
+            this.youAreWinner(yellowWon[0]);
             return true;
         }
         return false;
@@ -160,9 +162,8 @@ class GameBoard extends Component {
         this.changePlayer();
     }
 
-    youAreWinner() {
-        setTimeout(() => $('#modal').modal('show'), 0);
-        console.log('modal show');
+    youAreWinner(name) {
+        this.page.modal.showModal(name);
         //this.board.audio2.play();
     }
 
