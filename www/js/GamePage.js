@@ -5,6 +5,8 @@ class GamePage extends Component {
     this.playersOptions = new PlayersOptions();
     this.gameBoard = new GameBoard(this);
     this.modal = new Modal(this);
+    
+
 
 
 
