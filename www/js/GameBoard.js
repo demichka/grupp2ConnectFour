@@ -56,7 +56,6 @@ class GameBoard extends Component {
     checkConnectionsInRow(indexOfDropped) {
         let countRed = 0;
         let countYellow = 0;
-        let tiedColors = false;
         for (let i = 0; i < this.grid.length && countRed < 4 && countYellow < 4; i++) {
             let column = this.grid[i];
             if (column.slots[indexOfDropped].color === 'red') {
@@ -71,12 +70,8 @@ class GameBoard extends Component {
                 countRed = 0;
                 countYellow = 0;
             }
-
-            /* else
-            i >= grid.length && countRed < 4 && countYellow < 4; */
-            
         }
-        return this.checkWhoWon(countRed, countYellow, tiedColors);
+        return this.checkWhoWon(countRed, countYellow);
     }
 
     checkConnectionsInDecreasingDiagonal(indexX, indexY) {
@@ -142,17 +137,13 @@ class GameBoard extends Component {
         return this.checkWhoWon(countRed, countYellow);
     }
 
-    checkWhoWon(countRed, countYellow, tiedColors) {
+    checkWhoWon(countRed, countYellow) {
         if(countRed === 4) {
             this.youAreWinner('Red');
             return true;
         }
         if(countYellow === 4) {
             this.youAreWinner('Yellow');
-            return true;
-        }
-        else if (tiedColors){
-            this.gameIsTied('Tie');
             return true;
         }
         return false;
@@ -171,11 +162,7 @@ class GameBoard extends Component {
     }
     youAreWinner() {  
         this.page.modal.showModal();
-    }
-    
-    gameIsTied() {  
-        this.page.modal.tiedModal();
-    }
+    }  
  
 
     whoIsCurrent(players) {
