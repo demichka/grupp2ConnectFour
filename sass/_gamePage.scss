@@ -18,105 +18,26 @@
   background-color: rgba(125, 121, 125, 1);
   pointer-events: none;
 
+  &>div {
+    .hole {
+      background-color: #fff;
+    }
+  }
+
+
+
   &.red {
     &>div {
-      &>div {
-        background-color: #8D4343;
-
-        -webkit-animation: heartbeat 1.8s ease-in 1s infinite alternate;
-        animation: heartbeat 1.8s ease-in 1s infinite alternate;
-
-        @-webkit-keyframes heartbeat {
-          from {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-transform-origin: center center;
-            transform-origin: center center;
-            -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-          }
-
-          10% {
-            -webkit-transform: scale(0.91);
-            transform: scale(0.91);
-            -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-          }
-
-          17% {
-            -webkit-transform: scale(0.98);
-            transform: scale(0.98);
-            -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-          }
-
-          33% {
-            -webkit-transform: scale(0.87);
-            transform: scale(0.87);
-            -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-          }
-
-          45% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-          }
-        }
-
-
-
+      .hole {
+        background-color: rgb(226, 67, 67);
       }
     }
   }
 
   &.yellow {
     &>div {
-      &>div {
-        background-color: #D9D963;
-        -webkit-animation: heartbeat 1.8s ease-in 1s infinite alternate;
-        animation: heartbeat 1.8s ease-in 1s infinite alternate;
-
-        @-webkit-keyframes heartbeat {
-          from {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-transform-origin: center center;
-            transform-origin: center center;
-            -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-          }
-
-          10% {
-            -webkit-transform: scale(0.91);
-            transform: scale(0.91);
-            -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-          }
-
-          17% {
-            -webkit-transform: scale(0.98);
-            transform: scale(0.98);
-            -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-          }
-
-          33% {
-            -webkit-transform: scale(0.87);
-            transform: scale(0.87);
-            -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-          }
-
-          45% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-            -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-          }
-        }
-
+      .hole {
+        background-color: rgb(240, 240, 83);
       }
     }
   }
@@ -155,9 +76,9 @@
 
 
   li {
-    -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
-    -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
-    box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+   // -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    //-moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    //box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
     padding: 7px;
     border-radius: $border-radius;
     background-color: #438D8D;
@@ -165,96 +86,99 @@
     // -moz-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185, 1);
     // box-shadow: 0px 0px 3px 2px rgba(185, 180, 185, 1);
 
-    -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-    animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-
-    @-webkit-keyframes shake-bottom {
-
-      0%,
-      100% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
-      }
-
-      10% {
-        -webkit-transform: rotate(2deg);
-        transform: rotate(2deg);
-      }
-
-      20%,
-      40%,
-      60% {
-        -webkit-transform: rotate(-4deg);
-        transform: rotate(-4deg);
-      }
-
-      30%,
-      50%,
-      70% {
-        -webkit-transform: rotate(4deg);
-        transform: rotate(4deg);
-      }
-
-      80% {
-        -webkit-transform: rotate(-2deg);
-        transform: rotate(-2deg);
-      }
-
-      90% {
-        -webkit-transform: rotate(2deg);
-        transform: rotate(2deg);
-      }
-    }
-
-    @keyframes shake-bottom {
-
-      0%,
-      100% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transform-origin: 50% 100%;
-        transform-origin: 50% 100%;
-      }
-
-      10% {
-        -webkit-transform: rotate(2deg);
-        transform: rotate(2deg);
-      }
-
-      20%,
-      40%,
-      60% {
-        -webkit-transform: rotate(-4deg);
-        transform: rotate(-4deg);
-      }
-
-      30%,
-      50%,
-      70% {
-        -webkit-transform: rotate(4deg);
-        transform: rotate(4deg);
-      }
-
-      80% {
-        -webkit-transform: rotate(-2deg);
-        transform: rotate(-2deg);
-      }
-
-      90% {
-        -webkit-transform: rotate(2deg);
-        transform: rotate(2deg);
-      }
-    }
 
 
     &.red {
       &.current {
+        background-color:rgb(226, 67, 67);
         // box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
-        -moz-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
-        box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+       // -webkit-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+       // -moz-box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+       // box-shadow: 0px 0px 3px 2px rgba(250, 18, 18, 1);
+
+        -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+
+        
+         // -webkit-animation: jello-horizontal 0.9s both;
+                  animation: jello-horizontal 0.9s both;
+        
+
+        @-webkit-keyframes jello-horizontal {
+          0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+
+          30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+          }
+
+          40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+          }
+
+          50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+          }
+
+          65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+          }
+
+          75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+          }
+
+          100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+        }
+
+        @keyframes jello-horizontal {
+          0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+
+          30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+          }
+
+          40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+          }
+
+          50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+          }
+
+          65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+          }
+
+          75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+          }
+
+          100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+        }
+
 
       }
 
@@ -262,10 +186,94 @@
 
     &.yellow {
       &.current {
+        background-color: rgb(240, 240, 83);
         // box-shadow: 0 0 0 3px transparentize(gold, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgba(234, 250, 20, 1);
-        -moz-box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
-        box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
+       // -webkit-box-shadow: 0px 0px 3px 2px rgba(234, 250, 20, 1);
+       // -moz-box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
+       // box-shadow: 0px 0px 3px 2px rgba(234, 250, 18, 1);
+       
+        -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+        
+         // -webkit-animation: jello-horizontal 0.9s both;
+                  animation: jello-horizontal 0.9s both;
+        
+
+        @-webkit-keyframes jello-horizontal {
+          0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+
+          30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+          }
+
+          40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+          }
+
+          50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+          }
+
+          65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+          }
+
+          75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+          }
+
+          100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+        }
+
+        @keyframes jello-horizontal {
+          0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+
+          30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+          }
+
+          40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+          }
+
+          50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+          }
+
+          65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+          }
+
+          75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+          }
+
+          100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+          }
+        }
+
       }
     }
   }
@@ -452,11 +460,25 @@
 
 }
 
-.hole {
+
+.hole,
+.emptyHole {
+  background-color: #fff;
   -webkit-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
   -moz-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
   box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+}
 
+.hole {
+  z-index: 200;
+}
 
+.emptyHole {
+  z-index: 180;
+}
 
+.dropped {
+  .hole {
+    @include slot-move();
+  }
 }

@@ -7,6 +7,6 @@ class Modal extends Component{
         //if there is a winner
         setTimeout(() => $('#modal').modal('show'), 0);
         console.log('modal show');  
-        //show this.modal in gameboard.html
+        //show this.modal in gameboard.html test
     }
 }

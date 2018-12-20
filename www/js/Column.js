@@ -8,7 +8,6 @@ class Column extends Component {
         this.addEvents({
             'click .column': 'clickColumn'
         });
-
     }
 
     createSlots() {
@@ -21,19 +20,20 @@ class Column extends Component {
     }
 
     clickColumn(e) {
-        if (this.board.currentPlayer.human) {
+        if (this.board.currentPlayer.human && this.board.clickEnabled) {
             e.stopPropagation();
-        $(this).parents('.gameboard').off('click');
-        const indexOfDropped = this.makeMove();
-        $(this).parents('.gameboard').on('click');
-        if (indexOfDropped >= 0) {
-            this.board.checkWinner(this,indexOfDropped);
-        }
+            this.board.clickEnabled = false;
+            const indexOfDropped = this.makeMove();
+            if (indexOfDropped >= 0) {
+                setTimeout(() => {
+                    this.board.checkWinner(this, indexOfDropped);
+                    this.board.clickEnabled = true;
+                }, 1000);
+            }
         }
         else {
             return;
-        }
-        
+        }        
     }
 
     get isEmpty() {
@@ -47,12 +47,16 @@ class Column extends Component {
                 const element = this.slots[i];
                 if (element.color === 'empty') {
                     element.color = currentColor;
+                    element.isDropped = true;
+                    element.hole.render();
                     element.render();
+                    setTimeout(() => {    
+                        element.isDropped = false;
+                    }, 500);
                     return i;
                 }
             }
-        }
-        else {
+        } else {
             window.alert('Välj annan kolumn!');
             return -1;
         }
