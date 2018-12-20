@@ -3,7 +3,9 @@ class GamePage extends Component {
     super();
     this.addRoute('/our-game', 'Vårt spel');
     this.playersOptions = new PlayersOptions();
+    this.savedSession = new PlayersNames();
     this.gameBoard = new GameBoard(this);
+    this.currentPlayer = '';
     this.modal = new Modal(this);
     this.restartBtn = new RestartBtn(this);
 
@@ -26,21 +28,26 @@ class GamePage extends Component {
   launchGame() {
     if (this.playersOptions.getPlayers()) {
       this.gameBoard.createGrid();
-      this.gameBoard.playersNames.players = this.playersOptions.players;
-      this.gameBoard.currentPlayer = this.gameBoard.whoIsCurrent(this.gameBoard.playersNames.players);
+      this.savedSession.players = this.playersOptions.players;
+      console.log(this.savedSession.players, 'on start');
+      this.gameBoard.players = this.savedSession.players;
+      console.log(this.savedSession.players);
+      this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
       this.gameBoard.active = true;
     }
   }
 
   startGame() {
       this.launchGame();
+      this.savePlayers();
       this.gameBoard.botMakeMove();
       this.render();
+      console.log(this.savedSession.players);
   }
 
   resetCurrentPlayer() {
-    if (this.gameBoard.playersNames.players.length > 0) {
-      let players = this.gameBoard.playersNames.players;
+    let players = this.gameBoard.players;
+    if (players.length > 0) {
       console.log(players);
       for (let i = 0; i < players.length; i++) {
         if (players[i].color === 'red') {
@@ -53,13 +60,29 @@ class GamePage extends Component {
       return;
     }
   }
+  
+  whoIsCurrent(players) {
+    return players.find((player) => {
+        return player.myTurn;
+    });
+}
+
+savePlayers() {
+  JSON._save('savedPlayers.json', this.savedSession.players).then(function(){
+    console.log('Saved!');
+  });
+}
 
   restartGame() {
     this.gameBoard.active = false;
     console.log(this.gameBoard.active);
-    this.resetCurrentPlayer();
-    this.gameBoard.resetGrid();
-    this.gameBoard.currentPlayer = this.gameBoard.whoIsCurrent(this.gameBoard.playersNames.players);
+    console.log(this.saveSession.players, 'saved');
+    this.gameBoard.players = this.savedSession.players;
+    console.log(this.gameBoard.players, 'reset');
+    // this.resetCurrentPlayer();
+    this.gameBoard = new GameBoard(this);
+    this.gameBoard.createGrid();
+    this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
     this.gameBoard.active = true;
     console.log(this.gameBoard.active);
     this.gameBoard.botMakeMove();
@@ -70,8 +93,8 @@ class GamePage extends Component {
   abortGame() {
     this.gameBoard.active = false;
     this.playersOptions.active = true;
-    this.gameBoard.playersNames.players.length = 0;
-    console.log(this.gameBoard.playersNames.players);
+    this.savedSession.players.length = 0;
+    console.log(this.saveSession.players);
     this.render();
     console.log('inputs rendered');
   }

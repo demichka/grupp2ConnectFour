@@ -2,8 +2,6 @@ class GameBoard extends Component {
     constructor(page) {
         super();
         this.active = false;
-        this.playersNames = new PlayersNames();
-        this.currentPlayer = '';
         this.page = page;
         this.columnsCount = 7;
         this.rowsCount = 6;
@@ -164,14 +162,8 @@ class GameBoard extends Component {
         console.log('modal show');
     }
 
-    whoIsCurrent(players) {
-        return players.find((player) => {
-            return player.myTurn;
-        });
-    }
-
     botMakeMove() {
-        if (this.active && !this.currentPlayer.human) {
+        if (this.active && !this.page.currentPlayer.human) {
             setTimeout(() => {
                 const column = this.giveColumnToBot();
                 const indexOfDropped = column.makeMove();
@@ -186,10 +178,10 @@ class GameBoard extends Component {
 
     changePlayer() {
         if(this.active === true) {
-            for (let i = 0; i < this.playersNames.players.length; i++) {
-                this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
+            for (let i = 0; i < this.players.length; i++) {
+                this.players[i].myTurn = !this.players[i].myTurn;
             }
-            this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
+            this.page.currentPlayer = this.page.whoIsCurrent(this.players);
             this.botMakeMove();
             this.page.render();
         }

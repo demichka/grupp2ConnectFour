@@ -5,7 +5,7 @@
   <section class="container game-holder pt-5 mt-5 mb-md-5">
     <div class="row">
 
-      ${this.gameBoard.active ? this.gameBoard.playersNames : ''}
+      ${this.gameBoard.active ? this.savedSession : ''}
       ${this.playersOptions.active ? '' : `
       <div class="playerButton col-6">
         <button type="button" class="btn btn-primary btn-ml float-right abortGameButton">Avbryt Spelet</button>
