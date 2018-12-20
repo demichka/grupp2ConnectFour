@@ -6,6 +6,9 @@ class GameBoard extends Component {
         this.columnsCount = 7;
         this.rowsCount = 6;
         this.clickEnabled = true;
+        this.audio = new Audio ("/audio/drop.mp3");
+       
+        
     }
     createGrid() {
         this.grid = [];
@@ -160,6 +163,7 @@ class GameBoard extends Component {
     youAreWinner() {
         setTimeout(() => $('#modal').modal('show'), 0);
         console.log('modal show');
+        //this.board.audio2.play();
     }
 
     botMakeMove() {

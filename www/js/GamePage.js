@@ -11,6 +11,7 @@ class GamePage extends Component {
 
 
 
+
     this.addEvents({
       'click .abortGameButton': 'abortGame',
       'click .startGameButton': 'startGame',

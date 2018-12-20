@@ -48,6 +48,8 @@ class Column extends Component {
                 if (element.color === 'empty') {
                     element.color = currentColor;
                     element.isDropped = true;
+                    // drop sound
+                    this.board.audio.play();
                     element.hole.render();
                     element.render();
                     setTimeout(() => {    
