@@ -171,7 +171,7 @@ class GameBoard extends Component {
     }
 
     botMakeMove() {
-        if (!this.currentPlayer.human && this.active) {
+        if (this.active && !this.currentPlayer.human) {
             setTimeout(() => {
                 const column = this.giveColumnToBot();
                 const indexOfDropped = column.makeMove();
@@ -185,11 +185,13 @@ class GameBoard extends Component {
     }
 
     changePlayer() {
-        for (let i = 0; i < this.playersNames.players.length; i++) {
-            this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
+        if(this.active === true) {
+            for (let i = 0; i < this.playersNames.players.length; i++) {
+                this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
+            }
+            this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
+            this.botMakeMove();
+            this.page.render();
         }
-        this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
-        this.botMakeMove();
-        this.page.render();
     }
 }
