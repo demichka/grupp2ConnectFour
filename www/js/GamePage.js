@@ -25,28 +25,19 @@ class GamePage extends Component {
   }
 
 
-  launchGame() {
+  startGame() {
     if (this.playersOptions.getPlayers()) {
       this.gameBoard.createGrid();
       this.savedSession.players = this.playersOptions.players;
-      console.log(this.savedSession.players, 'on start');
       this.gameBoard.players = this.savedSession.players;
-      console.log(this.savedSession.players);
       this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
       this.gameBoard.active = true;
+      this.gameBoard.botMakeMove();
+      this.render();
     }
   }
 
-  startGame() {
-      this.launchGame();
-      this.savePlayers();
-      this.gameBoard.botMakeMove();
-      this.render();
-      console.log(this.savedSession.players);
-  }
-
-  resetCurrentPlayer() {
-    let players = this.gameBoard.players;
+  resetCurrentPlayer(players) {
     if (players.length > 0) {
       console.log(players);
       for (let i = 0; i < players.length; i++) {
@@ -67,21 +58,16 @@ class GamePage extends Component {
     });
 }
 
-savePlayers() {
-  JSON._save('savedPlayers.json', this.savedSession.players).then(function(){
-    console.log('Saved!');
-  });
-}
 
   restartGame() {
     this.gameBoard.active = false;
     console.log(this.gameBoard.active);
-    console.log(this.saveSession.players, 'saved');
-    this.gameBoard.players = this.savedSession.players;
-    console.log(this.gameBoard.players, 'reset');
-    // this.resetCurrentPlayer();
+    console.log(this.savedSession.players, 'saved');
     this.gameBoard = new GameBoard(this);
     this.gameBoard.createGrid();
+    this.gameBoard.players = this.savedSession.players;
+    this.resetCurrentPlayer(this.gameBoard.players);
+    console.log(this.gameBoard.players, 'reset');
     this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
     this.gameBoard.active = true;
     console.log(this.gameBoard.active);
@@ -94,7 +80,7 @@ savePlayers() {
     this.gameBoard.active = false;
     this.playersOptions.active = true;
     this.savedSession.players.length = 0;
-    console.log(this.saveSession.players);
+    console.log(this.savedSession.players);
     this.render();
     console.log('inputs rendered');
   }
