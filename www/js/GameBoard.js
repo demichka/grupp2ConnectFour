@@ -8,6 +8,8 @@ class GameBoard extends Component {
         this.columnsCount = 7;
         this.rowsCount = 6;
         this.clickEnabled = true;
+        this.slotsFilledWithBricks = 0;
+
     }
     createGrid() {
         this.active = true;
@@ -138,7 +140,14 @@ class GameBoard extends Component {
             this.youAreWinner('Yellow');
             return true;
         }
-        return false;
+        else if (this.slotsFilledWithBricks === 42) {
+            this.gameIsTied('#tiedModal');
+            // alert('Det blev oavgjort!');
+        }
+        else {
+            return false;
+        }
+        
     }
 
     checkWinner(column, indexOfDropped) {
@@ -149,6 +158,15 @@ class GameBoard extends Component {
             return;
         }
         this.changePlayer();
+    }
+
+    get isEmpty() {
+        return this.slots[0].color === 'empty';
+    }
+
+    gameIsTied() {
+        setTimeout(() => $('#tiedModal').tiedModal('show'), 0);
+        console.log('tiedModal show');
     }
 
     youAreWinner() {

@@ -48,6 +48,8 @@ class Column extends Component {
                 if (element.color === 'empty') {
                     element.color = currentColor;
                     element.isDropped = true;
+                    this.board.slotsFilledWithBricks++;
+                    console.log(this.board.slotsFilledWithBricks);
                     element.hole.render();
                     element.render();
                     setTimeout(() => {    
@@ -56,7 +58,8 @@ class Column extends Component {
                     return i;
                 }
             }
-        } else {
+        }
+        else {
             window.alert('Välj annan kolumn!');
             return -1;
         }
