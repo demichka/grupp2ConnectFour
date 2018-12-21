@@ -72,14 +72,26 @@
 
 .players-list {
   padding-left: 0;
-  text-align: left;
-
-
+  float: left;
+  @include media-breakpoint-down(sm) {
+    float: none;
+  }
   li {
-    padding: 7px;
+    min-width: 200px;
+    padding: .375rem .75rem;
+    line-height: 1.5;
     border-radius: $border-radius;
+    border: 1px solid transparent;
+    text-align: center;
     background-color: #438D8D;
-    
+    @include media-breakpoint-down(sm) {
+      min-width: initial;
+      width: 100%;
+      font-size: .9rem;
+      &:first-child {
+        margin-bottom: 5px;
+      }
+    }
     &.red {
       &.current {
         background-color: rgb(226, 67, 67);
@@ -255,12 +267,6 @@
       }
     }
   }
-
-  span {
-    vertical-align: middle;
-    margin: 0 20px;
-
-  }
 }
 
 .gameGrid {
@@ -272,23 +278,33 @@
 }
 
 
-.playerButton {
+.playerButtons {
   position: relative;
   display: inline-block;
   text-align: center;
+  button {
+    -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    text-emphasis-color: white;
+    @include media-breakpoint-up(md) {
+      margin-left: 7px;
+      float: right;
+    }
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      font-size: .9rem;
+      &:first-child {
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
 
 .gameslots {
   -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
   -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
   box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-}
-
-.abortGameButton {
-  -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
-  -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
-  box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
-  text-emphasis-color: white;
 }
 
 .startGameButton {

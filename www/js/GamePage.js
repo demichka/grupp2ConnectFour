@@ -40,7 +40,6 @@ class GamePage extends Component {
 
   resetCurrentPlayer(players) {
     if (players.length > 0) {
-      console.log(players);
       for (let i = 0; i < players.length; i++) {
         if (players[i].color === 'red') {
           players[i].myTurn = true;
@@ -62,16 +61,12 @@ class GamePage extends Component {
 
   restartGame() {
     this.gameBoard.active = false;
-    console.log(this.gameBoard.active);
-    console.log(this.savedSession.players, 'saved');
     this.gameBoard = new GameBoard(this);
     this.gameBoard.createGrid();
     this.gameBoard.players = this.savedSession.players;
     this.resetCurrentPlayer(this.gameBoard.players);
-    console.log(this.gameBoard.players, 'reset');
     this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
     this.gameBoard.active = true;
-    console.log(this.gameBoard.active);
     this.gameBoard.botMakeMove();
     this.render();
   }
@@ -81,9 +76,7 @@ class GamePage extends Component {
     this.gameBoard.active = false;
     this.playersOptions.active = true;
     this.savedSession.players.length = 0;
-    console.log(this.savedSession.players);
     this.render();
-    console.log('inputs rendered');
   }
 
 

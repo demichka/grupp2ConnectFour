@@ -20,7 +20,7 @@ class Column extends Component {
     }
 
     clickColumn(e) {
-        if (this.board.page.currentPlayer.human && this.board.clickEnabled) {
+        if (this.board.page.currentPlayer.human && this.board.clickEnabled && !this.board.gameOver) {
             e.stopPropagation();
             this.board.clickEnabled = false;
             const indexOfDropped = this.makeMove();

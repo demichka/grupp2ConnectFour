@@ -6,6 +6,7 @@ class GameBoard extends Component {
         this.columnsCount = 7;
         this.rowsCount = 6;
         this.clickEnabled = true;
+        this.gameOver = false;
         this.audio = new Audio ("/audio/drop.mp3");
        
         
@@ -17,15 +18,6 @@ class GameBoard extends Component {
             this.column.createSlots();
             this.grid.push(this.column);
         }
-    }
-    
-
-    resetGrid() {
-        this.active = false;
-        this.grid.length = 0;
-        this.createGrid();
-        this.render();
-
     }
 
     giveColumnToBot() {
@@ -157,6 +149,7 @@ class GameBoard extends Component {
             this.checkConnectionsInRow(indexOfDropped) ||
             this.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped) ||
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
+                this.gameOver = true;
             return;
         }
         this.changePlayer();
