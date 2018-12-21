@@ -2,18 +2,16 @@ class GameBoard extends Component {
     constructor(page) {
         super();
         this.active = false;
-        this.playersNames = new PlayersNames();
-        this.currentPlayer = '';
         this.page = page;
         this.columnsCount = 7;
         this.rowsCount = 6;
         this.clickEnabled = true;
+        this.gameOver = false;
         this.audio = new Audio ("/audio/drop.mp3");
        
         
     }
     createGrid() {
-        this.active = true;
         this.grid = [];
         for (let col = 0; col < this.columnsCount; col++) {
             this.column = new Column(col, this);
@@ -134,11 +132,13 @@ class GameBoard extends Component {
 
     checkWhoWon(countRed, countYellow) {
         if (countRed === 4) {
-            this.youAreWinner('Red');
-            return true;
+            let redWon = this.players.filter(player => player.color === 'red');
+            this.youAreWinner(redWon[0]);
+            return true; 
         }
         if (countYellow === 4) {
-            this.youAreWinner('Yellow');
+            let yellowWon = this.players.filter(player => player.color === 'yellow');
+            this.youAreWinner(yellowWon[0]);
             return true;
         }
         return false;
@@ -149,25 +149,19 @@ class GameBoard extends Component {
             this.checkConnectionsInRow(indexOfDropped) ||
             this.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped) ||
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
+                this.gameOver = true;
             return;
         }
         this.changePlayer();
     }
 
-    youAreWinner() {
-        setTimeout(() => $('#modal').modal('show'), 0);
-        console.log('modal show');
+    youAreWinner(name) {
+        this.page.modal.showModal(name);
         //this.board.audio2.play();
     }
 
-    whoIsCurrent(players) {
-        return players.find((player) => {
-            return player.myTurn;
-        });
-    }
-
     botMakeMove() {
-        if (!this.currentPlayer.human) {
+        if (this.active && !this.page.currentPlayer.human) {
             setTimeout(() => {
                 const column = this.giveColumnToBot();
                 const indexOfDropped = column.makeMove();
@@ -181,11 +175,13 @@ class GameBoard extends Component {
     }
 
     changePlayer() {
-        for (let i = 0; i < this.playersNames.players.length; i++) {
-            this.playersNames.players[i].myTurn = !this.playersNames.players[i].myTurn;
+        if(this.active === true) {
+            for (let i = 0; i < this.players.length; i++) {
+                this.players[i].myTurn = !this.players[i].myTurn;
+            }
+            this.page.currentPlayer = this.page.whoIsCurrent(this.players);
+            this.botMakeMove();
+            this.page.render();
         }
-        this.currentPlayer = this.whoIsCurrent(this.playersNames.players);
-        this.botMakeMove();
-        this.page.render();
     }
 }

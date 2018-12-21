@@ -8,11 +8,12 @@
           </button> 
         </div> 
         <div class="modal-body"> 
-          <p>${this.page.gameBoard.currentPlayer.name} har vunnit!</p> 
+          <p>${this.winner ? this.winner.name : ''} har vunnit!</p> 
         </div> 
-        <div class="modal-footer"> 
+        <div class="modal-footer">
+          ${this.page.restartBtn}
           <button type="button" class="btn btn-primary" data-dismiss="modal">Highscore</button> 
-          <button type="button" class="btn btn-secondary restartButton" data-dismiss="modal">stäng</button> 
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">stäng</button> 
         </div> 
       </div> 
     </div> 

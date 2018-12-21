@@ -20,7 +20,7 @@ class Column extends Component {
     }
 
     clickColumn(e) {
-        if (this.board.currentPlayer.human && this.board.clickEnabled) {
+        if (this.board.page.currentPlayer.human && this.board.clickEnabled && !this.board.gameOver) {
             e.stopPropagation();
             this.board.clickEnabled = false;
             const indexOfDropped = this.makeMove();
@@ -42,7 +42,7 @@ class Column extends Component {
 
     makeMove() {
         if (this.isEmpty) {
-            let currentColor = this.board.currentPlayer.color;
+            let currentColor = this.board.page.currentPlayer.color;
             for (let i = this.slots.length - 1; i >= 0; i--) {
                 const element = this.slots[i];
                 if (element.color === 'empty') {

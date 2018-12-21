@@ -37,12 +37,7 @@ app.get('/template-to-js/:template', (req, res) => {
   res.send(html);
 });
 
-// Serve the index page everywhere so that the
-// frontend router can decide what to do
-app.use((req, res, next) => {
-  if(req.url === '/jsonflex.js' || req.url == '/json-save'){ next(); return; }
-  res.sendFile(path.join(__dirname, '/www/index.html'));
-});
+
 
 // start the sass compiler
 for (let conf of config.sass) {

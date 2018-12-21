@@ -3,10 +3,10 @@ class Modal extends Component{
         super();
         this.page = page;
     }
-    showModal(){
+    showModal(winner){
         //if there is a winner
-        setTimeout(() => $('#modal').modal('show'), 0);
-        console.log('modal show');  
-        //show this.modal in gameboard.html test
+        this.winner = winner;
+        this.render();
+        $('#modal').modal('show');
     }
 }
