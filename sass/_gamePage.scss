@@ -36,7 +36,6 @@
         @include shadow-btn();
         @include jello(.9s);
       }
-
     }
 
     &.yellow {
@@ -137,11 +136,13 @@
 .slots {
   background-color: rgba(125, 121, 125, 1);
   pointer-events: none;
+
   &.red {
     .hole {
       background-color: rgb(226, 67, 67);
     }
   }
+
   &.yellow {
     .hole {
       background-color: rgb(240, 240, 83);
