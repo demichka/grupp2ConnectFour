@@ -1,57 +1,6 @@
-.game-board {
-  display: inline-block;
-  border: 50px;
-
-}
-
-.column-wrap {
-  width: calc(100%/7);
-}
-
-.column {
-  cursor: pointer;
-}
-
-.slots {
-  background-color: rgba(125, 121, 125, 1);
-  pointer-events: none;
-  &>div {
-    padding-top: 100%;
-    position: relative;
-    background-color: #438D8D;
-    pointer-events: none;
-
-    &>div {
-      position: absolute;
-      top: 10%;
-      left: 10%;
-      width: 80%;
-      height: 80%;
-      border-radius: 50%;
-      background-color: white;
-      pointer-events: none;
-    }
-  }
-  &.red {
-    .hole {
-      background-color: rgb(226, 67, 67);
-    }
-  }
-
-  &.yellow {
-    .hole {
-      background-color: rgb(240, 240, 83);
-    }
-  }
-}
-
-.action {
-  cursor: pointer;
-}
-
-.disabled {
-  opacity: 0.2;
-  cursor: default;
+.startGameButton {
+  @include shadow-btn();
+  @include vibrate-1(.9s);
 }
 
 .players-list {
@@ -100,45 +49,29 @@
   }
 }
 
-.gameGrid {
-  margin-top: 50px;
-  margin-bottom: 80px;
-  @include shadow-btn();
-}
-
-
 .playerButtons {
   position: relative;
   display: inline-block;
   text-align: center;
+
   button {
     @include shadow-btn();
     text-emphasis-color: white;
+
     @include media-breakpoint-up(md) {
       margin-left: 7px;
       float: right;
     }
+
     @include media-breakpoint-down(sm) {
       width: 100%;
       font-size: .9rem;
+
       &:first-child {
         margin-bottom: 5px;
       }
     }
   }
-}
-
-.gameslots {
-  -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-}
-
-.startGameButton {
-  @include shadow-btn();
-  @include vibrate-1(.9s);
-
-
 }
 
 .game-holder {
@@ -150,10 +83,31 @@
 
 }
 
+.gameGrid {
+  margin-top: 50px;
+  margin-bottom: 80px;
+  @include shadow-btn();
+}
+
+.column-wrap {
+  width: calc(100%/7);
+}
+
+.column {
+  cursor: pointer;
+}
 
 .hole,
 .emptyHole {
-  @include shadow-btn();
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: white;
+  pointer-events: none;
+  @include shadow-slot();
 }
 
 .hole {
@@ -164,8 +118,42 @@
   z-index: 180;
 }
 
-.dropped {
-  .hole {
-    @include slot-move();
+.gameslots {
+  padding-top: 100%;
+  position: relative;
+  background-color: #438D8D;
+  -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+  -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+  box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+  pointer-events: none;
+
+  &.dropped {
+    .hole {
+      @include slot-move();
+    }
   }
+}
+
+.slots {
+  background-color: rgba(125, 121, 125, 1);
+  pointer-events: none;
+  &.red {
+    .hole {
+      background-color: rgb(226, 67, 67);
+    }
+  }
+  &.yellow {
+    .hole {
+      background-color: rgb(240, 240, 83);
+    }
+  }
+}
+
+.action {
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.2;
+  cursor: default;
 }
