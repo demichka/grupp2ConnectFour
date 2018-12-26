@@ -20,7 +20,8 @@
 @import '_winModal.scss';
 
 // Game Page CSS
-@import '_slot-mixin';
+@import '_mixins-animate';
+@import '_mixins-shadows';
 @import '_gamePage';
 @import '_playerOptionPage';
 

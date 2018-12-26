@@ -1,0 +1,11 @@
+@mixin shadow-btn{
+      -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+  box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+}
+
+@mixin shadow-slot() {
+    -webkit-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+    -moz-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+    box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+}
