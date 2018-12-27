@@ -24,59 +24,59 @@
     "winner": true
   },
   {
+    "name": "Pascal",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
     "name": "Aksinia",
     "human": true,
     "color": "yellow",
     "myTurn": true,
-    "score": 5,
+    "score": 4,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
+    "name": "lk",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 4,
     "winner": true
   },
   {
     "name": "Aksinia",
     "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 5,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
     "color": "red",
     "myTurn": true,
-    "score": 6,
+    "score": 4,
     "winner": true
   },
   {
-    "name": "Pascal",
-    "human": false,
-    "color": "red",
-    "myTurn": true,
-    "score": 7,
-    "winner": true
-  },
-  {
-    "name": "Emilia",
+    "name": "Sonja",
     "human": true,
-    "color": "yellow",
+    "color": "red",
     "myTurn": true,
-    "score": 7,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 8,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 9,
+    "score": 4,
     "winner": true
   }
 ]
