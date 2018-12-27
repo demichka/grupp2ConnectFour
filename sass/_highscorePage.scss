@@ -5,3 +5,42 @@
     border-radius: 5px;
     background-color: rgba(247, 248, 248, 0.4);
 }
+
+.highscore-list {
+    width: 100%;
+    margin: 5% 7%;
+    table-layout: fixed;
+    white-space: nowrap;
+    border-collapse: collapse;
+    background-color: darken($accent-color3, 43%);
+    font-size: 1.2rem;
+    text-align: center;
+    vertical-align: middle;
+    @include shadow-light();
+    @include flight-in(.5s);
+    tr {
+        @include shadow-inset-blue();
+        &:hover {
+            td {
+                @include jello(.4s);
+            }
+        }
+        &:first-child {
+            background-color: $secondary;
+        }
+        &:nth-child(even) {
+            background-color: darken($accent-color1, 15%);
+        }
+        td {
+            &:first-child {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+
+    th,
+    td {
+        padding: 15px 0;
+    }
+}

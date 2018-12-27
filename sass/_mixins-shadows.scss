@@ -9,3 +9,15 @@
     -moz-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
     box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
 }
+
+@mixin shadow-light{
+    -webkit-box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.42);
+-moz-box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.42);
+box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.42);
+}
+
+@mixin shadow-inset-blue {
+    -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+    -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+    box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+}
