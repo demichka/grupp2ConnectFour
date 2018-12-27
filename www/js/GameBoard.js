@@ -7,9 +7,9 @@ class GameBoard extends Component {
         this.rowsCount = 6;
         this.clickEnabled = true;
         this.gameOver = false;
-        this.audio = new Audio ("/audio/drop.mp3");
-       
-        
+        this.audio = new Audio("/audio/drop.mp3");
+
+
     }
     createGrid() {
         this.grid = [];
@@ -134,7 +134,7 @@ class GameBoard extends Component {
         if (countRed === 4) {
             let redWon = this.players.filter(player => player.color === 'red');
             this.youAreWinner(redWon[0]);
-            return true; 
+            return true;
         }
         if (countYellow === 4) {
             let yellowWon = this.players.filter(player => player.color === 'yellow');
@@ -149,20 +149,17 @@ class GameBoard extends Component {
             this.checkConnectionsInRow(indexOfDropped) ||
             this.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped) ||
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
-                this.gameOver = true;
-                this.page.currentPlayer.winner = true;
-                let winner =  this.page.currentPlayer;
-                JSON._load('savedPlayers.json').then(function(winners) {
-                    console.log(winners);
-                    winners.push(winner);
-                    winners.sort((playerA, playerB) => {return playerA.score - playerB.score});
-                    winners = winners.slice(0,10);
-                    JSON._save('savedPlayers', winners);
-
+            this.gameOver = true;
+            this.page.currentPlayer.winner = true;
+            let winner = this.page.currentPlayer;
+            JSON._load('highscore.json').then(function (winners) {
+                winners.push(winner);
+                winners.sort((playerA, playerB) => {
+                    return playerA.score - playerB.score
                 });
-                    // console.log('winners after push: ', winners);
-                // JSON._save('savedPlayers', {data: this.page.currentPlayer});
-
+                winners = winners.slice(0, 10);
+                JSON._save('highscore', winners);
+            });
             return;
         }
         this.changePlayer();
@@ -188,7 +185,7 @@ class GameBoard extends Component {
     }
 
     changePlayer() {
-        if(this.active === true) {
+        if (this.active === true) {
             for (let i = 0; i < this.players.length; i++) {
                 this.players[i].myTurn = !this.players[i].myTurn;
             }

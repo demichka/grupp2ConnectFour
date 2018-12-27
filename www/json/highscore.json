@@ -16,6 +16,14 @@
     "winner": true
   },
   {
+    "name": "Winner",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
     "name": "Aksinia",
     "human": true,
     "color": "yellow",
@@ -48,6 +56,14 @@
     "winner": true
   },
   {
+    "name": "Emilia",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 7,
+    "winner": true
+  },
+  {
     "name": "Pascal",
     "human": false,
     "color": "yellow",
@@ -61,22 +77,6 @@
     "color": "yellow",
     "myTurn": true,
     "score": 9,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 9,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 11,
     "winner": true
   }
 ]
