@@ -64,6 +64,11 @@ class GamePage extends Component {
     this.gameBoard = new GameBoard(this);
     this.gameBoard.createGrid();
     this.gameBoard.players = this.savedSession.players;
+    for (let i = 0; i < this.gameBoard.players.length; i++) {
+      let player = this.gameBoard.players[i];
+      player.score = 0;
+      player.winner = false;
+    }
     this.resetCurrentPlayer(this.gameBoard.players);
     this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
     this.gameBoard.active = true;

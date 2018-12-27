@@ -50,6 +50,7 @@ class Column extends Component {
                     element.isDropped = true;
                     // drop sound
                     this.board.audio.play();
+                    this.board.page.currentPlayer.score++;
                     element.hole.render();
                     element.render();
                     setTimeout(() => {    

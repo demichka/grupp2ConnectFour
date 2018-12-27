@@ -150,6 +150,19 @@ class GameBoard extends Component {
             this.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped) ||
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
                 this.gameOver = true;
+                this.page.currentPlayer.winner = true;
+                let winner =  this.page.currentPlayer;
+                JSON._load('savedPlayers.json').then(function(winners) {
+                    console.log(winners);
+                    winners.push(winner);
+                    winners.sort((playerA, playerB) => {return playerA.score - playerB.score});
+                    winners = winners.slice(0,10);
+                    JSON._save('savedPlayers', winners);
+
+                });
+                    // console.log('winners after push: ', winners);
+                // JSON._save('savedPlayers', {data: this.page.currentPlayer});
+
             return;
         }
         this.changePlayer();
