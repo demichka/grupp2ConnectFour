@@ -155,7 +155,8 @@ class GameBoard extends Component {
                 JSON._load('savedPlayers.json').then(function(winners) {
                     console.log(winners);
                     winners.push(winner);
-                    console.log('array updated ', winners);
+                    winners.sort((playerA, playerB) => {return playerA.score - playerB.score});
+                    winners = winners.slice(0,10);
                     JSON._save('savedPlayers', winners);
 
                 });
