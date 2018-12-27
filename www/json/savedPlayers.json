@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 9,
+    "winner": true
+  },
+  {
+    "name": "Fortran",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 12,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 12,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 6,
+    "winner": true
+  },
+  {
+    "name": "Aksinia",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 5,
+    "winner": true
+  }
+]

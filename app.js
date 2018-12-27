@@ -2,13 +2,18 @@
 const Sass = require('./sass');
 const config = require('./config.json');
 
+// Require jsonflex
+const jsonflex = require('jsonflex')();
+
 // Require the express module
 const express = require('express');
 // Create a new web server
 const app = express();
 // Tell the web server to serve files
 // from the www folder
+app.use(jsonflex);
 app.use(express.static('www'));
+
 // Start the web server on port 3000
 app.listen(3000,() => console.log('Listening on port 3000'));
 
@@ -37,9 +42,14 @@ app.get('/template-to-js/:template', (req, res) => {
   res.send(html);
 });
 
-
-
 // start the sass compiler
 for (let conf of config.sass) {
   new Sass(conf);
 }
+
+// Serve the index page everywhere so that the
+// frontend router can decide what to do
+app.use((req, res, next) => {
+  if(req.url === '/jsonflex.js' || req.url == '/json-save'){ next(); return; }
+  res.sendFile(path.join(__dirname, '/www/index.html'));
+});
