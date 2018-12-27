@@ -81,6 +81,7 @@ class GamePage extends Component {
     this.gameBoard.active = false;
     this.playersOptions.active = true;
     this.savedSession.players.length = 0;
+    this.gameBoard.gameOver = false;
     this.render();
   }
 
