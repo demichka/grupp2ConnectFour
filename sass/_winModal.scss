@@ -8,11 +8,17 @@
 }
 
 #modal {
+    
+}
+
+.showHighscore {
+    padding: 0;
     a {
         display: block;
         height: 100%;
         width: 100%;
         color: $white;
+        padding: .375rem .75rem;
         text-decoration: none;
     }
 }
