@@ -12,7 +12,7 @@
   }
 
   li {
-    min-width: 200px;
+    min-width: 150px;
     padding: .375rem .75rem;
     line-height: 1.5;
     border-radius: $border-radius;
@@ -85,7 +85,8 @@
 .gameGrid {
   margin-top: 50px;
   margin-bottom: 80px;
-  @include shadow-btn();
+ @include shadow-Grid();
+
 }
 
 .column-wrap {
@@ -120,11 +121,7 @@
 .gameslots {
   padding-top: 100%;
   position: relative;
-  background-color: #438D8D;
-  -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  pointer-events: none;
+ 
 
   &.dropped {
     .hole {
@@ -134,7 +131,6 @@
 }
 
 .slots {
-  background-color: rgba(125, 121, 125, 1);
   pointer-events: none;
 
   &.red {
