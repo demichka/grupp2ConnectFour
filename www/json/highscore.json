@@ -1,30 +1,6 @@
 [
   {
-    "name": "Pascal",
-    "human": false,
-    "color": "red",
-    "myTurn": true,
-    "score": 1,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 2,
-    "winner": true
-  },
-  {
-    "name": "Winner",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
+    "name": "Zhenya",
     "human": true,
     "color": "yellow",
     "myTurn": true,
@@ -40,11 +16,35 @@
     "winner": true
   },
   {
-    "name": "Pascal",
+    "name": "New",
     "human": true,
     "color": "yellow",
     "myTurn": true,
     "score": 4,
+    "winner": true
+  },
+  {
+    "name": "Artem",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 5,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 7,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 10,
     "winner": true
   },
   {
@@ -52,15 +52,23 @@
     "human": true,
     "color": "red",
     "myTurn": true,
-    "score": 4,
+    "score": 11,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 12,
     "winner": true
   },
   {
     "name": "Pascal",
     "human": true,
-    "color": "red",
+    "color": "yellow",
     "myTurn": true,
-    "score": 4,
+    "score": 14,
     "winner": true
   },
   {
@@ -68,15 +76,7 @@
     "human": true,
     "color": "red",
     "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Sonja",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 4,
+    "score": 19,
     "winner": true
   }
 ]
