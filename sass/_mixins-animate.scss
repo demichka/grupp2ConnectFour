@@ -1,6 +1,6 @@
-@mixin slot-move() {
-  -webkit-animation: bounce-in-top 1.0s both;
-  animation: bounce-in-top 1.0s both;
+@mixin slot-move($time) {
+  -webkit-animation: bounce-in-top $time both;
+  animation: bounce-in-top $time both;
 }
 
 

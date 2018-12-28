@@ -1,74 +1,50 @@
 [
   {
+    "name": "AppleJet",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 7,
+    "winner": true
+  },
+  {
+    "name": "Robot",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 8,
+    "winner": true
+  },
+  {
+    "name": "RobotTwo",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 9,
+    "winner": true
+  },
+  {
     "name": "Pascal",
     "human": false,
     "color": "red",
     "myTurn": true,
-    "score": 1,
+    "score": 10,
     "winner": true
   },
   {
-    "name": "Pascal",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 2,
-    "winner": true
-  },
-  {
-    "name": "Winner",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Aksinia",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "lk",
+    "name": "Artem",
     "human": true,
     "color": "red",
     "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Aksinia",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 4,
+    "score": 15,
     "winner": true
   },
   {
@@ -76,7 +52,15 @@
     "human": true,
     "color": "red",
     "myTurn": true,
-    "score": 4,
+    "score": 20,
+    "winner": true
+  },
+  {
+    "name": "Sonja",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 21,
     "winner": true
   }
 ]

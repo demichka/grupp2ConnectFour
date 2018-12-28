@@ -24,6 +24,11 @@ class GamePage extends Component {
     this.gameBoard.active = false;
     this.playersOptions.active = true;
   }
+mount() {
+  this.gameBoard.clickEnabled = true;
+  this.gameBoard.gameOver = false;
+  this.gameBoard.newHighscore = false;
+}
 
 
   startGame() {

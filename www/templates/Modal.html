@@ -8,11 +8,16 @@
           </button> 
         </div> 
         <div class="modal-body"> 
-          <p>${this.winner ? this.winner.name : ''} har vunnit!</p> 
+          ${this.winner ? `<p> ${this.winner.name} 
+              har vunnit!</p>
+              <p>Du har gjort ${this.winner.score} drag!</p>`
+           : ''} 
+           ${this.record ? `<p>Du hamnar i topplista!</p>` : ''}
+
         </div> 
         <div class="modal-footer">
           ${this.page.restartBtn}
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Highscore</button> 
+          <button type="button" class="btn btn-primary"  data-dismiss="modal"><a href="/highscore" title="Öppna Topplista">Highscore</a></button> 
           <button type="button" class="btn btn-secondary" data-dismiss="modal">stäng</button> 
         </div> 
       </div> 

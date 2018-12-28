@@ -151,22 +151,36 @@ class GameBoard extends Component {
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
             this.gameOver = true;
             this.page.currentPlayer.winner = true;
+            this.record = false;
+            let unique = -1;
             let winner = this.page.currentPlayer;
             JSON._load('highscore.json').then(function (winners) {
-                winners.push(winner);
-                winners.sort((playerA, playerB) => {
-                    return playerA.score - playerB.score
-                });
-                winners = winners.slice(0, 10);
+                unique = winners.findIndex(win => win.score === winner.score);
+                if (unique < 0) {
+                    winners.push(winner);
+                    winners.sort((playerA, playerB) => {
+                        return playerA.score - playerB.score;
+                    });
                 JSON._save('highscore', winners);
+                }
+                else {
+                    return;
+                }
             });
+            setTimeout(() => {
+                if(unique === -1) {
+                    this.record = true;
+                }
+            }, 100);
             return;
         }
         this.changePlayer();
     }
 
     youAreWinner(name) {
-        this.page.modal.showModal(name);
+        setTimeout(() => {
+        this.page.modal.showModal(name, this.record);            
+        }, 150);
         //this.board.audio2.play();
     }
 

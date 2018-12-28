@@ -20,6 +20,9 @@ body {
     font-size: 6rem;
     text-shadow: 3px 3px 15px rgba(0,0,0,0.75);
     color: #fff;
+    @include media-breakpoint-down(xs) {
+      font-size: 4rem;
+    }
   }
   h1 > span {
     font-size: 3.8rem;
@@ -33,4 +36,5 @@ body {
 
 ::selection {
   background-color: transparent;
+  color: $accent-color2;
 }

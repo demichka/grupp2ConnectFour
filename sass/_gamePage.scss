@@ -121,13 +121,10 @@
 .gameslots {
   padding-top: 100%;
   position: relative;
-  background-color: #438D8D;
-  pointer-events: none;
-  @include shadow-inset-blue();
 
   &.dropped {
     .hole {
-      @include slot-move();
+      @include slot-move(1s);
     }
   }
 }
