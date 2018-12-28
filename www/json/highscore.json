@@ -24,6 +24,30 @@
     "winner": true
   },
   {
+    "name": "Petya",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
+    "name": "Masha",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
+    "name": "ök",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
     "name": "Artem",
     "human": true,
     "color": "red",
@@ -40,6 +64,14 @@
     "winner": true
   },
   {
+    "name": "RobotTwo",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 9,
+    "winner": true
+  },
+  {
     "name": "Pascal",
     "human": false,
     "color": "red",
@@ -53,30 +85,6 @@
     "color": "red",
     "myTurn": true,
     "score": 11,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 12,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 14,
-    "winner": true
-  },
-  {
-    "name": "Aksinia",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 19,
     "winner": true
   }
 ]

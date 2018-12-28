@@ -155,9 +155,9 @@ class GameBoard extends Component {
             JSON._load('highscore.json').then(function (winners) {
                 winners.push(winner);
                 winners.sort((playerA, playerB) => {
-                    return playerA.score - playerB.score
+                    return playerA.score - playerB.score;
                 });
-                winners = winners.slice(0, 10);
+                // winners = winners.slice(0, 10);
                 JSON._save('highscore', winners);
             });
             return;
