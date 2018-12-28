@@ -22,22 +22,18 @@ class HighscorePage extends Component {
         console.log(list, 'first');
 
         setTimeout(() => {
-            let cleanedFromDuplicates = list.filter((user, index, self) =>
-                index === self.findIndex((next) => (
-                    next.score === user.score
-                ))
-            );
-            console.log(cleanedFromDuplicates, 'cleaned');
-            console.log(cleanedFromDuplicates, 'list-winners');
-            cleanedFromDuplicates = cleanedFromDuplicates.slice(0, 10);
+            
+            console.log(list, 'cleaned');
+            console.log(list, 'list-winners');
+            list = list.slice(0, 10);
             let tableWrap = $('<div/>');
             let table = $('<table class="highscore-list"/>');
             let thead = $('<tr><th>Rank</th><th>Namn</th><th>Drag</th></tr>');
             table.append(thead);
-            for (let i = 0; i < cleanedFromDuplicates.length; i++) {
+            for (let i = 0; i < list.length; i++) {
                 let tr = $('<tr/>');
 
-                let winner = cleanedFromDuplicates[i];
+                let winner = list[i];
                 console.log(winner, 'winner');
                 let winnerRank = parseInt(i) + 1;
                 let winnerName = winner.name;
@@ -50,6 +46,6 @@ class HighscorePage extends Component {
             this.table = tableWrap.get(0).innerHTML;
             console.log(this.table, 'I am ready!');
             this.render();
-        }, 500);
+        }, 100);
     }
 }

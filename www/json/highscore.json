@@ -8,46 +8,6 @@
     "winner": true
   },
   {
-    "name": "Aksinia",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "New",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Petya",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Masha",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "ök",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
     "name": "Artem",
     "human": true,
     "color": "red",
@@ -85,6 +45,14 @@
     "color": "red",
     "myTurn": true,
     "score": 11,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 17,
     "winner": true
   }
 ]

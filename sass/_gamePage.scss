@@ -126,7 +126,7 @@
 
   &.dropped {
     .hole {
-      @include slot-move();
+      @include slot-move(1s);
     }
   }
 }

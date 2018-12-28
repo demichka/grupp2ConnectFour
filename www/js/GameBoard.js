@@ -157,7 +157,11 @@ class GameBoard extends Component {
                 winners.sort((playerA, playerB) => {
                     return playerA.score - playerB.score;
                 });
-                // winners = winners.slice(0, 10);
+                winners = winners.filter((user, index, self) =>
+                index === self.findIndex((next) => (
+                    next.score === user.score
+                ))
+            );
                 JSON._save('highscore', winners);
             });
             return;
