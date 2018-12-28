@@ -1,6 +1,6 @@
 [
   {
-    "name": "Aksinia",
+    "name": "Sonja",
     "human": true,
     "color": "red",
     "myTurn": true,
@@ -13,6 +13,14 @@
     "color": "red",
     "myTurn": true,
     "score": 5,
+    "winner": true
+  },
+  {
+    "name": "Sonja",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 6,
     "winner": true
   },
   {
@@ -45,6 +53,14 @@
     "color": "red",
     "myTurn": true,
     "score": 11,
+    "winner": true
+  },
+  {
+    "name": "Fortran",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 13,
     "winner": true
   },
   {

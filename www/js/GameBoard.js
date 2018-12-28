@@ -151,10 +151,11 @@ class GameBoard extends Component {
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
             this.gameOver = true;
             this.page.currentPlayer.winner = true;
-
+            this.record = false;
+            let unique = -1;
             let winner = this.page.currentPlayer;
             JSON._load('highscore.json').then(function (winners) {
-                let unique = winners.findIndex(win => win.score === winner.score);
+                unique = winners.findIndex(win => win.score === winner.score);
                 console.log(unique);
                 if (unique < 0) {
                     winners.push(winner);
@@ -167,13 +168,21 @@ class GameBoard extends Component {
                     return;
                 }
             });
+            setTimeout(() => {
+                if(unique === -1) {
+                    this.record = true;
+                    console.log(this.record);
+                }
+            }, 100);
             return;
         }
         this.changePlayer();
     }
 
     youAreWinner(name) {
-        this.page.modal.showModal(name);
+        setTimeout(() => {
+        this.page.modal.showModal(name, this.record);            
+        }, 150);
         //this.board.audio2.play();
     }
 
