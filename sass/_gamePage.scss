@@ -121,11 +121,7 @@
 .gameslots {
   padding-top: 100%;
   position: relative;
- /* background-color: #438D8D;
-  -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  pointer-events: none;*/
+ 
 
   &.dropped {
     .hole {
@@ -135,7 +131,6 @@
 }
 
 .slots {
-  //background-color: rgba(125, 121, 125, 1);
   pointer-events: none;
 
   &.red {

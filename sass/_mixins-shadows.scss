@@ -5,9 +5,9 @@
 }
 
 @mixin shadow-slot() {
-    -webkit-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
-    -moz-box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
-    box-shadow: inset 10px -9px 19px -6px rgba(0, 0, 0, 0.72);
+    -webkit-box-shadow: inset -10px 10px 17px -9px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset -10px 10px 17px -9px rgba(0, 0, 0, 1);
+    box-shadow: inset -10px 10px 17px -9px rgba(0, 0, 0, 1);
 }
 
 @mixin shadow-Grid {
