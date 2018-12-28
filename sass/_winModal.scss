@@ -7,6 +7,12 @@
     right: 15px;
 }
 
-a {
-    color: $white;
+#modal {
+    a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        color: $white;
+        text-decoration: none;
+    }
 }

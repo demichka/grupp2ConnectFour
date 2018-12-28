@@ -151,18 +151,21 @@ class GameBoard extends Component {
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
             this.gameOver = true;
             this.page.currentPlayer.winner = true;
+
             let winner = this.page.currentPlayer;
             JSON._load('highscore.json').then(function (winners) {
-                winners.push(winner);
-                winners.sort((playerA, playerB) => {
-                    return playerA.score - playerB.score;
-                });
-                winners = winners.filter((user, index, self) =>
-                index === self.findIndex((next) => (
-                    next.score === user.score
-                ))
-            );
+                let unique = winners.findIndex(win => win.score === winner.score);
+                console.log(unique);
+                if (unique < 0) {
+                    winners.push(winner);
+                    winners.sort((playerA, playerB) => {
+                        return playerA.score - playerB.score;
+                    });
                 JSON._save('highscore', winners);
+                }
+                else {
+                    return;
+                }
             });
             return;
         }

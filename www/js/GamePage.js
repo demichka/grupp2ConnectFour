@@ -27,6 +27,7 @@ class GamePage extends Component {
 mount() {
   this.gameBoard.clickEnabled = true;
   this.gameBoard.gameOver = false;
+  this.gameBoard.newHighscore = false;
 }
 
 
