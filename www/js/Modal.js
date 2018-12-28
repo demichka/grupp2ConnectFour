@@ -8,7 +8,6 @@ class Modal extends Component{
         //if there is a winner
         this.winner = winner;
         this.record = record;
-        console.log(this.record, 'modals record');
         this.render();
         $('#modal').modal('show');
     }

@@ -156,7 +156,6 @@ class GameBoard extends Component {
             let winner = this.page.currentPlayer;
             JSON._load('highscore.json').then(function (winners) {
                 unique = winners.findIndex(win => win.score === winner.score);
-                console.log(unique);
                 if (unique < 0) {
                     winners.push(winner);
                     winners.sort((playerA, playerB) => {
@@ -171,7 +170,6 @@ class GameBoard extends Component {
             setTimeout(() => {
                 if(unique === -1) {
                     this.record = true;
-                    console.log(this.record);
                 }
             }, 100);
             return;
