@@ -161,6 +161,10 @@ class GameBoard extends Component {
                     winners.sort((playerA, playerB) => {
                         return playerA.score - playerB.score;
                     });
+                    if (winners.indexOf(winner) <= 9) {
+                        console.log(winners.indexOf(winner));
+                        unique = -2;
+                    }
                 JSON._save('highscore', winners);
                 }
                 else {
@@ -168,7 +172,7 @@ class GameBoard extends Component {
                 }
             });
             setTimeout(() => {
-                if(unique === -1) {
+                if(unique === -2) {
                     this.record = true;
                 }
             }, 100);
@@ -192,9 +196,9 @@ class GameBoard extends Component {
                 if (indexOfDropped >= 0) {
                     setTimeout(() => {
                         this.checkWinner(column, indexOfDropped);
-                    }, 1000);
+                    }, 600);
                 }
-            }, 1000);
+            }, 600);
         }
     }
 

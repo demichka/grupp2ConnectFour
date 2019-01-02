@@ -72,11 +72,19 @@
     "winner": true
   },
   {
+    "name": "Axel",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 14,
+    "winner": true
+  },
+  {
     "name": "Artem",
     "human": true,
     "color": "red",
     "myTurn": true,
-    "score": 15,
+    "score": 16,
     "winner": true
   },
   {
@@ -85,14 +93,6 @@
     "color": "red",
     "myTurn": true,
     "score": 20,
-    "winner": true
-  },
-  {
-    "name": "Sonja",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 21,
     "winner": true
   }
 ]

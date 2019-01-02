@@ -1,0 +1,106 @@
+[
+  {
+    "name": "AppleJet",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 4,
+    "winner": true
+  },
+  {
+    "name": "Aksinia",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 5,
+    "winner": true
+  },
+  {
+    "name": "Zhenya",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 6,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 7,
+    "winner": true
+  },
+  {
+    "name": "Robot",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 8,
+    "winner": true
+  },
+  {
+    "name": "RobotTwo",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 9,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 10,
+    "winner": true
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 11,
+    "winner": true
+  },
+  {
+    "name": "Zhenya",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 13,
+    "winner": true
+  },
+  {
+    "name": "Artem",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 15,
+    "winner": true
+  },
+  {
+    "name": "Artem",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 16,
+    "winner": true
+  },
+  {
+    "name": "Sonja",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 20,
+    "winner": true
+  },
+  {
+    "name": "Sonja",
+    "human": true,
+    "color": "red",
+    "myTurn": true,
+    "score": 21,
+    "winner": true
+  }
+]
