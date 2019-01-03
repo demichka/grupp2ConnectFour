@@ -13,9 +13,11 @@ const app = express();
 // from the www folder
 app.use(jsonflex);
 app.use(express.static('www'));
+const http = require('http');
+const port = Number(process.env.PORT || 3000);
 
 // Start the web server on port 3000
-app.listen(3000,() => console.log('Listening on port 3000'));
+app.listen(port,() => console.log('Listening on port 3000'));
 
 const fs = require('fs');
 const path = require('path');
