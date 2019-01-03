@@ -1,6 +1,7 @@
 class Column extends Component {
-    constructor(number, board) {
+    constructor(number, board, page) {
         super();
+        this.page = page;
         this.columnNumber = number;
         this.board = board;
         this.redSlots = 0;
@@ -60,8 +61,7 @@ class Column extends Component {
                 }
             }
         } else {
-            window.alert('Välj annan kolumn!');
-            return -1;
+           this.board.clickEnabled = true;
         }
     }
 }
