@@ -61,9 +61,7 @@ class Column extends Component {
                 }
             }
         } else {
-           //here the modal for "Välj en annan kolumn" needs to be input
-            window.alert('Välj annan kolumn!');
-            return -1;
+           this.board.clickEnabled = true;
         }
     }
 }
