@@ -5,7 +5,7 @@ body {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   color: #fff;
-  &>div:first-child {
+  .all-content {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
