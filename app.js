@@ -2,8 +2,7 @@
 const Sass = require('./sass');
 const config = require('./config.json');
 
-// Require jsonflex
-const jsonflex = require('jsonflex')();
+
 
 // Require the express module
 const express = require('express');
@@ -11,7 +10,6 @@ const express = require('express');
 const app = express();
 // Tell the web server to serve files
 // from the www folder
-app.use(jsonflex);
 app.use(express.static('www'));
 const http = require('http');
 const port = Number(process.env.PORT || 3000);
@@ -48,6 +46,15 @@ app.get('/template-to-js/:template', (req, res) => {
 for (let conf of config.sass) {
   new Sass(conf);
 }
+
+const flexjson = require('jsonflex')({
+  jsonDir: '/www/json', // directory on server to save json to
+  scriptUrl: '/jsonflex.js', // url to load clientside script from
+  saveUrl: '/json-save', // url used by jsonflex to save json
+  loadUrlPrefix: '/json/' // prefix to add to clientside load url
+});
+
+app.use(flexjson);
 
 // Serve the index page everywhere so that the
 // frontend router can decide what to do
