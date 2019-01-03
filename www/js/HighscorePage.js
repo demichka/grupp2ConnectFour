@@ -8,8 +8,6 @@ class HighscorePage extends Component {
     unmount() {
         this.table = '';
     }
-
-
     mount() {
         this.createHighscoreTable();
     }
@@ -21,7 +19,6 @@ class HighscorePage extends Component {
         });
 
         setTimeout(() => {
-
             list = list.slice(0, 10);
             let tableWrap = $('<div/>');
             let section = $('<section class="highscore-content container mt-5 mb-md-5 pt-4"></section>');
@@ -42,6 +39,6 @@ class HighscorePage extends Component {
             tableWrap.append(section);
             this.table = tableWrap.get(0).innerHTML;
             this.render();
-        }, 100);
+        }, 300);
     }
 }
