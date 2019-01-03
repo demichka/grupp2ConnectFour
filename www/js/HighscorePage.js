@@ -39,6 +39,6 @@ class HighscorePage extends Component {
             tableWrap.append(section);
             this.table = tableWrap.get(0).innerHTML;
             this.render();
-        }, 300);
+        }, 600);
     }
 }
