@@ -7,7 +7,7 @@ class GamePage extends Component {
     this.gameBoard = new GameBoard(this);
     this.currentPlayer = '';
     this.modal = new Modal(this);
-    this.nwmodal = new noWinModal(this);
+    this.linemodal = new LineModal(this);
     this.restartBtn = new RestartBtn(this);
 
 
