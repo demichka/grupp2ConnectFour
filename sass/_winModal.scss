@@ -7,10 +7,6 @@
     right: 15px;
 }
 
-#modal {
-    
-}
-
 .showHighscore {
     padding: 0;
     a {
@@ -20,5 +16,13 @@
         color: $white;
         padding: .375rem .75rem;
         text-decoration: none;
+    }
+}
+
+#modal {
+    button {
+        @include media-breakpoint-down(xs) {
+            font-size: .85rem;
+        }
     }
 }
