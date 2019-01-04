@@ -8,8 +8,10 @@
       ${this.gameBoard.active ? this.savedSession : ''}
       ${this.playersOptions.active ? '' : `
       <div class="playerButtons col-6">
+          
         <button type="button" class="btn btn-primary btn-ml abortGameButton">Avbryt Spelet</button>
         ${this.restartBtn}
+        ${this.gameBoard.toggleAudioBtn}
       </div>
       `}
     </div>

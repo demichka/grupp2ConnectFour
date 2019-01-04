@@ -8,6 +8,7 @@ class GameBoard extends Component {
         this.clickEnabled = true;
         this.gameOver = false;
         this.audio = new Audio("/audio/drop.mp3");
+        this.toggleAudioBtn = new ToggleAudioButton(this, this.audio);
 
 
     }
