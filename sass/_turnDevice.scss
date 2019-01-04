@@ -9,7 +9,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  z-index: 2000;
   background-color: rgba(0,0,0,.5);
   display: none;
   & figure {
@@ -28,11 +29,11 @@
   }
  }
  
- @media screen and (min-width: 320px) and (max-width: 823px) and (orientation: landscape) {
+ @media screen and (min-aspect-ratio: 13/9) {
   .turn-device {
-    display: inline-block;
+    display: block;
   }
   .all-content {
-    display: none !important;
-  }
+    display:none !important;
  }
+}
