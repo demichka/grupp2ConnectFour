@@ -29,7 +29,7 @@
   }
  }
  
- @media screen and (min-aspect-ratio: 13/9) {
+ @media screen and (min-width: 320px) and (max-width: 823px) and (min-aspect-ratio: 13/9) {
   .turn-device {
     display: block;
   }
