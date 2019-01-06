@@ -6,6 +6,7 @@ class GamePage extends Component {
     this.savedSession = new PlayersNames();
     this.gameBoard = new GameBoard(this);
     this.currentPlayer = '';
+    this.volume = false;
     this.modal = new Modal(this);
     this.restartBtn = new RestartBtn(this);
 
@@ -38,6 +39,7 @@ mount() {
       this.gameBoard.players = this.savedSession.players;
       this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
       this.gameBoard.active = true;
+      this.volume = this.gameBoard.toggleAudioBtn.on;
       this.gameBoard.botMakeMove();
       this.render();
     }
@@ -77,6 +79,10 @@ mount() {
     this.resetCurrentPlayer(this.gameBoard.players);
     this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
     this.gameBoard.active = true;
+    if (!this.volume) {
+      this.gameBoard.toggleAudioBtn.on = false;
+      this.gameBoard.toggleAudioBtn.audio.volume = 0;
+    }
     this.gameBoard.botMakeMove();
     this.render();
   }
