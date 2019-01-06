@@ -9,6 +9,7 @@ class GameBoard extends Component {
         this.gameOver = false;
         this.audio = new Audio("/audio/drop.mp3");
         this.toggleAudioBtn = new ToggleAudioButton(this, this.audio);
+        this.movesCount = 0;
 
 
     }
@@ -145,6 +146,14 @@ class GameBoard extends Component {
         return false;
     }
 
+    checkTieGame() {
+        if(this.movesCount === 42) {
+            this.clickEnabled = false;
+            this.gameOver = true;
+            return true;
+        }
+    }
+
     checkWinner(column, indexOfDropped) {
         if (this.checkConnectionsInColumn(column) ||
             this.checkConnectionsInRow(indexOfDropped) ||
@@ -163,7 +172,6 @@ class GameBoard extends Component {
                         return playerA.score - playerB.score;
                     });
                     if (winners.indexOf(winner) <= 9) {
-                        console.log(winners.indexOf(winner));
                         unique = -2;
                     }
                 JSON._save('highscore', winners);
@@ -178,6 +186,11 @@ class GameBoard extends Component {
                 }
             }, 100);
             return;
+        }
+        else if(this.checkTieGame()) {
+            setTimeout(() => {
+                this.page.modal.showTieModal(true);
+            }, 150);
         }
         this.changePlayer();
     }

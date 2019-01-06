@@ -9,6 +9,12 @@ class Modal extends Component{
         this.winner = winner;
         this.record = record;
         this.render();
-        $('#modal').modal('show');
+        $('.modal').modal('show');
+    }
+
+    showTieModal(tieGame) {
+        this.tieGame = tieGame;
+        this.render();
+        $('.modal').modal('show');
     }
 }
