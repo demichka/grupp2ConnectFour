@@ -64,6 +64,14 @@
     "winner": true
   },
   {
+    "name": "Pascal",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 12,
+    "winner": true
+  },
+  {
     "name": "Zhenya",
     "human": true,
     "color": "yellow",
