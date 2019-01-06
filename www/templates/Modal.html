@@ -10,8 +10,9 @@
         <div class="modal-body"> 
           ${this.winner ? `<p> ${this.winner.name} 
               har vunnit!</p>
-              <p>Du har gjort ${this.winner.score} drag!</p>`
-           : ''} 
+              <p>Du har gjort ${this.winner.score} drag!</p>` :
+              this.tieGame ? `<p>Spelet är oavgjort!</p>` : ''} 
+
            ${this.record ? `<p>Du hamnar i topplista!</p>` : ''}
 
         </div> 
