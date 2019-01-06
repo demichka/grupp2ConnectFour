@@ -6,7 +6,6 @@ class GamePage extends Component {
     this.savedSession = new PlayersNames();
     this.gameBoard = new GameBoard(this);
     this.currentPlayer = '';
-    this.volume = false;
     this.modal = new Modal(this);
     this.restartBtn = new RestartBtn(this);
 
