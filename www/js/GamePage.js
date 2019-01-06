@@ -40,6 +40,7 @@ mount() {
       this.currentPlayer = this.whoIsCurrent(this.gameBoard.players);
       this.gameBoard.active = true;
       this.volume = this.gameBoard.toggleAudioBtn.on;
+      this.gameBoard.movesCount = 0;
       this.gameBoard.botMakeMove();
       this.render();
     }
@@ -69,6 +70,7 @@ mount() {
   restartGame() {
     this.gameBoard.active = false;
     this.gameBoard = new GameBoard(this);
+    this.modal = new Modal(this);
     this.gameBoard.createGrid();
     this.gameBoard.players = this.savedSession.players;
     for (let i = 0; i < this.gameBoard.players.length; i++) {
@@ -83,6 +85,7 @@ mount() {
       this.gameBoard.toggleAudioBtn.on = false;
       this.gameBoard.toggleAudioBtn.audio.volume = 0;
     }
+    this.gameBoard.movesCount = 0;
     this.gameBoard.botMakeMove();
     this.render();
   }
@@ -95,9 +98,4 @@ mount() {
     this.gameBoard.gameOver = false;
     this.render();
   }
-
-
-
-
-
 }

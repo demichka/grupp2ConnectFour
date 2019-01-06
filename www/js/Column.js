@@ -29,7 +29,7 @@ class Column extends Component {
                 setTimeout(() => {
                     this.board.checkWinner(this, indexOfDropped);
                     this.board.clickEnabled = true;
-                }, 1000);
+                }, 600);
             }
         }
         else {
@@ -43,6 +43,7 @@ class Column extends Component {
 
     makeMove() {
         if (this.isEmpty) {
+            this.board.movesCount++;
             let currentColor = this.board.page.currentPlayer.color;
             for (let i = this.slots.length - 1; i >= 0; i--) {
                 const element = this.slots[i];

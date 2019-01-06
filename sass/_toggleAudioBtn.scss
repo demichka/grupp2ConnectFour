@@ -11,6 +11,9 @@
         }
         &.audio-muted {
             background-color: $secondary;
+            &:hover {
+                background-color: $secondary;
+            }
         }
         .fas {
             color: $accent-color3;
