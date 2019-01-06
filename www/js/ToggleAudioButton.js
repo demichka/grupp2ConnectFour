@@ -13,11 +13,13 @@ class ToggleAudioButton extends Component {
     muteAudio() {
         this.audio.volume = 0;
         this.on = false;
+        this.board.page.volume = this.on;
         this.render();
     }
     unmuteAudio() {
         this.audio.volume = 0.5;
         this.on = true;
+        this.board.page.volume = this.on;
         this.render();
     }
 }
