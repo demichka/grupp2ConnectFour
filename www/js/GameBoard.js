@@ -165,7 +165,7 @@ class GameBoard extends Component {
     }
 
     gameIsTied() {
-        setTimeout(() => $('#tiedModal').tiedModal('show'), 0);
+        setTimeout(() => $('#tiedModal').modal('show'), 0);
         console.log('tiedModal show');
     }
 
