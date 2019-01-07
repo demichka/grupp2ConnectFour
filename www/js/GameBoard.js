@@ -183,10 +183,8 @@ class GameBoard extends Component {
             setTimeout(() => {
                 if(unique === -2) {
                     this.record = true;
-                console.log(this.record);
-
                 }
-            }, 50);
+            }, 100);
             return;
         }
         else if(this.checkTieGame()) {
@@ -200,7 +198,7 @@ class GameBoard extends Component {
     youAreWinner(name) {
         setTimeout(() => {
         this.page.modal.showModal(name, this.record);            
-        }, 150);
+        }, 550);
         //this.board.audio2.play();
     }
 

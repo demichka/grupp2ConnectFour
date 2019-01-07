@@ -1,21 +1,5 @@
 [
   {
-    "name": "Artem",
-    "human": true,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 4,
-    "winner": true
-  },
-  {
-    "name": "Artem",
-    "human": true,
-    "color": "red",
-    "myTurn": true,
-    "score": 6,
-    "winner": true
-  },
-  {
     "name": "RobotTwo",
     "human": false,
     "color": "yellow",
