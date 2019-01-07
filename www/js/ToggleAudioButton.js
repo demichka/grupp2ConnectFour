@@ -3,6 +3,7 @@ class ToggleAudioButton extends Component {
         super();
         this.board = board;
         this.audio = audio;
+        this.on = true;
         this.addEvents({
             'click .audio-muted': 'unmuteAudio',
             'click .audio-unmuted': 'muteAudio'
