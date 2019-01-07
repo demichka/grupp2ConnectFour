@@ -183,6 +183,8 @@ class GameBoard extends Component {
             setTimeout(() => {
                 if(unique === -2) {
                     this.record = true;
+                console.log(this.record);
+
                 }
             }, 50);
             return;
