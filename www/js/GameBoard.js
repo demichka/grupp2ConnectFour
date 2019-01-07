@@ -10,8 +10,6 @@ class GameBoard extends Component {
         this.audio = new Audio("/audio/drop.mp3");
         this.toggleAudioBtn = new ToggleAudioButton(this, this.audio);
         this.movesCount = 0;
-
-
     }
     createGrid() {
         this.grid = [];
@@ -161,30 +159,31 @@ class GameBoard extends Component {
             this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped)) {
             this.gameOver = true;
             this.page.currentPlayer.winner = true;
+            let gameTime = performance.now();
             this.record = false;
-            let unique = -1;
+            let getInHighscore = -1;
             let winner = this.page.currentPlayer;
+            winner.time = gameTime - this.page.time;
+            console.log(winner);
             JSON._load('highscore.json').then(function (winners) {
-                unique = winners.findIndex(win => win.score === winner.score);
-                if (unique < 0) {
+
                     winners.push(winner);
-                    winners.sort((playerA, playerB) => {
-                        return playerA.score - playerB.score;
-                    });
+                    if (winners.length > 1) {
+                        winners.sort((playerA, playerB) => {
+                            return playerA.score - playerB.score || playerA.time - playerB.time;
+                        });
+                    }
                     if (winners.indexOf(winner) <= 9) {
-                        unique = -2;
+                        getInHighscore = -2;
                     }
                 JSON._save('highscore', winners);
-                }
-                else {
-                    return;
-                }
             });
             setTimeout(() => {
-                if(unique === -2) {
+                if(getInHighscore === -2) {
                     this.record = true;
                 }
             }, 100);
+            this.page.time = 0;
             return;
         }
         else if(this.checkTieGame()) {
