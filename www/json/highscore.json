@@ -1,26 +1,10 @@
 [
   {
-    "name": "Robot",
-    "human": false,
-    "color": "yellow",
-    "myTurn": true,
-    "score": 15,
-    "winner": true
-  },
-  {
     "name": "RobotTwo",
     "human": false,
     "color": "yellow",
     "myTurn": true,
     "score": 17,
-    "winner": true
-  },
-  {
-    "name": "Pascal",
-    "human": false,
-    "color": "red",
-    "myTurn": true,
-    "score": 10,
     "winner": true
   },
   {

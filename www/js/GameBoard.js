@@ -184,7 +184,7 @@ class GameBoard extends Component {
                 if(unique === -2) {
                     this.record = true;
                 }
-            }, 100);
+            }, 50);
             return;
         }
         else if(this.checkTieGame()) {
