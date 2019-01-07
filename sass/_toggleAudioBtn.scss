@@ -1,0 +1,25 @@
+.audio-btn-wrap {
+    float: right;
+    @include media-breakpoint-down(xs) {
+        position: absolute;
+        top: -40px;
+        right: 15px;
+    }
+    button {
+        &.audio-unmuted {
+            background-color: $primary;
+        }
+        &.audio-muted {
+            background-color: $secondary;
+            &:hover {
+            background-color: $secondary;
+            }
+        }
+        .fas {
+            color: $accent-color3;
+        }
+        &:hover {
+            background-color: lighten($secondary, 30%);
+        }
+    }
+}

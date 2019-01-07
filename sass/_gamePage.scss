@@ -1,125 +1,155 @@
-.game-board{
-    display: inline-block;
-    border: 10px;
-    
-  }
-
-.column-wrap {
-  width: calc(100%/7);
- 
-}  
-.column {
-  cursor: pointer;
-  
+.startGameButton {
+  @include shadow-btn();
+  @include vibrate-1(.9s);
 }
-  .slots {
-    background-color: rgba(125,121,125,1);
-    pointer-events: none;
-    
-    &.red {
-      & > div {
-        & > div {
-          background-color: #8D4343;
-        }
-      }
-    }
-    &.yellow {
-      & > div {
-        & > div {
-          background-color: #D9D963;
-        }
-      }
-    }
-    & > div {
-      padding-top: 100%;
-      position:relative;
-      background-color: #438D8D;
-      pointer-events: none;
-      & > div {
-        position:absolute;
-        top:10%;
-        left: 10%;
-        width: 80%;
-        height: 80%;
-        border-radius: 50%;
-        background-color: white;
-        pointer-events: none;
-      }
-    }
-  }
-  .action {
-    cursor:pointer;
-  }
-   
-  .disabled {
-    opacity: 0.2;
-    cursor: default;
-  }
 
 .players-list {
   padding-left: 0;
-  text-align: left;
+  float: left;
+
+  @include media-breakpoint-down(sm) {
+    float: none;
+  }
+
   li {
-    padding: 7px;
+    min-width: 150px;
+    padding: .375rem .75rem;
+    line-height: 1.5;
     border-radius: $border-radius;
+    border: 1px solid transparent;
+    text-align: center;
     background-color: #438D8D;
-    -webkit-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
-    -moz-box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
-    box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
+
+    @include media-breakpoint-down(sm) {
+      min-width: initial;
+      width: 100%;
+      font-size: .9rem;
+
+      &:first-child {
+        margin-bottom: 5px;
+      }
+    }
+
     &.red {
       &.current {
-        box-shadow: 0 0 0 3px transparentize(#ff0000, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgb(250, 18, 18);
-        -moz-box-shadow: 0px 0px 3px 2px rgb(250, 18, 18);
-        box-shadow: 0px 0px 3px 2px rgba(250, 18, 18,1);
+        background-color: rgb(226, 67, 67);
+        @include shadow-btn();
+        @include jello(.9s);
       }
-     
     }
+
     &.yellow {
       &.current {
-        box-shadow: 0 0 0 3px transparentize(gold, .75);
-        -webkit-box-shadow: 0px 0px 3px 2px rgb(234, 250, 18);
-        -moz-box-shadow: 0px 0px 3px 2px rgb(234, 250, 18);
-         box-shadow: 0px 0px 3px 2px rgba(234, 250, 18,1);
+        background-color: rgb(240, 240, 83);
+        @include shadow-btn();
+        @include jello(.9s);
       }
     }
   }
-  span {
-    vertical-align: middle;
-    margin: 0 20px;
-  }
-}  
-
-.gameGrid {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  -webkit-box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);;
-  -moz-box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);;
-  box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);
-  border-radius: 5px;
 }
 
-.playerButton {
+.playerButtons {
   position: relative;
   display: inline-block;
   text-align: center;
-}
 
-.gameslots {
-  -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-  box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
-}
+  button {
+    @include shadow-btn();
+    text-emphasis-color: white;
 
-.abortGameButton {
-  -webkit-box-shadow: 0px 0px 20px 8px rgb(185, 180, 185);
-  -moz-box-shadow: 0px 0px 20px 8px rgba(185, 180, 185,1);
-   box-shadow: 0px 0px 3px 2px rgba(185, 180, 185,1);
-   text-emphasis-color: white;
+    @include media-breakpoint-up(md) {
+      margin-left: 7px;
+      float: right;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      font-size: .9rem;
+
+      &:first-child {
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
 
 .game-holder {
-  background-color: #fff;
+  -webkit-box-shadow: inset -1px 9px 56px 19px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: inset -1px 9px 56px 19px rgba(0, 0, 0, 0.34);
+  box-shadow: inset -1px 9px 56px 19px rgba(0, 0, 0, 0.34);
   border-radius: 5px;
-  box-shadow: 0px 0px 20px -3px rgba(0,0,0,0.75);
+  background-color: rgba(247, 248, 248, 0.4);
+
+}
+
+.gameGrid {
+  margin-top: 50px;
+  margin-bottom: 80px;
+ @include shadow-Grid();
+
+}
+
+.column-wrap {
+  width: calc(100%/7);
+}
+
+.column {
+  cursor: pointer;
+}
+
+.hole,
+.emptyHole {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: white;
+  pointer-events: none;
+  @include shadow-slot();
+}
+
+.hole {
+  z-index: 200;
+}
+
+.emptyHole {
+  z-index: 180;
+}
+
+.gameslots {
+  padding-top: 100%;
+  position: relative;
+
+  &.dropped {
+    .hole {
+      @include slot-move(0.7s);
+    }
+  }
+}
+
+.slots {
+  pointer-events: none;
+
+  &.red {
+    .hole {
+      background-color: rgb(226, 67, 67);
+    }
+  }
+
+  &.yellow {
+    .hole {
+      background-color: rgb(240, 240, 83);
+    }
+  }
+}
+
+.action {
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.2;
+  cursor: default;
 }

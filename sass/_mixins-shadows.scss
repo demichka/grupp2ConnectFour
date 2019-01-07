@@ -1,0 +1,40 @@
+@mixin shadow-btn {
+    -webkit-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    -moz-box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+    box-shadow: -10px 10px 16px 0px rgba(0, 0, 0, 0.72);
+}
+
+@mixin shadow-slot() {
+    -webkit-box-shadow: inset -10px 10px 17px -9px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset -10px 10px 17px -9px rgba(0, 0, 0, 1);
+    box-shadow: inset -10px 10px 17px -9px rgba(0, 0, 0, 1);
+}
+
+@mixin shadow-light{
+    -webkit-box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.42);
+-moz-box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.42);
+box-shadow: -4px 4px 10px 0px rgba(0, 0, 0, 0.42);
+}
+
+@mixin shadow-inset-blue {
+    -webkit-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+    -moz-box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+    box-shadow: inset 0px 0px 36px 0px rgb(28, 77, 117);
+}
+
+@mixin shadow-Grid {
+    -webkit-box-shadow: -30px 30px 21px -6px rgba(0, 0, 0, 0.72);
+    -moz-box-shadow: -30px 30px 21px -6px rgba(0, 0, 0, 0.72);
+    box-shadow: -30px 30px 21px -6px rgba(0, 0, 0, 0.72);
+
+    border-right: 30px solid #144E75;
+    border-left: 30px solid #1C6EA4;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+
+    background: #1C6EA4;
+    background: -moz-linear-gradient(left, #1C6EA4 0%, #299EEC 49%, #144E75 100%);
+    background: -webkit-linear-gradient(left, #1C6EA4 0%, #299EEC 49%, #144E75 100%);
+    background: linear-gradient(to right, #1C6EA4 0%, #299EEC 49%, #144E75 100%);
+}

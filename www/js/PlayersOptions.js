@@ -111,6 +111,7 @@ class PlayersOptions extends Component {
       $('.badge').remove();
       let colors = this.randomColor();
 
+
       let playerOne;
       let playerTwo;
       if (typeOne.value === 'human') {

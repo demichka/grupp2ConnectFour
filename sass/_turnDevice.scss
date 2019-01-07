@@ -1,0 +1,39 @@
+@keyframes rotatephone {
+  from {}
+  to {transform: rotate(-90deg)}
+ }
+ .turn-device {
+  position: absolute;
+  padding: 50px 0 0;;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2000;
+  background-color: rgba(0,0,0,.5);
+  display: none;
+  & figure {
+    margin: 0 auto;
+    width: 25vw;
+    .smartphone-img {
+      width: 100%;
+      height: 100%;
+      animation-name: rotatephone;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+    }
+  }
+  p {
+    font-weight: bold;
+  }
+ }
+ 
+ @media screen and (min-width: 320px) and (max-width: 823px) and (min-aspect-ratio: 13/9) {
+  .turn-device {
+    display: block;
+  }
+  .all-content {
+    display:none !important;
+ }
+}

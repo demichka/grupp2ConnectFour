@@ -1,6 +1,7 @@
 class Column extends Component {
-    constructor(number, board) {
+    constructor(number, board, page) {
         super();
+        this.page = page;
         this.columnNumber = number;
         this.board = board;
         this.redSlots = 0;
@@ -8,7 +9,6 @@ class Column extends Component {
         this.addEvents({
             'click .column': 'clickColumn'
         });
-
     }
 
     createSlots() {
@@ -21,11 +21,20 @@ class Column extends Component {
     }
 
     clickColumn(e) {
-        e.stopPropagation();
-        const indexOfDropped = this.makeMove();
-        if (indexOfDropped >= 0) {
-            this.board.checkWinner(this,indexOfDropped);
+        if (this.board.page.currentPlayer.human && this.board.clickEnabled && !this.board.gameOver) {
+            e.stopPropagation();
+            this.board.clickEnabled = false;
+            const indexOfDropped = this.makeMove();
+            if (indexOfDropped >= 0) {
+                setTimeout(() => {
+                    this.board.checkWinner(this, indexOfDropped);
+                    this.board.clickEnabled = true;
+                }, 600);
+            }
         }
+        else {
+            return;
+        }        
     }
 
     get isEmpty() {
@@ -34,19 +43,26 @@ class Column extends Component {
 
     makeMove() {
         if (this.isEmpty) {
-            let currentColor = this.board.currentPlayer.color;
+            this.board.movesCount++;
+            let currentColor = this.board.page.currentPlayer.color;
             for (let i = this.slots.length - 1; i >= 0; i--) {
                 const element = this.slots[i];
                 if (element.color === 'empty') {
                     element.color = currentColor;
+                    element.isDropped = true;
+                    // drop sound
+                    this.board.audio.play();
+                    this.board.page.currentPlayer.score++;
+                    element.hole.render();
                     element.render();
+                    setTimeout(() => {    
+                        element.isDropped = false;
+                    }, 500);
                     return i;
                 }
             }
-        }
-        else {
-            window.alert('Välj annan kolumn!');
-            return -1;
+        } else {
+           this.board.clickEnabled = true;
         }
     }
 }

@@ -5,7 +5,7 @@ body {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   color: #fff;
-  &>div:first-child {
+  .all-content {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -20,6 +20,9 @@ body {
     font-size: 6rem;
     text-shadow: 3px 3px 15px rgba(0,0,0,0.75);
     color: #fff;
+    @include media-breakpoint-down(xs) {
+      font-size: 4rem;
+    }
   }
   h1 > span {
     font-size: 3.8rem;
@@ -29,4 +32,9 @@ body {
   h5.h1-caption {
     text-shadow: 2px 2px 5px rgba(0,0,0,0.75);
   }
+}
+
+::selection {
+  background-color: transparent;
+  color: $accent-color2;
 }
