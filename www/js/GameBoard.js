@@ -18,6 +18,7 @@ class GameBoard extends Component {
             this.column.createSlots();
             this.grid.push(this.column);
         }
+        console.log(this.toggleAudioBtn.detectiOS);
     }
 
     giveColumnToBot() {

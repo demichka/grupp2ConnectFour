@@ -9,6 +9,24 @@
     "time": 13015.20000002347
   },
   {
+    "name": "Fortran",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 5,
+    "winner": true,
+    "time": 10907.69999998156
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 6,
+    "winner": true,
+    "time": 13353.800000040792
+  },
+  {
     "name": "Zhenya",
     "human": true,
     "color": "yellow",
@@ -27,6 +45,24 @@
     "time": 33967.4000000814
   },
   {
+    "name": "Fortran",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 7,
+    "winner": true,
+    "time": 17008.80000006873
+  },
+  {
+    "name": "Johan",
+    "human": false,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 7,
+    "winner": true,
+    "time": 35474
+  },
+  {
     "name": "Pascal",
     "human": false,
     "color": "yellow",
@@ -34,5 +70,32 @@
     "score": 14,
     "winner": true,
     "time": 33919.10000005737
+  },
+  {
+    "name": "Fortran",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 18,
+    "winner": true,
+    "time": 42846.9000000041
+  },
+  {
+    "name": "Åsa",
+    "human": true,
+    "color": "yellow",
+    "myTurn": true,
+    "score": 18,
+    "winner": true,
+    "time": 68430
+  },
+  {
+    "name": "Pascal",
+    "human": false,
+    "color": "red",
+    "myTurn": true,
+    "score": 20,
+    "winner": true,
+    "time": 47805.599999963306
   }
 ]
