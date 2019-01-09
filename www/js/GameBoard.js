@@ -10,6 +10,8 @@ class GameBoard extends Component {
         this.audio = new Audio("/audio/drop.mp3");
         this.toggleAudioBtn = new ToggleAudioButton(this, this.audio);
         this.movesCount = 0;
+        this.color1 = 'red';
+        this.color2 = 'yellow';
     }
     createGrid() {
         this.grid = [];
@@ -18,6 +20,7 @@ class GameBoard extends Component {
             this.column.createSlots();
             this.grid.push(this.column);
         }
+        this.gameStartTime = 0;
     }
 
     giveColumnToBot() {
@@ -49,7 +52,11 @@ class GameBoard extends Component {
                 countYellow = 0;
             }
         }
-        return this.checkWhoWon(countRed, countYellow);
+        let result = {
+            color1: countRed,
+            color2: countYellow
+        }
+        return result;
     }
 
     checkConnectionsInRow(indexOfDropped) {
@@ -68,7 +75,11 @@ class GameBoard extends Component {
                 countYellow = 0;
             }
         }
-        return this.checkWhoWon(countRed, countYellow);
+        let result = {
+            color1: countRed,
+            color2: countYellow
+        }
+        return result;
     }
 
     checkConnectionsInDecreasingDiagonal(indexX, indexY) {
@@ -98,7 +109,11 @@ class GameBoard extends Component {
             i++;
             j--;
         }
-        return this.checkWhoWon(countRed, countYellow);
+        let result = {
+            color1: countRed,
+            color2: countYellow
+        }
+        return result;
     }
 
     checkConnectionsInIncreasingDiagonal(indexX, indexY) {
@@ -127,32 +142,91 @@ class GameBoard extends Component {
             i--;
             j--;
         }
-        return this.checkWhoWon(countRed, countYellow);
-    }
-
-    checkWhoWon(countRed, countYellow) {
-        if (countRed === 4) {
-            let redWon = this.players.filter(player => player.color === 'red');
-            this.youAreWinner(redWon[0]);
-            return true;
+        let result = {
+            color1: countRed,
+            color2: countYellow
         }
-        if (countYellow === 4) {
-            let yellowWon = this.players.filter(player => player.color === 'yellow');
-            this.youAreWinner(yellowWon[0]);
-            return true;
-        }
-        return false;
+        return result;
     }
 
     checkTieGame() {
-        if(this.movesCount === 42) {
+        if (this.movesCount === 42) {
             this.clickEnabled = false;
             this.gameOver = true;
             return true;
         }
+        else {
+            return false;
+        }
+    }
+
+    gotWinnerColor(direction) {
+        if (direction.color1 === 4) {
+            return this.color1;
+        } else if (direction.color2 === 4) {
+            return this.color2;
+        } else {
+            return false;
+        }
     }
 
     checkWinner(column, indexOfDropped) {
+        let color = this.gotWinnerColor(this.checkConnectionsInColumn(column));
+        if (color) {
+            return color;
+        }
+        color = this.gotWinnerColor(this.checkConnectionsInRow(indexOfDropped));
+        if (color) {
+            return color;
+        }
+        color = this.gotWinnerColor(this.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped));
+        if (color) {
+            return color;
+        }
+        color = this.gotWinnerColor(this.checkConnectionsInIncreasingDiagonal(column.columnNumber, indexOfDropped));
+        if (color) {
+            return color;
+        }
+        return false;
+    }
+
+    checkWhoWon(color) {
+        for (let i = 0; i < this.players.length; i++) {
+            if (this.players[i].color === color) {
+                return this.players[i];
+            }
+        }
+    }
+
+    stopGame() {
+        this.gameOver = true;
+        this.gameFinishTime = performance.now();
+    }
+
+    getGameDuration() {
+        return this.gameFinishTime - this.gameStartTime;
+    }
+
+    recordHighscore(winner, duration) {
+        winner.time = duration;
+        let recorded = false;
+        return JSON._load('highscore.json').then((winners) => {
+            winners.push(winner);
+            if (winners.length > 1) {
+                winners.sort((playerA, playerB) => {
+                    return playerA.score - playerB.score || playerA.time - playerB.time;
+                });
+            }
+            if (winners.indexOf(winner) <= 9) {
+                recorded = true;
+            }
+            winners = winners.slice(0, 10);
+            return JSON._save('highscore', winners).then(() => {
+                return recorded;
+            });
+        });
+    }
+    checkWinner1(column, indexOfDropped) {
         if (this.checkConnectionsInColumn(column) ||
             this.checkConnectionsInRow(indexOfDropped) ||
             this.checkConnectionsInDecreasingDiagonal(column.columnNumber, indexOfDropped) ||
@@ -164,29 +238,28 @@ class GameBoard extends Component {
             let getInHighscore = -1;
             let winner = this.page.currentPlayer;
             winner.time = gameTime - this.page.time;
-            console.log(winner);
             JSON._load('highscore.json').then(function (winners) {
+                winners.push(winner);
+                if (winners.length > 1) {
+                    winners.sort((playerA, playerB) => {
+                        return playerA.score - playerB.score || playerA.time - playerB.time;
+                    });
+                    
+                }
+                if (winners.indexOf(winner) <= 9) {
+                    getInHighscore = -2;
+                }
 
-                    winners.push(winner);
-                    if (winners.length > 1) {
-                        winners.sort((playerA, playerB) => {
-                            return playerA.score - playerB.score || playerA.time - playerB.time;
-                        });
-                    }
-                    if (winners.indexOf(winner) <= 9) {
-                        getInHighscore = -2;
-                    }
                 JSON._save('highscore', winners);
             });
             setTimeout(() => {
-                if(getInHighscore === -2) {
+                if (getInHighscore === -2) {
                     this.record = true;
                 }
             }, 100);
-            this.page.time = 0;
+            this.gameStartTime = 0;
             return;
-        }
-        else if(this.checkTieGame()) {
+        } else if (this.checkTieGame()) {
             setTimeout(() => {
                 this.page.modal.showTieModal(true);
             }, 150);
@@ -194,22 +267,37 @@ class GameBoard extends Component {
         this.changePlayer();
     }
 
-    youAreWinner(name) {
-        setTimeout(() => {
-        this.page.modal.showModal(name, this.record);            
-        }, 550);
-        //this.board.audio2.play();
-    }
-
     botMakeMove() {
-        if (this.active && !this.page.currentPlayer.human) {
+        if (this.active && (this.page.currentPlayer instanceof (PlayerBot))) {
             setTimeout(() => {
                 const column = this.giveColumnToBot();
                 const indexOfDropped = column.makeMove();
                 if (indexOfDropped >= 0) {
-                    setTimeout(() => {
-                        this.checkWinner(column, indexOfDropped);
-                    }, 600);
+                    const winnerColor = this.checkWinner(column, indexOfDropped);
+                    if (!winnerColor) {
+                        let isTied = this.checkTieGame();
+                        if (isTied) {
+                            setTimeout(() => {
+                                this.page.modal.showTieModal(true);
+                            }, 150);
+                        }
+                        else {
+                            setTimeout(() => {
+                                this.changePlayer();
+                            }, 500);
+                            return;
+                        }
+                    } else {
+                        setTimeout(() => {
+                            this.stopGame();
+                        const winnerPlayer = this.checkWhoWon(winnerColor);
+                        const duration = this.getGameDuration();
+                        this.recordHighscore(winnerPlayer, duration)
+                            .then(recorded => {
+                                this.page.modal.showModal(winnerPlayer, recorded);
+                            });
+                        }, 700);
+                    }
                 }
             }, 600);
         }

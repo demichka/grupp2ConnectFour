@@ -116,19 +116,15 @@ class PlayersOptions extends Component {
       let playerTwo;
       if (typeOne.value === 'human') {
         playerOne = new Player(nameOne.value, colors[0]);
-        playerOne.human = true;
       }
       if (typeOne.value === 'bot') {
         playerOne = new PlayerBot(nameOne.value, colors[0]);
-        playerOne.human = false;
       }
       if (typeTwo.value === 'human') {
         playerTwo = new Player(nameTwo.value, colors[1]);
-        playerTwo.human = true;
       }
       if (typeTwo.value === 'bot') {
         playerTwo = new PlayerBot(nameTwo.value, colors[1]);
-        playerTwo.human = false;
       }
 
       this.players.push(playerOne, playerTwo);

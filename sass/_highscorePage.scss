@@ -39,6 +39,9 @@
         td {
             &:first-child {
                 font-size: 1.5rem;
+                @include media-breakpoint-down(xs) {
+                    font-size: 1rem;
+                }
             }
         }
     }
@@ -47,6 +50,9 @@
     th,
     td {
         padding: 15px 0;
+        @include media-breakpoint-down(xs) {
+            font-size: .85rem;
+        }
     }
 }
 
