@@ -1,12 +1,9 @@
 class Player {
     constructor(name, color) {
         this.name = name;
-        this.human = true;
         this.color = color;
         this.myTurn = this.firstTurn();
-        this.score = 0;
-        this.winner = false;
-        
+        this.score = 0;        
     }
 
 
