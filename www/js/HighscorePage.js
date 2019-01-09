@@ -26,7 +26,6 @@ class HighscorePage extends Component {
 
             if (list.length > 0) {
 
-                list = list.slice(0, 10);
                 let tableWrap = $('<div/>');
                 let section = $('<section class="highscore-content container mt-5 mb-md-5 pt-4"></section>');
                 let row = $('<div class="row"></div>');

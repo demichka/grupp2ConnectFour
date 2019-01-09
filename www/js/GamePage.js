@@ -6,7 +6,6 @@ class GamePage extends Component {
     this.savedSession = new PlayersNames();
     this.gameBoard = new GameBoard(this);
     this.currentPlayer = '';
-    this.time = 0;
     this.modal = new Modal(this);
     this.restartBtn = new RestartBtn(this);
 
@@ -34,7 +33,6 @@ class GamePage extends Component {
 
   startGame() {
     if (this.playersOptions.getPlayers()) {
-      this.time = 0;
       this.gameBoard.createGrid();
       this.savedSession.players = this.playersOptions.players;
       this.gameBoard.players = this.savedSession.players;
@@ -43,7 +41,7 @@ class GamePage extends Component {
       this.volume = this.gameBoard.toggleAudioBtn.on;
       this.gameBoard.movesCount = 0;
       this.gameBoard.botMakeMove();
-      this.time = performance.now();
+      this.gameBoard.gameStartTime = performance.now();
       this.render();
     }
   }
@@ -74,6 +72,7 @@ class GamePage extends Component {
     this.gameBoard = new GameBoard(this);
     this.modal = new Modal(this);
     this.gameBoard.createGrid();
+    this.gameBoard.gameStartTime = performance.now();
     this.gameBoard.players = this.savedSession.players;
     for (let i = 0; i < this.gameBoard.players.length; i++) {
       let player = this.gameBoard.players[i];

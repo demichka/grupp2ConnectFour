@@ -4,4 +4,6 @@
 
 Begin with ```npm install```
 
+Test our game here : https://connectfourgrupp2.herokuapp.com
+
 

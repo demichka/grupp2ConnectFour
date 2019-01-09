@@ -21,22 +21,38 @@ class Column extends Component {
     }
 
     clickColumn(e) {
-        if (this.board.page.currentPlayer.human && this.board.clickEnabled && !this.board.gameOver) {
+        if ((this.board.page.currentPlayer instanceof Player) && this.board.clickEnabled && !this.board.gameOver) {
             e.stopPropagation();
             this.board.clickEnabled = false;
             const indexOfDropped = this.makeMove();
             if (indexOfDropped >= 0) {
-                setTimeout(() => {
-                    this.board.checkWinner(this, indexOfDropped);
-                    this.board.clickEnabled = true;
-                }, 600);
+                const winnerColor = this.board.checkWinner(this, indexOfDropped);
+                if (!winnerColor) {
+                    let isTied = this.board.checkTieGame();
+                    if (isTied) {
+                        setTimeout(() => {
+                            this.board.page.modal.showTieModal(true);
+                        }, 150);
+                    } else {
+                        this.board.changePlayer();
+                        this.board.clickEnabled = true;
+                        return;
+                    }
+                }
+                else {
+                    this.board.stopGame();
+                const winnerPlayer = this.board.checkWhoWon(winnerColor);
+                const duration = this.board.getGameDuration();
+                this.board.recordHighscore(winnerPlayer, duration)
+                    .then(recorded => {
+                        this.board.page.modal.showModal(winnerPlayer, recorded);
+                    });
+                }
+            } else {
+                return;
             }
         }
-        else {
-            return;
-        }        
     }
-
     get isEmpty() {
         return this.slots[0].color === 'empty';
     }
@@ -55,14 +71,14 @@ class Column extends Component {
                     this.board.page.currentPlayer.score++;
                     element.hole.render();
                     element.render();
-                    setTimeout(() => {    
+                    setTimeout(() => {
                         element.isDropped = false;
                     }, 500);
                     return i;
                 }
             }
         } else {
-           this.board.clickEnabled = true;
+            this.board.clickEnabled = true;
         }
     }
 }
